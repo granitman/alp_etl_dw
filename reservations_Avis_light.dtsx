@@ -11,8 +11,8 @@
   DTS:LocaleID="1039"
   DTS:ObjectName="reservations_Avis_light"
   DTS:PackageType="5"
-  DTS:VersionBuild="200"
-  DTS:VersionGUID="{67E8B5B7-CF31-4489-8447-BA1A4BF71F2F}">
+  DTS:VersionBuild="201"
+  DTS:VersionGUID="{D8365F82-288D-477C-9CEF-3442F5230E4D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking Type"
-              DTS:DTSID="{9D3D471B-CA4B-4548-8CEE-BC9A6F1D92D5}"
+              DTS:DTSID="{2B86C5CD-71A6-46F7-BB8A-37D117DB383C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +47,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Batch number"
-              DTS:DTSID="{E2D39731-C0E8-48DE-A9D2-253E241C6A41}"
+              DTS:DTSID="{3E98FDB5-EC0E-47FF-9C7D-E8A429561D58}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c2"
-              DTS:DTSID="{9BCF8D75-E696-4E66-B70F-65D385C215AA}"
+              DTS:DTSID="{ED797F7E-C46D-4BBA-8228-4130C55E0F6C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -65,7 +65,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c3"
-              DTS:DTSID="{0B313A61-F9AC-444B-A301-D1A498BEEF19}"
+              DTS:DTSID="{4EC29D9B-801D-444F-9EB2-CA25D3281514}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,7 +73,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="CheckOut Date"
-              DTS:DTSID="{28DE0E72-F567-4D01-8C43-51241D62470A}"
+              DTS:DTSID="{3F48BA5D-5A6E-4425-AE94-14CB057FDDF2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +81,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkin date"
-              DTS:DTSID="{C7FE4202-800F-46BB-BB43-5F29D90C17D6}"
+              DTS:DTSID="{E806997A-F13A-4F4D-A6DE-EF510009449D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -89,7 +89,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Rental Length (x100)"
-              DTS:DTSID="{117C045E-BF85-4C31-9462-213EBBE01A0A}"
+              DTS:DTSID="{82F1F754-2EB4-4E65-AA41-F82D6E8F8075}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -97,7 +97,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking Date"
-              DTS:DTSID="{A2118885-FB01-426E-99FE-97E9A4617356}"
+              DTS:DTSID="{65313CF2-3B18-45C7-A232-8508C3427BDF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -105,7 +105,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="c8"
-              DTS:DTSID="{70E22CA0-A960-4559-8CEC-ED3E31935F33}"
+              DTS:DTSID="{184280CB-9100-4DF2-98CA-366CBDCCEFC2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -113,7 +113,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="c9"
-              DTS:DTSID="{CCA15CBF-0465-4A6F-8FA1-E0050A3B4935}"
+              DTS:DTSID="{C02D8A1D-D687-44F7-9DFF-D457F068CC58}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -122,7 +122,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Rate Code"
-              DTS:DTSID="{50241C21-F24D-43E5-9ACE-BE534A9CE060}"
+              DTS:DTSID="{6F62C5D7-5731-4ED1-A652-9C82CE7DEE1F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -131,7 +131,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Car Group"
-              DTS:DTSID="{7E74198D-E3D1-43B4-949A-5E9132E7B5E7}"
+              DTS:DTSID="{58E23B42-0A53-47E9-A030-95B74AEBA4C4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -140,7 +140,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Car Group on request"
-              DTS:DTSID="{18D0ECC9-E0C4-47BA-BAC5-2FEAB9CBA9C6}"
+              DTS:DTSID="{5F03BF5B-6332-4884-B47D-2317BE885F85}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -149,7 +149,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="AWD BCD Number"
-              DTS:DTSID="{71BD8934-8E17-47E0-B16A-6F367FDB210E}"
+              DTS:DTSID="{46D4C81A-67E2-44F2-A656-7C33E9A1A374}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -158,7 +158,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Flight"
-              DTS:DTSID="{626B8E31-0D04-4676-9994-FC7B9F23A91F}"
+              DTS:DTSID="{395B5D5F-7467-4ECF-99E7-42E965F21F33}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -167,7 +167,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Souce"
-              DTS:DTSID="{5FD59D9C-8F03-48F6-89A5-1A46F3AF3C5F}"
+              DTS:DTSID="{66023277-6235-4A2B-8B3A-8A6132DA8FFD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -176,7 +176,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Reservation Number"
-              DTS:DTSID="{23A38325-0C97-4415-BA5D-8B16546F8AE1}"
+              DTS:DTSID="{29987AF7-E479-44AB-A3D9-A1BB8992D941}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -185,7 +185,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Reservation status"
-              DTS:DTSID="{65897601-C172-405B-A909-4B2C2EAFEA39}"
+              DTS:DTSID="{A4BC9DF4-29B1-4731-8C6B-E4CB0AF7D4A9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -193,7 +193,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking  change date"
-              DTS:DTSID="{9CFB2B52-314E-4F11-B3EF-88131D9E892C}"
+              DTS:DTSID="{952C15E5-D1DE-4DB3-B50A-144159311DAE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -201,7 +201,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="booking change time"
-              DTS:DTSID="{39908A57-685A-4C0C-A752-1D75738887D4}"
+              DTS:DTSID="{4F0BC91B-F4D4-4795-8705-D8B5BE5D4159}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +209,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Some datec20"
-              DTS:DTSID="{7E9C0084-A646-475F-BD6F-D6AD4AE04C61}"
+              DTS:DTSID="{B6FBC493-6839-425D-AEE5-D7527D8A0A88}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -217,7 +217,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="some timec21"
-              DTS:DTSID="{64FAE7A4-0F77-4283-B536-62D4DFD09DDF}"
+              DTS:DTSID="{AE7ED74B-C76B-462E-BB2C-13FE1052A502}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -226,7 +226,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c22"
-              DTS:DTSID="{E9A55E0E-6058-42C5-9320-B618AB520761}"
+              DTS:DTSID="{061A42D7-2855-4BA0-87A9-177E563BE352}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -235,7 +235,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c23"
-              DTS:DTSID="{57334951-880F-4457-9B16-29F5A982488D}"
+              DTS:DTSID="{0F93E5DA-0AA8-41CE-850A-E205CB80C003}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -244,7 +244,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c24"
-              DTS:DTSID="{555BA984-C3F0-4C20-ADFE-509EC130F231}"
+              DTS:DTSID="{8B74948E-199D-4E03-8980-F83B24AEB996}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -253,7 +253,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkout Station"
-              DTS:DTSID="{3893E86A-0456-4A03-B3AC-CE81AAC122CA}"
+              DTS:DTSID="{3BB102CC-2CD4-4EBB-86F9-A7184F3DBD2C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -262,7 +262,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkin Station"
-              DTS:DTSID="{2E844CE0-157E-4404-BC60-1CFC91148F37}"
+              DTS:DTSID="{0BEE40BC-DA1C-4A69-8B83-870B0974E060}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -271,7 +271,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking confirmed by"
-              DTS:DTSID="{E6617BCC-25EB-40DF-9F81-F8B73A6C90C9}"
+              DTS:DTSID="{6E78254F-5DD8-4842-B656-32DE6B0C1B2D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -280,7 +280,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c28"
-              DTS:DTSID="{21022439-6958-4610-ABBF-F701403330A4}"
+              DTS:DTSID="{9FFF9D56-7B24-45E3-9A49-12932CCEF4CD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -289,7 +289,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Wizard Number"
-              DTS:DTSID="{88AFF89A-A70E-492E-BE60-4012E7F24415}"
+              DTS:DTSID="{B2DBCFFD-BDB1-47EF-8A20-0F2BDFB14E8E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -298,7 +298,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c30"
-              DTS:DTSID="{796F58F0-E5ED-4F25-AD85-C42703A9D566}"
+              DTS:DTSID="{EFABDA37-51F2-410D-B33A-0FE5DD99C9BF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -306,7 +306,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkout Time"
-              DTS:DTSID="{9E178748-7889-4474-BE39-1ABD4F724154}"
+              DTS:DTSID="{70BB517B-2D25-4001-B649-0821C55DA512}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -314,7 +314,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkin Time"
-              DTS:DTSID="{98D392D6-B5E6-4EB6-AED8-79E51ECE910E}"
+              DTS:DTSID="{741455E9-D5A7-493B-9CD4-E918A4CE9DFB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -322,7 +322,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Value"
-              DTS:DTSID="{4B3F8252-019F-4A5C-BEAA-5E9BD07C7C2C}"
+              DTS:DTSID="{2CF8E0F7-ECDB-4B6F-A5F5-8513AA690B04}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -331,7 +331,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c35"
-              DTS:DTSID="{8A3D3548-6056-4954-A588-02E78DA6EFBD}"
+              DTS:DTSID="{7281A021-315F-49EC-AB87-61787A72F6A4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -340,7 +340,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Currency"
-              DTS:DTSID="{7C1ADC60-98FE-4D0D-A260-B6CA98E80ED0}"
+              DTS:DTSID="{645F81B7-A4BB-4AF6-AD45-C3A2DD9FEC0C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -349,7 +349,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Driver name"
-              DTS:DTSID="{1E2D83DD-90B4-44FA-9A7F-7FB36A4107F3}"
+              DTS:DTSID="{12EFAA3F-204A-4D8E-ABE7-69754CEC6485}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -358,7 +358,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Remarks Field"
-              DTS:DTSID="{06F0E725-2509-4C16-8AE6-36CB6D5AAF0D}"
+              DTS:DTSID="{1633B71D-1E64-4C80-B29D-A2A5A1176A70}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -367,7 +367,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CCI number"
-              DTS:DTSID="{A0DE8D34-B64F-4B58-B7CE-85AF184B9A95}"
+              DTS:DTSID="{D78D8F18-7C78-49AD-970A-296F50EC21F9}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2091,12 +2091,6 @@
                               externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
                               lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Souce]" />
                             <inputColumn
-                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Booking time]"
-                              cachedDataType="i4"
-                              cachedName="Booking time"
-                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking_time]"
-                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\214:invalid" />
-                            <inputColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c23]"
                               cachedCodepage="1252"
                               cachedDataType="str"
@@ -2365,67 +2359,67 @@
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[some_datec20]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="some_datec20" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[some_timec21]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="some_timec21" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c22]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c22" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c23]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c23" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c24]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c24" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c28]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c28" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c30]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c30" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c35]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c35" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c2]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c2" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c3]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c3" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c9]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="50"
                               name="c9" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking change time]"

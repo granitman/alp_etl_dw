@@ -11,8 +11,8 @@
   DTS:LocaleID="1039"
   DTS:ObjectName="reservations_bud_light"
   DTS:PackageType="5"
-  DTS:VersionBuild="202"
-  DTS:VersionGUID="{5BFEA196-9E8C-4389-BE22-02185E033BE2}">
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{E3179E19-AAF8-4970-B195-C36BAE30EC31}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
