@@ -11,8 +11,8 @@
   DTS:LocaleID="1039"
   DTS:ObjectName="reservations_Avis_light"
   DTS:PackageType="5"
-  DTS:VersionBuild="201"
-  DTS:VersionGUID="{D8365F82-288D-477C-9CEF-3442F5230E4D}">
+  DTS:VersionBuild="205"
+  DTS:VersionGUID="{37BD6042-8395-4347-8A06-94D71F90E5DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking Type"
-              DTS:DTSID="{2B86C5CD-71A6-46F7-BB8A-37D117DB383C}"
+              DTS:DTSID="{3B15AD98-786C-4197-A58F-ABD441054C09}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +47,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Batch number"
-              DTS:DTSID="{3E98FDB5-EC0E-47FF-9C7D-E8A429561D58}"
+              DTS:DTSID="{7BB7EB76-DC81-4400-BA2F-78775B7A8C87}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c2"
-              DTS:DTSID="{ED797F7E-C46D-4BBA-8228-4130C55E0F6C}"
+              DTS:DTSID="{B7FE9A79-8975-4FEC-8C27-D01FD28ABA4B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -65,7 +65,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c3"
-              DTS:DTSID="{4EC29D9B-801D-444F-9EB2-CA25D3281514}"
+              DTS:DTSID="{55B8BBBB-2C59-443E-8FC2-77DA64A0D064}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,7 +73,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="CheckOut Date"
-              DTS:DTSID="{3F48BA5D-5A6E-4425-AE94-14CB057FDDF2}"
+              DTS:DTSID="{EDDBC4A7-895A-4936-8B31-AEFC44BA91B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +81,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkin date"
-              DTS:DTSID="{E806997A-F13A-4F4D-A6DE-EF510009449D}"
+              DTS:DTSID="{66F898C2-05F2-4C66-A146-7F4796FB7606}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -89,7 +89,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Rental Length (x100)"
-              DTS:DTSID="{82F1F754-2EB4-4E65-AA41-F82D6E8F8075}"
+              DTS:DTSID="{8ABD50AC-553B-43AF-B163-F7CDD04AAEFD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -97,7 +97,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking Date"
-              DTS:DTSID="{65313CF2-3B18-45C7-A232-8508C3427BDF}"
+              DTS:DTSID="{EF59A368-F009-4596-B584-1A534DF5D57D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -105,15 +105,16 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="c8"
-              DTS:DTSID="{184280CB-9100-4DF2-98CA-366CBDCCEFC2}"
+              DTS:DTSID="{7927DA68-BD10-4920-9A37-3FF8F98881BD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:DataType="3"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c9"
-              DTS:DTSID="{C02D8A1D-D687-44F7-9DFF-D457F068CC58}"
+              DTS:DTSID="{F499F0E4-BBB9-4927-B15C-F6A20BE2CE1D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -122,7 +123,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Rate Code"
-              DTS:DTSID="{6F62C5D7-5731-4ED1-A652-9C82CE7DEE1F}"
+              DTS:DTSID="{44597D60-B5BB-497C-A3BC-D8542116C9B5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -131,7 +132,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Car Group"
-              DTS:DTSID="{58E23B42-0A53-47E9-A030-95B74AEBA4C4}"
+              DTS:DTSID="{B5AA11E5-FFC3-4A20-B41E-C43A59C35F9F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -140,7 +141,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Car Group on request"
-              DTS:DTSID="{5F03BF5B-6332-4884-B47D-2317BE885F85}"
+              DTS:DTSID="{3084E3A6-253D-4307-B063-9B6F0D2BADEC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -149,7 +150,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="AWD BCD Number"
-              DTS:DTSID="{46D4C81A-67E2-44F2-A656-7C33E9A1A374}"
+              DTS:DTSID="{AED43886-0A29-49FC-B751-72D9AF9325DD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -158,7 +159,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Flight"
-              DTS:DTSID="{395B5D5F-7467-4ECF-99E7-42E965F21F33}"
+              DTS:DTSID="{214E84A0-8D29-487A-9583-0AD2A90CD961}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -167,7 +168,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Souce"
-              DTS:DTSID="{66023277-6235-4A2B-8B3A-8A6132DA8FFD}"
+              DTS:DTSID="{253353FC-B909-41FB-8A29-A3528D04A351}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -176,7 +177,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Reservation Number"
-              DTS:DTSID="{29987AF7-E479-44AB-A3D9-A1BB8992D941}"
+              DTS:DTSID="{924DFF6A-8DF4-4756-BD95-3E0CD37831FF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -185,7 +186,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Reservation status"
-              DTS:DTSID="{A4BC9DF4-29B1-4731-8C6B-E4CB0AF7D4A9}"
+              DTS:DTSID="{BD1A302F-8E81-4B57-887D-6665590802F1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -193,7 +194,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking  change date"
-              DTS:DTSID="{952C15E5-D1DE-4DB3-B50A-144159311DAE}"
+              DTS:DTSID="{37572BBD-EA7D-41E2-938F-4AF44FDEEC03}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -201,7 +202,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="booking change time"
-              DTS:DTSID="{4F0BC91B-F4D4-4795-8705-D8B5BE5D4159}"
+              DTS:DTSID="{7C929C62-3683-436A-9B53-F845E2E239F9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +210,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Some datec20"
-              DTS:DTSID="{B6FBC493-6839-425D-AEE5-D7527D8A0A88}"
+              DTS:DTSID="{8D5523A6-290A-4CBA-B112-95C8ADD19DA7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -217,7 +218,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="some timec21"
-              DTS:DTSID="{AE7ED74B-C76B-462E-BB2C-13FE1052A502}"
+              DTS:DTSID="{53D034C1-59C2-453E-A515-EF721CE2D8FD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -226,7 +227,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c22"
-              DTS:DTSID="{061A42D7-2855-4BA0-87A9-177E563BE352}"
+              DTS:DTSID="{A02B644C-465C-46FD-95F7-7A882349C965}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -235,7 +236,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c23"
-              DTS:DTSID="{0F93E5DA-0AA8-41CE-850A-E205CB80C003}"
+              DTS:DTSID="{F72BC586-E8B8-4E82-868C-124B9023D1DC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -244,7 +245,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c24"
-              DTS:DTSID="{8B74948E-199D-4E03-8980-F83B24AEB996}"
+              DTS:DTSID="{C475434D-6B85-4290-9B7B-F535B115A7A8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -253,7 +254,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkout Station"
-              DTS:DTSID="{3BB102CC-2CD4-4EBB-86F9-A7184F3DBD2C}"
+              DTS:DTSID="{B517FA87-7573-4F36-B7EA-6A4EA25C8413}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -262,7 +263,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkin Station"
-              DTS:DTSID="{0BEE40BC-DA1C-4A69-8B83-870B0974E060}"
+              DTS:DTSID="{FD6DB1E9-DFCF-4FDA-9495-963A6C1442FB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -271,7 +272,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Booking confirmed by"
-              DTS:DTSID="{6E78254F-5DD8-4842-B656-32DE6B0C1B2D}"
+              DTS:DTSID="{880AF9F5-0644-460A-B2B6-DAB0E1F57724}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -280,7 +281,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c28"
-              DTS:DTSID="{9FFF9D56-7B24-45E3-9A49-12932CCEF4CD}"
+              DTS:DTSID="{F97E03E9-1EF2-4F47-8178-7423149E7726}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -289,7 +290,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Wizard Number"
-              DTS:DTSID="{B2DBCFFD-BDB1-47EF-8A20-0F2BDFB14E8E}"
+              DTS:DTSID="{EA3792FC-5C72-49A7-BC56-7CF41279E0DA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -298,7 +299,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c30"
-              DTS:DTSID="{EFABDA37-51F2-410D-B33A-0FE5DD99C9BF}"
+              DTS:DTSID="{933AC03F-EA11-4AE6-8153-BC2DA64FF1A9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -306,7 +307,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkout Time"
-              DTS:DTSID="{70BB517B-2D25-4001-B649-0821C55DA512}"
+              DTS:DTSID="{FB74FFCF-BB27-4D83-A5C2-4D1165B260B9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -314,7 +315,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="Checkin Time"
-              DTS:DTSID="{741455E9-D5A7-493B-9CD4-E918A4CE9DFB}"
+              DTS:DTSID="{10B012AB-224A-4647-8D50-0437F803469E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -322,7 +323,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Value"
-              DTS:DTSID="{2CF8E0F7-ECDB-4B6F-A5F5-8513AA690B04}"
+              DTS:DTSID="{B9EDBF4A-4BDC-4D08-93B9-E85820D95122}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -331,7 +332,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="c35"
-              DTS:DTSID="{7281A021-315F-49EC-AB87-61787A72F6A4}"
+              DTS:DTSID="{0961A1A6-61E9-4709-BE86-C8F9D1938692}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -340,7 +341,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Currency"
-              DTS:DTSID="{645F81B7-A4BB-4AF6-AD45-C3A2DD9FEC0C}"
+              DTS:DTSID="{FDF79960-3CC8-43A0-ABA9-AF41CED7ED57}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -349,7 +350,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Driver name"
-              DTS:DTSID="{12EFAA3F-204A-4D8E-ABE7-69754CEC6485}"
+              DTS:DTSID="{C03DA1B6-0D10-46D7-899C-5A97368D91BB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -358,7 +359,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Remarks Field"
-              DTS:DTSID="{1633B71D-1E64-4C80-B29D-A2A5A1176A70}"
+              DTS:DTSID="{559CC2C2-932E-416C-B010-C07DA54C6844}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -367,7 +368,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CCI number"
-              DTS:DTSID="{D78D8F18-7C78-49AD-970A-296F50EC21F9}"
+              DTS:DTSID="{67DABA1D-56DC-48CC-8062-B65806081163}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1559,10 +1560,12 @@
                             </outputColumn>
                             <outputColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c9]"
-                              dataType="i4"
+                              codePage="1252"
+                              dataType="str"
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c9]"
+                              length="20"
                               lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c9]"
                               name="c9"
                               truncationRowDisposition="FailComponent">
@@ -1800,7 +1803,9 @@
                               name="some timec21" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c9]"
-                              dataType="i4"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
                               name="c9" />
                             <externalMetadataColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c8]"
@@ -2182,7 +2187,9 @@
                               lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking confirmed by]" />
                             <inputColumn
                               refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c9]"
-                              cachedDataType="i4"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="20"
                               cachedName="c9"
                               externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c9]"
                               lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c9]" />
@@ -2786,7 +2793,7 @@
         <NodeLayout
           Size="184,44"
           Id="Package\Avis\Avis to staging hist"
-          TopLeft="216.622641509434,683.358490566038" />
+          TopLeft="183.622641509434,683.358490566038" />
         <NodeLayout
           Size="165,44"
           Id="Package\Avis\avis_res\check if file exists"
@@ -2895,8 +2902,8 @@
         <ContainerLayout
           HeaderHeight="43.924528301886795"
           IsExpanded="True"
-          PanelSize="547,515"
-          Size="547,559"
+          PanelSize="537,402"
+          Size="537,446"
           Id="Package\Avis\avis_res"
           TopLeft="35.3584905660377,109.830188679245" />
         <NodeLayout
@@ -2935,26 +2942,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-65.034591194969,62.330188679245"
+              EndConnector="-71.7012578616357,62.330188679245"
               Start="0,0"
-              End="-65.034591194969,54.830188679245">
+              End="-71.7012578616357,54.830188679245">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.2890410581994" />
+                    End="0,33.2870159533099" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.2890410581994"
-                    Point2="0,37.2890410581994"
-                    Point3="-4,37.2890410581994" />
+                    Point1="0,33.2870159533099"
+                    Point2="0,37.2870159533099"
+                    Point3="-4,37.2870159533099" />
                   <mssgle:LineSegment
-                    End="-61.034591194969,37.2890410581994" />
+                    End="-67.7012578616357,37.2870159533099" />
                   <mssgle:CubicBezierSegment
-                    Point1="-61.034591194969,37.2890410581994"
-                    Point2="-65.034591194969,37.2890410581994"
-                    Point3="-65.034591194969,41.2890410581994" />
+                    Point1="-67.7012578616357,37.2870159533099"
+                    Point2="-71.7012578616357,37.2870159533099"
+                    Point3="-71.7012578616357,41.2870159533099" />
                   <mssgle:LineSegment
-                    End="-65.034591194969,54.830188679245" />
+                    End="-71.7012578616357,54.830188679245" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2965,24 +2972,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Avis.PrecedenceConstraints[Constraint 4]"
-          TopLeft="308.858490566038,668.830188679245">
+          TopLeft="303.858490566038,555.830188679245">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="91.7641509433963,36.528301886793"
+              EndConnector="-28.2358490566037,127.528301886793"
               Start="0,0"
-              End="84.2641509433963,36.528301886793">
+              End="-28.2358490566037,120.028301886793">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.528301886793" />
+                    End="0,59.7641509433965" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.528301886793"
-                    Point2="0,36.528301886793"
-                    Point3="4,36.528301886793" />
+                    Point1="0,59.7641509433965"
+                    Point2="0,63.7641509433965"
+                    Point3="-4,63.7641509433965" />
                   <mssgle:LineSegment
-                    End="84.2641509433963,36.528301886793" />
+                    End="-24.2358490566037,63.7641509433965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.2358490566037,63.7641509433965"
+                    Point2="-28.2358490566037,63.7641509433965"
+                    Point3="-28.2358490566037,67.7641509433965" />
+                  <mssgle:LineSegment
+                    End="-28.2358490566037,120.028301886793" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2997,26 +3010,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="34.9968553459123,57.0943396226412"
+              EndConnector="31.663522012579,57.0943396226412"
               Start="0,0"
-              End="34.9968553459123,49.5943396226412">
+              End="31.663522012579,49.5943396226412">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.1566938828852" />
+                    End="0,30.1548388904846" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.1566938828852"
-                    Point2="0,34.1566938828852"
-                    Point3="4,34.1566938828852" />
+                    Point1="0,30.1548388904846"
+                    Point2="0,34.1548388904846"
+                    Point3="4,34.1548388904846" />
                   <mssgle:LineSegment
-                    End="30.9968553459123,34.1566938828852" />
+                    End="27.663522012579,34.1548388904846" />
                   <mssgle:CubicBezierSegment
-                    Point1="30.9968553459123,34.1566938828852"
-                    Point2="34.9968553459123,34.1566938828852"
-                    Point3="34.9968553459123,38.1566938828852" />
+                    Point1="27.663522012579,34.1548388904846"
+                    Point2="31.663522012579,34.1548388904846"
+                    Point3="31.663522012579,38.1548388904846" />
                   <mssgle:LineSegment
-                    End="34.9968553459123,49.5943396226412" />
+                    End="31.663522012579,49.5943396226412" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3031,7 +3044,7 @@
           PanelSize="602,863"
           Size="602,907"
           Id="Package\Avis"
-          TopLeft="5.5,5.5" />
+          TopLeft="16.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3041,31 +3054,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="136,44"
-          Id="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column"
-          TopLeft="16.5,109.5" />
-        <NodeLayout
           Size="116,42"
           Id="Package\Avis\avis_res\Imp avis_rsfdata_is\booking"
           TopLeft="28,216" />
         <NodeLayout
+          Size="136,44"
+          Id="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column"
+          TopLeft="16.5,109.5" />
+        <NodeLayout
           Size="152,44"
           Id="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is"
-          TopLeft="8.50000000000001,5.5" />
+          TopLeft="8.50000000000001,3.5" />
         <EdgeLayout
           Id="Package\Avis\avis_res\Imp avis_rsfdata_is.Paths[Flat File Source Output]"
-          TopLeft="84.5,49.5">
+          TopLeft="84.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,60"
+              EndConnector="0,62"
               Start="0,0"
-              End="0,52.5">
+              End="0,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
