@@ -1,0 +1,243 @@
+﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <ProductVersion>14.0.1016.256</ProductVersion>
+  <SchemaVersion>9.0.2.10</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <Database>
+    <Name>MDXCubeTest.database</Name>
+    <FullPath>MDXCubeTest.database</FullPath>
+  </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Wise Cube GL.cube</Name>
+      <FullPath>Wise Cube GL.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Wise Cube GL.partitions</Name>
+          <FullPath>Wise Cube GL.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Wise Cube Receivables.cube</Name>
+      <FullPath>Wise Cube Receivables.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Wise Cube Receivables.partitions</Name>
+          <FullPath>Wise Cube Receivables.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Wise Cube Sales.cube</Name>
+      <FullPath>Wise Cube Sales.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Wise Cube Sales.partitions</Name>
+          <FullPath>Wise Cube Sales.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Acc Schedule.dim</Name>
+      <FullPath>Acc Schedule.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Account Per Company.dim</Name>
+      <FullPath>Account Per Company.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Account.dim</Name>
+      <FullPath>Account.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Bank Account.dim</Name>
+      <FullPath>Bank Account.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Budget.dim</Name>
+      <FullPath>Budget.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Closing Entry.dim</Name>
+      <FullPath>Closing Entry.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Company.dim</Name>
+      <FullPath>Company.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Currency.dim</Name>
+      <FullPath>Currency.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Customer.dim</Name>
+      <FullPath>Customer.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Date.dim</Name>
+      <FullPath>Date.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Document Cust.dim</Name>
+      <FullPath>Document Cust.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Document GL.dim</Name>
+      <FullPath>Document GL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Document Sales.dim</Name>
+      <FullPath>Document Sales.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Due Date Cust.dim</Name>
+      <FullPath>Due Date Cust.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Ext Document.dim</Name>
+      <FullPath>Ext Document.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>FA Ledger Entry Filters.dim</Name>
+      <FullPath>FA Ledger Entry Filters.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fixed Asset Posting Group.dim</Name>
+      <FullPath>Fixed Asset Posting Group.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fixed Asset Posting Type.dim</Name>
+      <FullPath>Fixed Asset Posting Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fixed Asset.dim</Name>
+      <FullPath>Fixed Asset.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 1.dim</Name>
+      <FullPath>GD 1.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 2.dim</Name>
+      <FullPath>GD 2.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 3.dim</Name>
+      <FullPath>GD 3.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 4.dim</Name>
+      <FullPath>GD 4.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 5.dim</Name>
+      <FullPath>GD 5.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 6.dim</Name>
+      <FullPath>GD 6.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 7.dim</Name>
+      <FullPath>GD 7.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GD 8.dim</Name>
+      <FullPath>GD 8.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>IC Partner.dim</Name>
+      <FullPath>IC Partner.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Item Variant.dim</Name>
+      <FullPath>Item Variant.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Item.dim</Name>
+      <FullPath>Item.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>On Hold.dim</Name>
+      <FullPath>On Hold.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Prepayment.dim</Name>
+      <FullPath>Prepayment.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Purchaser.dim</Name>
+      <FullPath>Purchaser.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Reporting Currency.dim</Name>
+      <FullPath>Reporting Currency.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Resource.dim</Name>
+      <FullPath>Resource.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Sales Info.dim</Name>
+      <FullPath>Sales Info.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Salesperson.dim</Name>
+      <FullPath>Salesperson.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Source.dim</Name>
+      <FullPath>Source.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VAT Groups.dim</Name>
+      <FullPath>VAT Groups.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vendor.dim</Name>
+      <FullPath>Vendor.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>DWH.ds</Name>
+      <FullPath>DWH.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>DSV.dsv</Name>
+      <FullPath>DSV.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>DSV WiseAnalyzerGroup.role</Name>
+      <FullPath>DSV WiseAnalyzerGroup.role</FullPath>
+    </ProjectItem>
+  </Roles>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>DWH</Id>
+            <Name>DWH</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI10;Data Source=alp-sql-01;Integrated Security=SSPI;Initial Catalog=Wise_Cubes_DWH;Connect Timeout=1500;</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>DWH</Id>
+            <Name>DWH</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <DeploymentServerEdition>Standard</DeploymentServerEdition>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

@@ -1,0 +1,396 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>78b70431-dc10-4499-81a2-c2631024b9f5</ID>
+  <Name>Date</Name>
+  <CreatedTimestamp>2016-03-04T15:00:11.176667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:11.176667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>78b70431-dc10-4499-81a2-c2631024b9f5</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:31:59.56Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <Type>Time</Type>
+  <UnknownMember>Hidden</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>96ea5c01-aff5-43dc-8a34-1b321bc63a7c</ID>
+      <Name>Date</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>DateValueKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>DateDDMMYYYYDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>e61fd379-0008-4c3d-bae1-b6815b100818</AttributeID>
+          <Name>Quarter</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>f2399f89-d2e1-4198-b81f-14d6c76c2d00</AttributeID>
+          <Name>Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>e86be2fe-e514-4fa8-875c-65bb71ff9456</AttributeID>
+          <Name>Year Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>74e862a2-90bb-4d8c-be42-befe5495d760</AttributeID>
+          <Name>Week</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>DateDDMMYYYYDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>63eee970-3804-46bf-95e3-694b215fc25e</ID>
+      <Name>Year</Name>
+      <Type>Years</Type>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>Year</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>e61fd379-0008-4c3d-bae1-b6815b100818</ID>
+      <Name>Quarter</Name>
+      <Type>Quarters</Type>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>Quarter</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>QuarterDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>QuarterDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>f2399f89-d2e1-4198-b81f-14d6c76c2d00</ID>
+      <Name>Month</Name>
+      <Type>Months</Type>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>Month</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>MonthDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>MonthDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>2c0270d2-90d9-4e36-9689-6fc1880cf71b</ID>
+      <Name>YearQuarterKey</Name>
+      <Type>QuarterOfYear</Type>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>YearQuarterKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearQuarterDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>63eee970-3804-46bf-95e3-694b215fc25e</AttributeID>
+          <Name>Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearQuarterDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>e86be2fe-e514-4fa8-875c-65bb71ff9456</ID>
+      <Name>Year Month</Name>
+      <Type>MonthOfYear</Type>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>YearMonthKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearMonthDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>2c0270d2-90d9-4e36-9689-6fc1880cf71b</AttributeID>
+          <Name>YearQuarterKey</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>5b8e9a14-57f8-49e0-bfb7-a04e5e91d0a1</AttributeID>
+          <Name>YearWeekKey</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearMonthDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>5b8e9a14-57f8-49e0-bfb7-a04e5e91d0a1</ID>
+      <Name>YearWeekKey</Name>
+      <Type>WeekOfYear</Type>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>YearWeekKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearWeekDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>63eee970-3804-46bf-95e3-694b215fc25e</AttributeID>
+          <Name>Year</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>YearWeekDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>74e862a2-90bb-4d8c-be42-befe5495d760</ID>
+      <Name>Week</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Date_V</TableID>
+            <ColumnID>Week</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>WeekDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Date_V</TableID>
+          <ColumnID>WeekDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Date</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>9c08cddb-1b0e-42b7-97ed-20cc8dbd1be8</ID>
+      <Name>Date YQMD</Name>
+      <AllMemberName>All Date</AllMemberName>
+      <Levels>
+        <Level>
+          <ID>3dfa8622-f17b-44cf-a99d-e43af2fa53dc</ID>
+          <Name>Year</Name>
+          <SourceAttributeID>63eee970-3804-46bf-95e3-694b215fc25e</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>239a848b-11d9-40ca-b70a-56d80ef914fd</ID>
+          <Name>Quarter</Name>
+          <SourceAttributeID>2c0270d2-90d9-4e36-9689-6fc1880cf71b</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>86615198-4e2c-4cd6-9e94-c4e14db8fa1d</ID>
+          <Name>Month</Name>
+          <SourceAttributeID>e86be2fe-e514-4fa8-875c-65bb71ff9456</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>aa810bbc-f1a2-4daa-9016-e963083e70ca</ID>
+          <Name>Date</Name>
+          <SourceAttributeID>96ea5c01-aff5-43dc-8a34-1b321bc63a7c</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>98e72b3d-6d81-444f-84e8-4be9e84df00e</ID>
+      <Name>Date YMD</Name>
+      <AllMemberName>All Date</AllMemberName>
+      <Levels>
+        <Level>
+          <ID>59b0f864-d629-4f30-83ee-0a0f1551c03f</ID>
+          <Name>Year</Name>
+          <SourceAttributeID>63eee970-3804-46bf-95e3-694b215fc25e</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>430ebdd9-bf9e-497f-8e82-1c178d4e3a59</ID>
+          <Name>Month</Name>
+          <SourceAttributeID>e86be2fe-e514-4fa8-875c-65bb71ff9456</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>502005e0-6af0-4ad8-9f1b-b103f5948a51</ID>
+          <Name>Date</Name>
+          <SourceAttributeID>96ea5c01-aff5-43dc-8a34-1b321bc63a7c</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy>
+      <ID>7d287d70-3020-440f-a791-64cc5a0190d6</ID>
+      <Name>Date YWD</Name>
+      <AllMemberName>All Date</AllMemberName>
+      <Levels>
+        <Level>
+          <ID>9d16bccf-fb76-43cb-ae91-82ea7f98712c</ID>
+          <Name>Year</Name>
+          <SourceAttributeID>63eee970-3804-46bf-95e3-694b215fc25e</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>f4675ec4-e3e5-4977-a231-e14cc5cf2e59</ID>
+          <Name>Week</Name>
+          <SourceAttributeID>5b8e9a14-57f8-49e0-bfb7-a04e5e91d0a1</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>8a94de1f-db5d-4439-af68-f932bb3c5592</ID>
+          <Name>Date</Name>
+          <SourceAttributeID>96ea5c01-aff5-43dc-8a34-1b321bc63a7c</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

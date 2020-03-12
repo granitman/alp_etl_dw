@@ -1,0 +1,195 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>4ce43236-f644-4182-8911-a7792db90670</ID>
+  <Name>Acc Schedule</Name>
+  <CreatedTimestamp>2016-03-04T15:00:09.79Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:09.79Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>4ce43236-f644-4182-8911-a7792db90670</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:31:34.013333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>c4d90055-000b-4670-97c3-6bb49fcfdfa4</ID>
+      <Name>DW_Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Acc_x0020_Schedule_V</TableID>
+            <ColumnID>DW_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>DW_Id</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>78c98d26-e2c6-4bd4-bfe7-12fb52d43931</AttributeID>
+          <Name>Totaling</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>abdee163-c491-4c2a-bcb3-f904dc726d28</AttributeID>
+          <Name>Schedule</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>e3c0b929-22eb-40a4-92d2-b41137588097</AttributeID>
+          <Name>Line Description</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>BigInt</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>DW_Id</ColumnID>
+        </Source>
+      </ValueColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>78c98d26-e2c6-4bd4-bfe7-12fb52d43931</ID>
+      <Name>Totaling</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Acc_x0020_Schedule_V</TableID>
+            <ColumnID>Totaling</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>Totaling</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>Totaling</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>abdee163-c491-4c2a-bcb3-f904dc726d28</ID>
+      <Name>Schedule</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Acc_x0020_Schedule_V</TableID>
+            <ColumnID>Schedule</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>Schedule</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>Schedule</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>e3c0b929-22eb-40a4-92d2-b41137588097</ID>
+      <Name>Line Description</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Acc_x0020_Schedule_V</TableID>
+            <ColumnID>Line_x0020_Description</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>Line_x0020_Description</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <CustomRollupColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>CustomRollup</ColumnID>
+        </Source>
+      </CustomRollupColumn>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Acc_x0020_Schedule_V</TableID>
+          <ColumnID>Line_x0020_Description</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Acc Schedule</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>7af94f54-82a5-455c-b168-76a2d6980761</ID>
+      <Name>Acc Schedule</Name>
+      <AllMemberName>All Acc Schedule</AllMemberName>
+      <Levels>
+        <Level>
+          <ID>8f742d6c-178f-4c47-8256-cd04a938fa6a</ID>
+          <Name>Schedule</Name>
+          <SourceAttributeID>abdee163-c491-4c2a-bcb3-f904dc726d28</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>be347c46-de3b-4a27-ae9e-ccafcf5f7165</ID>
+          <Name>Line Description</Name>
+          <SourceAttributeID>e3c0b929-22eb-40a4-92d2-b41137588097</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,1291 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/14/2017 3:29:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-01"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{C7939B29-7A85-4307-8B0A-6A8CD4876911}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="ExportNavGengi"
+  DTS:PackageType="5"
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{281570C0-F84C-41FC-AAE9-9FDB12C65A59}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[alp-sql.ALP_Navision]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E4AF3D0D-23CF-43FA-B73A-16B0B876C901}"
+      DTS:ObjectName="alp-sql.ALP_Navision">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=alp-sql;Initial Catalog=ALP_Navision;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExportNavGengi-{E4AF3D0D-23CF-43FA-B73A-16B0B876C901}alp-sql.ALP_Navision;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[alp-sql.ALP_Navision_TEST]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{d3bec1d7-c159-4fee-90c1-d54b9fedf2cd}"
+      DTS:ObjectName="alp-sql.ALP_Navision_TEST">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=alp-sql;Initial Catalog=ALP_NAVISION_TEST;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExportNavGengi-{E4AF3D0D-23CF-43FA-B73A-16B0B876C901}alp-sql.ALP_Navision;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[alp-sql.ssis]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{98ce9b5d-b8be-43fa-b5a0-00aeb3727712}"
+      DTS:ObjectName="alp-sql.ssis">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=alp-sql;Initial Catalog=SSISDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExportNavGengi-{E4AF3D0D-23CF-43FA-B73A-16B0B876C901}alp-sql.ALP_Navision;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.flotaskjal]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{76D91C21-6006-43BA-A79F-6A2120EC2BCD}"
+      DTS:ObjectName="LocalHost.flotaskjal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=flotaskjal;Provider=SQLNCLI11;Integrated Security=SSPI;Application Name=SSIS-ExportNavGengi-{76D91C21-6006-43BA-A79F-6A2120EC2BCD}LocalHost.flotaskjal;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Currency_stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{94801496-20A6-4967-BC51-57CF96E4512E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Currency_stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Currency_stage\ALP_ETL Currency_stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ALP_ETL Currency_stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ALP bílaleiga$Import Currency Exchange Rate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM SSISDB.ALP_ETL.Currency_stage</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Currency_stage\ALP_ETL Currency_stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[alp-sql.ssis]"
+                  connectionManagerRefId="Package.ConnectionManagers[alp-sql.ssis]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Starting Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Starting Date"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Starting Date]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Starting Date]" />
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Currency Code]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Currency Code"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Currency Code]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Currency Code]" />
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Adjustment Exch_ Rate Amount]"
+                      cachedDataType="i4"
+                      cachedName="Adjustment Exch_ Rate Amount"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Adjustment Exch_ Rate Amount]" />
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Relational Adjmt Exch Rate Amt]"
+                      cachedDataType="r8"
+                      cachedName="Relational Adjmt Exch Rate Amt"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Adjmt Exch Rate Amt]" />
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Relational Exch_ Rate Amount]"
+                      cachedDataType="r8"
+                      cachedName="Relational Exch_ Rate Amount"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Relational Exch_ Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Exch_ Rate Amount]" />
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Relational Currency Code]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Relational Currency Code"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Relational Currency Code]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Currency Code]" />
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Fix Exchange Rate Amount]"
+                      cachedDataType="i4"
+                      cachedName="Fix Exchange Rate Amount"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Fix Exchange Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Fix Exchange Rate Amount]" />
+                    <inputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].Columns[Exchange Rate Amount]"
+                      cachedDataType="i4"
+                      cachedName="Exchange Rate Amount"
+                      externalMetadataColumnId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Exchange Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Exchange Rate Amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Currency Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Starting Date]"
+                      dataType="dbTimeStamp"
+                      name="Starting Date" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Exchange Rate Amount]"
+                      dataType="numeric"
+                      name="Exchange Rate Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      dataType="numeric"
+                      name="Adjustment Exch_ Rate Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Relational Currency Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Relational Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Relational Exch_ Rate Amount]"
+                      dataType="numeric"
+                      name="Relational Exch_ Rate Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      name="Fix Exchange Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      dataType="numeric"
+                      name="Relational Adjmt Exch Rate Amt"
+                      precision="38"
+                      scale="20" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Currency_stage\ALP_ETL Currency_stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Currency_stage\ALP_ETL Currency_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Currency_stage\ALP_ETL Currency_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Currency_stage\ALP_ETL Currency_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Currency_stage\gengi flotaskjal"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="gengi flotaskjal"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from export.vGengi2nav</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Currency_stage\gengi flotaskjal.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Starting Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Starting Date]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Starting Date]"
+                      name="Starting Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Currency Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Currency Code]"
+                      length="3"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Currency Code]"
+                      name="Currency Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Adjustment Exch_ Rate Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Adjustment Exch_ Rate Amount]"
+                      name="Adjustment Exch_ Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      name="Relational Adjmt Exch Rate Amt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Exch_ Rate Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Relational Exch_ Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Exch_ Rate Amount]"
+                      name="Relational Exch_ Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Currency Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Relational Currency Code]"
+                      length="1"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Relational Currency Code]"
+                      name="Relational Currency Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Fix Exchange Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Fix Exchange Rate Amount]"
+                      name="Fix Exchange Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Exchange Rate Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Exchange Rate Amount]"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].Columns[Exchange Rate Amount]"
+                      name="Exchange Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Starting Date]"
+                      dataType="dbDate"
+                      name="Starting Date" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Currency Code]"
+                      dataType="wstr"
+                      length="3"
+                      name="Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      dataType="i4"
+                      name="Adjustment Exch_ Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      dataType="r8"
+                      name="Relational Adjmt Exch Rate Amt" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Relational Exch_ Rate Amount]"
+                      dataType="r8"
+                      name="Relational Exch_ Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Relational Currency Code]"
+                      dataType="wstr"
+                      length="1"
+                      name="Relational Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      name="Fix Exchange Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output].ExternalColumns[Exchange Rate Amount]"
+                      dataType="i4"
+                      name="Exchange Rate Amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Starting Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Starting Date]"
+                      name="Starting Date" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Currency Code]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Currency Code]"
+                      name="Currency Code" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Exchange Rate Amount]"
+                      dataType="i4"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Exchange Rate Amount]"
+                      name="Exchange Rate Amount" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Adjustment Exch_ Rate Amount]"
+                      dataType="i4"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Adjustment Exch_ Rate Amount]"
+                      name="Adjustment Exch_ Rate Amount" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      dataType="r8"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      name="Relational Adjmt Exch Rate Amt" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Relational Exch_ Rate Amount]"
+                      dataType="r8"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Relational Exch_ Rate Amount]"
+                      name="Relational Exch_ Rate Amount" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Relational Currency Code]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Relational Currency Code]"
+                      name="Relational Currency Code" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[Fix Exchange Rate Amount]"
+                      name="Fix Exchange Rate Amount" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Currency_stage.Paths[OLE DB Source Output]"
+              endId="Package\Currency_stage\ALP_ETL Currency_stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Currency_stage\gengi flotaskjal.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\MERGE NEW DATA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{99341dd4-3d2e-4287-aa8f-22c51d8ccd95}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MERGE NEW DATA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E4AF3D0D-23CF-43FA-B73A-16B0B876C901}"
+          SQLTask:SqlStatementSource="insert into  [ALP_Navision].dbo.[ALP bílaleiga$Import Currency Exchange Rate]&#xA;([Currency Code],&#x9;&#xA;[Starting Date],&#x9;&#xA;[Exchange Rate Amount],&#xA;[Adjustment Exch_ Rate Amount],&#xA;[Relational Currency Code],&#xA;[Relational Exch_ Rate Amount],&#xA;[Fix Exchange Rate Amount],&#xA;[Relational Adjmt Exch Rate Amt])&#xA;SELECT &#xA;[Currency Code],&#x9;&#xA;[Starting Date],&#x9;&#xA;[Exchange Rate Amount],&#xA;[Adjustment Exch_ Rate Amount],&#xA;[Relational Currency Code],&#xA;[Relational Exch_ Rate Amount],&#xA;[Fix Exchange Rate Amount],&#xA;[Relational Adjmt Exch Rate Amt]&#xA; FROM SSISDB.ALP_ETL.Currency_stage s&#xA; where not exists&#xA;  (select 1 from [ALP_Navision].dbo.[ALP bílaleiga$Import Currency Exchange Rate] p where s.[Currency Code]=p.[Currency Code] and s.[Starting Date] = p.[Starting Date])" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\tEST"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{80e7d2c7-a152-4d5e-8e29-48259a230893}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="tEST"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\tEST\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ALP bílaleiga$Import Currency Exchange Rate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\tEST\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[alp-sql.ALP_Navision_TEST]"
+                  connectionManagerRefId="Package.ConnectionManagers[alp-sql.ALP_Navision_TEST]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Starting Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Starting Date"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Starting Date]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Starting Date]" />
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Currency Code]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Currency Code"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Currency Code]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency Code]" />
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Adjustment Exch_ Rate Amount]"
+                      cachedDataType="i4"
+                      cachedName="Adjustment Exch_ Rate Amount"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Adjustment Exch_ Rate Amount]" />
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Relational Adjmt Exch Rate Amt]"
+                      cachedDataType="r8"
+                      cachedName="Relational Adjmt Exch Rate Amt"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Adjmt Exch Rate Amt]" />
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Relational Exch_ Rate Amount]"
+                      cachedDataType="r8"
+                      cachedName="Relational Exch_ Rate Amount"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Relational Exch_ Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Exch_ Rate Amount]" />
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Relational Currency Code]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Relational Currency Code"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Relational Currency Code]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Currency Code]" />
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Fix Exchange Rate Amount]"
+                      cachedDataType="i4"
+                      cachedName="Fix Exchange Rate Amount"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fix Exchange Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fix Exchange Rate Amount]" />
+                    <inputColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Exchange Rate Amount]"
+                      cachedDataType="i4"
+                      cachedName="Exchange Rate Amount"
+                      externalMetadataColumnId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Exchange Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exchange Rate Amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Currency Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Starting Date]"
+                      dataType="dbTimeStamp"
+                      name="Starting Date" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Exchange Rate Amount]"
+                      dataType="numeric"
+                      name="Exchange Rate Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      dataType="numeric"
+                      name="Adjustment Exch_ Rate Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Relational Currency Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Relational Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Relational Exch_ Rate Amount]"
+                      dataType="numeric"
+                      name="Relational Exch_ Rate Amount"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      name="Fix Exchange Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      dataType="numeric"
+                      name="Relational Adjmt Exch Rate Amt"
+                      precision="38"
+                      scale="20" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\tEST\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\tEST\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\tEST\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\tEST\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from export.vGengi2nav</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\tEST\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Starting Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Starting Date]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Starting Date]"
+                      name="Starting Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency Code]"
+                      length="3"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency Code]"
+                      name="Currency Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Adjustment Exch_ Rate Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Adjustment Exch_ Rate Amount]"
+                      name="Adjustment Exch_ Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      name="Relational Adjmt Exch Rate Amt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Exch_ Rate Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Relational Exch_ Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Exch_ Rate Amount]"
+                      name="Relational Exch_ Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Currency Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Relational Currency Code]"
+                      length="1"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Relational Currency Code]"
+                      name="Relational Currency Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fix Exchange Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fix Exchange Rate Amount]"
+                      name="Fix Exchange Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exchange Rate Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Exchange Rate Amount]"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exchange Rate Amount]"
+                      name="Exchange Rate Amount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Starting Date]"
+                      dataType="dbDate"
+                      name="Starting Date" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency Code]"
+                      dataType="wstr"
+                      length="3"
+                      name="Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Adjustment Exch_ Rate Amount]"
+                      dataType="i4"
+                      name="Adjustment Exch_ Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Relational Adjmt Exch Rate Amt]"
+                      dataType="r8"
+                      name="Relational Adjmt Exch Rate Amt" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Relational Exch_ Rate Amount]"
+                      dataType="r8"
+                      name="Relational Exch_ Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Relational Currency Code]"
+                      dataType="wstr"
+                      length="1"
+                      name="Relational Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      name="Fix Exchange Rate Amount" />
+                    <externalMetadataColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Exchange Rate Amount]"
+                      dataType="i4"
+                      name="Exchange Rate Amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Starting Date]"
+                      dataType="dbDate"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Starting Date]"
+                      name="Starting Date" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency Code]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency Code]"
+                      name="Currency Code" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Exchange Rate Amount]"
+                      dataType="i4"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Exchange Rate Amount]"
+                      name="Exchange Rate Amount" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Adjustment Exch_ Rate Amount]"
+                      dataType="i4"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Adjustment Exch_ Rate Amount]"
+                      name="Adjustment Exch_ Rate Amount" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      dataType="r8"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Relational Adjmt Exch Rate Amt]"
+                      name="Relational Adjmt Exch Rate Amt" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Relational Exch_ Rate Amount]"
+                      dataType="r8"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Relational Exch_ Rate Amount]"
+                      name="Relational Exch_ Rate Amount" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Relational Currency Code]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Relational Currency Code]"
+                      name="Relational Currency Code" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fix Exchange Rate Amount]"
+                      dataType="i4"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fix Exchange Rate Amount]"
+                      name="Fix Exchange Rate Amount" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\tEST.Paths[OLE DB Source Output]"
+              endId="Package\tEST\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\tEST\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TruncDest"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1B87A3AA-4EA5-43E3-84BA-5A740779E68A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TruncDest"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E4AF3D0D-23CF-43FA-B73A-16B0B876C901}"
+          SQLTask:SqlStatementSource="DELETE FROM  SSISdb.ALP_ETL.Currency_stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A50CF670-FD8C-416F-87EB-53EC8F67962A}"
+      DTS:From="Package\TruncDest"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Currency_stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{45EE3A17-167B-4565-A272-57FAA5AD147D}"
+      DTS:From="Package\TruncDest"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\tEST" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F12B8EAF-C496-4261-8D3F-9D2C63A27366}"
+      DTS:From="Package\Currency_stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\MERGE NEW DATA" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Currency_stage"
+          TopLeft="77.3333333333333,235.663522012578" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\MERGE NEW DATA"
+          TopLeft="62.2142857434798,323.778431381129" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\tEST"
+          TopLeft="345.066037735849,228.198113207547" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\TruncDest"
+          TopLeft="231.308176100629,45.3333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="277.974842767295,89.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-124.641509433962,146.330188679245"
+              Start="0,0"
+              End="-124.641509433962,138.830188679245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.552983764809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.552983764809"
+                    Point2="0,59.552983764809"
+                    Point3="-4,59.552983764809" />
+                  <mssgle:LineSegment
+                    End="-120.641509433962,59.552983764809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-120.641509433962,59.552983764809"
+                    Point2="-124.641509433962,59.552983764809"
+                    Point3="-124.641509433962,63.552983764809" />
+                  <mssgle:LineSegment
+                    End="-124.641509433962,138.830188679245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="320.641509433962,89.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.424528301887,138.864779874214"
+              Start="0,0"
+              End="92.424528301887,131.364779874214">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5147359953195" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.5147359953195"
+                    Point2="0,56.5147359953195"
+                    Point3="4,56.5147359953195" />
+                  <mssgle:LineSegment
+                    End="88.424528301887,56.5147359953195" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.424528301887,56.5147359953195"
+                    Point2="92.424528301887,56.5147359953195"
+                    Point3="92.424528301887,60.5147359953195" />
+                  <mssgle:LineSegment
+                    End="92.424528301887,131.364779874214" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="149.973809538407,277.263522012578">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.5149093685512"
+              Start="0,0"
+              End="0,39.0149093685512">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.0149093685512" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Currency_stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Currency_stage\ALP_ETL Currency_stage"
+          TopLeft="21.5,124.330188679245" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Currency_stage\gengi flotaskjal"
+          TopLeft="44.4433962264151,5.5" />
+        <EdgeLayout
+          Id="Package\Currency_stage.Paths[OLE DB Source Output]"
+          TopLeft="119.471698113208,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.830188679245"
+              Start="0,0"
+              End="0,69.330188679245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.330188679245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Currency_stage\ALP_ETL Currency_stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Currency_stage\gengi flotaskjal">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\tEST">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\tEST\OLE DB Destination"
+          TopLeft="17,14" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\tEST\OLE DB Source"
+          TopLeft="226,11" />
+        <EdgeLayout
+          Id="Package\tEST.Paths[OLE DB Source Output]"
+          TopLeft="226,33.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-38,0"
+              Start="0,0"
+              End="-30.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\tEST\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\tEST\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

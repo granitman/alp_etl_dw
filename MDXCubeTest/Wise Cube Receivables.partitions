@@ -1,0 +1,63 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="34b718fe-002e-4bb7-9710-e20716e5fe20" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Wise Cube Receivables</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>DueAnalysis</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1017458c-3425-4f3f-bdc9-3571656328b5">
+          <ID>DueAnalysis</ID>
+          <Name>DueAnalysis</Name>
+          <CreatedTimestamp>2016-03-04T15:00:22.166667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:22.166667Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:43:27.833333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="e677c665-4a5c-4f54-96ba-c9e348336826">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>DueAnalysis_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a3298877-5d0a-436f-862b-c05e0820f873">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="c612a3e3-5f2d-4620-8667-cd630a1cb614" />
+          </ProactiveCaching>
+          <EstimatedSize>1831274</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Receivables</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="991da470-e7d5-46f5-b202-60701af4c0f6">
+          <ID>Receivables</ID>
+          <Name>Receivables</Name>
+          <CreatedTimestamp>2016-03-04T15:00:22.2Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:22.2Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:43:26.006667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="fef569e0-1a37-4128-8c93-2b67746de1be">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>Receivables_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="4d58973b-9d15-47c6-bfee-4a5003907b1c">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9b05c954-bf7f-48cc-9802-3b3c8033ae68" />
+          </ProactiveCaching>
+          <EstimatedSize>98642107</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

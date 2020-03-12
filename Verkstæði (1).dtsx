@@ -1,0 +1,742 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2018 4:56:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-02"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{657AC127-3DE4-49FA-A124-C57FC5924D32}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="MysqlÞvottur"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{F54FB982-87ED-4BEE-B4CB-E6CF39DE424D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.150.4.3.miracle]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{EB08D13B-4674-4D3A-B959-772F5F8DE889}"
+      DTS:ObjectName="10.150.4.3.miracle">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=10.150.4.3;user id=miracle;sslmode=None;persistsecurityinfo=True;database=carwash;logging=True;sqlservermode=True;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPlq6uVPykU+sQTtFVI9azQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAHDVm8p2XKBxN7Ot8/HDqYAAAAAASAAACgAAAAEAAAAA2zMwPLFbU4kPzkOUPhmEMYAAAAZjdKg5Iaq+X/DNI5VZLjh7Cw1i1J8tePFAAAAIq5177Ase/c1/YDjenoWuAyv+Nb</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.flotaskjal]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FA24505C-8B56-4C39-ABD0-A6E3EF9643EA}"
+      DTS:ObjectName="LocalHost.flotaskjal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=flotaskjal;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8E2906A7-6EEC-4ED7-84C9-6D4F7DD0979B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select  * from carwash where ID&gt;= &quot;+ (DT_WSTR,20)  @[User::MaxId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CarwashSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">select  * from carwash where ID&gt;= 0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{02EDEF60-8370-4460-B678-118A9C4F0A78}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DB5C51D5-6ED5-4373-9158-5A8155AD29E6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FA24505C-8B56-4C39-ABD0-A6E3EF9643EA}"
+          SQLTask:SqlStatementSource="SELECT ?= MAX(ID) FROM STG.CARWASH &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::MaxId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\load carwash"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{98592F7D-F51D-4625-9A4E-C3446BD75556}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load carwash"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="[carwash].[SqlCommand]">@[User::CarwashSQL]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load carwash\carwash"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="carwash"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select  * from carwash where ID&gt;= 0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load carwash\carwash.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.150.4.3.miracle]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.150.4.3.miracle]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load carwash\carwash.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[ID]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[licenceplate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[licenceplate]"
+                      length="5"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[licenceplate]"
+                      name="licenceplate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[datetime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[datetime]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[datetime]"
+                      name="datetime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[username]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[username]"
+                      length="50"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[username]"
+                      name="username"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[typeofcar]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[typeofcar]"
+                      length="50"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[typeofcar]"
+                      name="typeofcar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[station]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[station]"
+                      length="50"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[station]"
+                      name="station"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[licenceplate]"
+                      dataType="wstr"
+                      length="5"
+                      name="licenceplate" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[datetime]"
+                      dataType="dbTimeStamp"
+                      name="datetime" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[username]"
+                      dataType="wstr"
+                      length="50"
+                      name="username" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[typeofcar]"
+                      dataType="wstr"
+                      length="50"
+                      name="typeofcar" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Output].ExternalColumns[station]"
+                      dataType="wstr"
+                      length="50"
+                      name="station" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[licenceplate]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[licenceplate]"
+                      name="licenceplate" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[datetime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[datetime]"
+                      name="datetime" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[username]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[username]"
+                      name="username" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[typeofcar]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[typeofcar]"
+                      name="typeofcar" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[station]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[station]"
+                      name="station" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load carwash\wrk flotaskjal"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="wrk flotaskjal"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[wrk].[carwash]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load carwash\wrk flotaskjal.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].Columns[licenceplate]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="licenceplate"
+                      externalMetadataColumnId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[licenceplate]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[licenceplate]" />
+                    <inputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].Columns[datetime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datetime"
+                      externalMetadataColumnId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[datetime]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[datetime]" />
+                    <inputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].Columns[username]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="username"
+                      externalMetadataColumnId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[username]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[username]" />
+                    <inputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].Columns[typeofcar]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="typeofcar"
+                      externalMetadataColumnId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[typeofcar]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[typeofcar]" />
+                    <inputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].Columns[station]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="station"
+                      externalMetadataColumnId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[station]"
+                      lineageId="Package\load carwash\carwash.Outputs[ADO NET Source Output].Columns[station]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[licenceplate]"
+                      dataType="wstr"
+                      length="5"
+                      name="licenceplate" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[datetime]"
+                      dataType="dbTimeStamp"
+                      name="datetime" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[username]"
+                      dataType="wstr"
+                      length="50"
+                      name="username" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[typeofcar]"
+                      dataType="wstr"
+                      length="50"
+                      name="typeofcar" />
+                    <externalMetadataColumn
+                      refId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input].ExternalColumns[station]"
+                      dataType="wstr"
+                      length="50"
+                      name="station" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load carwash\wrk flotaskjal.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load carwash\wrk flotaskjal.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load carwash\wrk flotaskjal.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load carwash\wrk flotaskjal.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load carwash.Paths[ADO NET Source Output]"
+              endId="Package\load carwash\wrk flotaskjal.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\load carwash\carwash.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\popCarwash_stg"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{54030657-8DD6-4051-A36B-D2B0B5EA5CCB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="popCarwash_stg"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FA24505C-8B56-4C39-ABD0-A6E3EF9643EA}"
+          SQLTask:SqlStatementSource="exec popCarwash_stg" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\trunc wrk carwash"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FEE8A6CC-575D-4F56-AC16-EF8F8A5D91CE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="trunc wrk carwash"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FA24505C-8B56-4C39-ABD0-A6E3EF9643EA}"
+          SQLTask:SqlStatementSource="truncate table wrk.carwash" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D5EDC2EC-4FED-4E96-99D9-970051BDE143}"
+      DTS:From="Package\load carwash"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\popCarwash_stg" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{00A8957B-69D2-4D6B-8178-387CF202AFD4}"
+      DTS:From="Package\trunc wrk carwash"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\load carwash" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1C18F4FA-E068-4628-BBF4-DD01CB736870}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\load carwash" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="640,22" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\load carwash"
+          TopLeft="134,82" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\popCarwash_stg"
+          TopLeft="118,171" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\trunc wrk carwash"
+          TopLeft="130,9" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="204.5,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-8,47"
+              Start="0,0"
+              End="-8,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="-4,23.5" />
+                  <mssgle:LineSegment
+                    End="-4,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,23.5"
+                    Point2="-8,23.5"
+                    Point3="-8,27.5" />
+                  <mssgle:LineSegment
+                    End="-8,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="213,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-8.5,31"
+              Start="0,0"
+              End="-8.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-4.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,15.5"
+                    Point2="-8.5,15.5"
+                    Point3="-8.5,19.5" />
+                  <mssgle:LineSegment
+                    End="-8.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="640,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-365,60"
+              Start="0,0"
+              End="-357.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-178.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-178.5,0"
+                    Point2="-182.5,0"
+                    Point3="-182.5,4" />
+                  <mssgle:LineSegment
+                    End="-182.5,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-182.5,56"
+                    Point2="-182.5,60"
+                    Point3="-186.5,60" />
+                  <mssgle:LineSegment
+                    End="-357.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load carwash">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,64"
+          Id="Package\load carwash\wrk flotaskjal"
+          TopLeft="101,344" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\load carwash\carwash"
+          TopLeft="144,255" />
+        <EdgeLayout
+          Id="Package\load carwash.Paths[ADO NET Source Output]"
+          TopLeft="201,297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load carwash\carwash">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load carwash\wrk flotaskjal">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2019 8:37:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-02"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{5A74AE37-B8EC-4BBC-988A-E258069FE6C3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="stg_nav_wyse_gl"
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{4AB4C9BF-24DC-497E-9E93-2C9A7224B332}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[nav]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{29AB1854-A90B-46C0-B22F-AE46ECC25ED2}"
+      DTS:ObjectName="nav">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=alp-sql;Initial Catalog=Wise_Cubes_DWH;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DA51A278-3501-45BA-B613-0F7004B504D1}"
+      DTS:ObjectName="staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\gl_entries_wyse"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E8623DAB-EDE4-464F-BAFD-4DAA510DB957}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="gl_entries_wyse">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\gl_entries_wyse\pop stg gl_entries"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DTSID="{01514064-B1E8-4B9F-8BF0-E77217616662}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="pop stg gl_entries"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA51A278-3501-45BA-B613-0F7004B504D1}"
+              SQLTask:SqlStatementSource="exec etl.pop_gl_entries" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\gl_entries_wyse\Trunc tables"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DTSID="{81879D7C-EA68-46FB-9358-790AF5B1C2F1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Trunc tables"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA51A278-3501-45BA-B613-0F7004B504D1}"
+              SQLTask:SqlStatementSource="truncate table [wrk].[nav_wyse_gl_entries]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\gl_entries_wyse\wyse gl"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{C2E7BB9D-4DDC-4466-BAE9-8A0EBB7A5735}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="wyse gl"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="wrk_wyse_gl_entries"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[wrk].[nav_wyse_gl_entries]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[staging]"
+                      connectionManagerRefId="Package.ConnectionManagers[staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[DW_Id]"
+                          cachedDataType="i8"
+                          cachedName="DW_Id"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[DW_Id]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[DW_Id]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[GD1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD1"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD1]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD1]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[GD2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD2"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD2]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD2]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[GD3]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD3"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD3]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD3]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[GD4]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD4"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD4]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD4]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[GD5]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD5"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD5]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD5]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[GD8]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD8"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD8]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD8]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[DW_TimeStamp]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DW_TimeStamp"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[DW_TimeStamp]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[DW_TimeStamp]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[entry_no]"
+                          cachedDataType="i4"
+                          cachedName="entry_no"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[entry_no]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[entry_no]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[gl_account]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="gl_account"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[gl_account]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[gl_account]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[amount]"
+                          cachedDataType="numeric"
+                          cachedName="amount"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[amount]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[posting_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="posting_date"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[posting_date]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[posting_date]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[vat]"
+                          cachedDataType="numeric"
+                          cachedName="vat"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[vat]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[vat]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[account_rental_days]"
+                          cachedDataType="i8"
+                          cachedName="account_rental_days"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[account_rental_days]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[account_rental_days]" />
+                        <inputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].Columns[timestamp]"
+                          cachedDataType="bytes"
+                          cachedLength="8"
+                          cachedName="timestamp"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[timestamp]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[DW_Id]"
+                          dataType="i8"
+                          name="DW_Id" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD1" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD2" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD3" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD4" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD5" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD8" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="DW_TimeStamp" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[entry_no]"
+                          dataType="i4"
+                          name="entry_no" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[gl_account]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="gl_account" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                          dataType="numeric"
+                          name="amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[posting_date]"
+                          dataType="dbTimeStamp"
+                          name="posting_date" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[vat]"
+                          dataType="numeric"
+                          name="vat"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[account_rental_days]"
+                          dataType="i8"
+                          name="account_rental_days" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                          dataType="bytes"
+                          length="8"
+                          name="timestamp" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="wyse_gl_entries"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Payables_V]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/****** Script for SelectTopNRows command from SSMS  ******/
+select
+       [DW_Id]
+     , [Entry No_]                      as entry_no
+     , [GL Account]                     as gl_account
+     , isnull(nullif([GD1], ''), 'N/A') as [GD1]
+     , isnull(nullif([GD2], ''), 'N/A') as [GD2]
+     , isnull(nullif([GD3], ''), 'N/A') as [GD3]
+     , isnull(nullif([GD4], ''), 'N/A') as [GD4]
+     , isnull(nullif([GD5], ''), 'N/A') as [GD5]
+     , isnull(nullif([GD8], ''), 'N/A') as [GD8]
+     , [Amount]                         as amount
+     , [PD]                             as posting_date     
+     , [VAT Amount]                     as vat
+     , [No of Rental Days]              as account_rental_days
+     , [DW_TimeStamp]
+     , [timestamp]
+  from [Wise_Cubes_DWH].[dbo].[GL Entries_V]
+  where
+       DW_Account = 'ALP bílaleiga'
+       and ClosingEntry = 0
+       and nullif([GD5], '') is not null;
+
+
+-- and timestamp &gt;0x0000000022217119</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[nav]"
+                      connectionManagerRefId="Package.ConnectionManagers[nav]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[DW_Id]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[DW_Id]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[DW_Id]"
+                          name="DW_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD1]"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD1]"
+                          name="GD1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD2]"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD2]"
+                          name="GD2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD3]"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD3]"
+                          name="GD3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD4]"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD4]"
+                          name="GD4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD5]"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD5]"
+                          name="GD5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD8]"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[GD8]"
+                          name="GD8"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[DW_TimeStamp]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[DW_TimeStamp]"
+                          name="DW_TimeStamp"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[entry_no]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[entry_no]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[entry_no]"
+                          name="entry_no"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[gl_account]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[gl_account]"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[gl_account]"
+                          name="gl_account"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[amount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[amount]"
+                          name="amount"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[posting_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[posting_date]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[posting_date]"
+                          name="posting_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[vat]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[vat]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[vat]"
+                          name="vat"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[account_rental_days]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[account_rental_days]"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[account_rental_days]"
+                          name="account_rental_days"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[timestamp]"
+                          dataType="bytes"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                          length="8"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].Columns[timestamp]"
+                          name="timestamp"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[DW_Id]"
+                          dataType="i8"
+                          name="DW_Id" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD1" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD2" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD3" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD4" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD5" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD8" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="DW_TimeStamp" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[entry_no]"
+                          dataType="i4"
+                          name="entry_no" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[gl_account]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="gl_account" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                          dataType="numeric"
+                          name="amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[posting_date]"
+                          dataType="dbTimeStamp"
+                          name="posting_date" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[vat]"
+                          dataType="numeric"
+                          name="vat"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[account_rental_days]"
+                          dataType="i8"
+                          name="account_rental_days" />
+                        <externalMetadataColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                          dataType="bytes"
+                          length="8"
+                          name="timestamp" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[DW_Id]"
+                          dataType="i8"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[DW_Id]"
+                          name="DW_Id" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[entry_no]"
+                          dataType="i4"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[entry_no]"
+                          name="entry_no" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[gl_account]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[gl_account]"
+                          name="gl_account" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD1]"
+                          name="GD1" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD2]"
+                          name="GD2" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD3]"
+                          name="GD3" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD4]"
+                          name="GD4" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD5]"
+                          name="GD5" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[GD8]"
+                          name="GD8" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[amount]"
+                          dataType="numeric"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[amount]"
+                          name="amount"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[posting_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[posting_date]"
+                          name="posting_date" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[vat]"
+                          dataType="numeric"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[vat]"
+                          name="vat"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[account_rental_days]"
+                          dataType="i8"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[account_rental_days]"
+                          name="account_rental_days" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[DW_TimeStamp]"
+                          name="DW_TimeStamp" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                          dataType="bytes"
+                          length="8"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                          name="timestamp" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\gl_entries_wyse\wyse gl.Paths[OLE DB Source Output]"
+                  endId="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\gl_entries_wyse\wyse gl\wyse_gl_entries.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\gl_entries_wyse.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{91171E65-DABD-40BD-95E3-8640C7D080A3}"
+          DTS:From="Package\gl_entries_wyse\Trunc tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\gl_entries_wyse\wyse gl" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\gl_entries_wyse.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{BEBBF291-52F5-4D41-9CBF-D1ED0874A70F}"
+          DTS:From="Package\gl_entries_wyse\wyse gl"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\gl_entries_wyse\pop stg gl_entries" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\gl_entries_wyse\pop stg gl_entries"
+          TopLeft="49.8181818181818,150.772727272727" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\gl_entries_wyse\Trunc tables"
+          TopLeft="56.181818181818,12" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\gl_entries_wyse\wyse gl"
+          TopLeft="58.4090909090909,78.772727272727" />
+        <EdgeLayout
+          Id="Package\gl_entries_wyse.PrecedenceConstraints[Constraint]"
+          TopLeft="124.681818181818,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.2727272727271,24.772727272727"
+              Start="0,0"
+              End="-9.2727272727271,17.272727272727">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.3863636363635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.3863636363635"
+                    Point2="0,12.3863636363635"
+                    Point3="-4,12.3863636363635" />
+                  <mssgle:LineSegment
+                    End="-5.2727272727271,12.3863636363635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.2727272727271,12.3863636363635"
+                    Point2="-9.2727272727271,12.3863636363635"
+                    Point3="-9.2727272727271,16.3863636363635" />
+                  <mssgle:LineSegment
+                    End="-9.2727272727271,17.272727272727" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\gl_entries_wyse.PrecedenceConstraints[Constraint 1]"
+          TopLeft="115.409090909091,120.772727272727">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.9090909090909,30"
+              Start="0,0"
+              End="15.9090909090909,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="11.9090909090909,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.9090909090909,15"
+                    Point2="15.9090909090909,15"
+                    Point3="15.9090909090909,19" />
+                  <mssgle:LineSegment
+                    End="15.9090909090909,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="311,290"
+          Size="311,333"
+          Id="Package\gl_entries_wyse"
+          TopLeft="697.72727272727,31.909090909091" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\gl_entries_wyse\wyse gl">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries"
+          TopLeft="559,163" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\gl_entries_wyse\wyse gl\wyse_gl_entries"
+          TopLeft="563,23" />
+        <EdgeLayout
+          Id="Package\gl_entries_wyse\wyse gl.Paths[OLE DB Source Output]"
+          TopLeft="643.75,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,98"
+              Start="0,0"
+              End="0,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\gl_entries_wyse\wyse gl\wrk_wyse_gl_entries">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\gl_entries_wyse\wyse gl\wyse_gl_entries">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

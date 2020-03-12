@@ -1,0 +1,3122 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2015 4:06:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-01"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{FC37458E-7F90-4450-9068-FD9931183DD1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="reservations_Avis_light"
+  DTS:PackageType="5"
+  DTS:VersionBuild="200"
+  DTS:VersionGUID="{67E8B5B7-CF31-4489-8447-BA1A4BF71F2F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[avis_rsfdata_is]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Budget reservation data"
+      DTS:DTSID="{8ceb05a3-73da-4b3a-9cb9-7565e718846c}"
+      DTS:ObjectName="avis_rsfdata_is">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1039"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="d:\ftp_flotaskjol\Incoming\out\RSFDATA_IS.TXT">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking Type"
+              DTS:DTSID="{9D3D471B-CA4B-4548-8CEE-BC9A6F1D92D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Batch number"
+              DTS:DTSID="{E2D39731-C0E8-48DE-A9D2-253E241C6A41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c2"
+              DTS:DTSID="{9BCF8D75-E696-4E66-B70F-65D385C215AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c3"
+              DTS:DTSID="{0B313A61-F9AC-444B-A301-D1A498BEEF19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CheckOut Date"
+              DTS:DTSID="{28DE0E72-F567-4D01-8C43-51241D62470A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkin date"
+              DTS:DTSID="{C7FE4202-800F-46BB-BB43-5F29D90C17D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Rental Length (x100)"
+              DTS:DTSID="{117C045E-BF85-4C31-9462-213EBBE01A0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking Date"
+              DTS:DTSID="{A2118885-FB01-426E-99FE-97E9A4617356}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c8"
+              DTS:DTSID="{70E22CA0-A960-4559-8CEC-ED3E31935F33}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c9"
+              DTS:DTSID="{CCA15CBF-0465-4A6F-8FA1-E0050A3B4935}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Rate Code"
+              DTS:DTSID="{50241C21-F24D-43E5-9ACE-BE534A9CE060}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Car Group"
+              DTS:DTSID="{7E74198D-E3D1-43B4-949A-5E9132E7B5E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Car Group on request"
+              DTS:DTSID="{18D0ECC9-E0C4-47BA-BAC5-2FEAB9CBA9C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AWD BCD Number"
+              DTS:DTSID="{71BD8934-8E17-47E0-B16A-6F367FDB210E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flight"
+              DTS:DTSID="{626B8E31-0D04-4676-9994-FC7B9F23A91F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Souce"
+              DTS:DTSID="{5FD59D9C-8F03-48F6-89A5-1A46F3AF3C5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="11"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Reservation Number"
+              DTS:DTSID="{23A38325-0C97-4415-BA5D-8B16546F8AE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Reservation status"
+              DTS:DTSID="{65897601-C172-405B-A909-4B2C2EAFEA39}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking  change date"
+              DTS:DTSID="{9CFB2B52-314E-4F11-B3EF-88131D9E892C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="booking change time"
+              DTS:DTSID="{39908A57-685A-4C0C-A752-1D75738887D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Some datec20"
+              DTS:DTSID="{7E9C0084-A646-475F-BD6F-D6AD4AE04C61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="some timec21"
+              DTS:DTSID="{64FAE7A4-0F77-4283-B536-62D4DFD09DDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c22"
+              DTS:DTSID="{E9A55E0E-6058-42C5-9320-B618AB520761}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c23"
+              DTS:DTSID="{57334951-880F-4457-9B16-29F5A982488D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c24"
+              DTS:DTSID="{555BA984-C3F0-4C20-ADFE-509EC130F231}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkout Station"
+              DTS:DTSID="{3893E86A-0456-4A03-B3AC-CE81AAC122CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkin Station"
+              DTS:DTSID="{2E844CE0-157E-4404-BC60-1CFC91148F37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking confirmed by"
+              DTS:DTSID="{E6617BCC-25EB-40DF-9F81-F8B73A6C90C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c28"
+              DTS:DTSID="{21022439-6958-4610-ABBF-F701403330A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Wizard Number"
+              DTS:DTSID="{88AFF89A-A70E-492E-BE60-4012E7F24415}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c30"
+              DTS:DTSID="{796F58F0-E5ED-4F25-AD85-C42703A9D566}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkout Time"
+              DTS:DTSID="{9E178748-7889-4474-BE39-1ABD4F724154}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkin Time"
+              DTS:DTSID="{98D392D6-B5E6-4EB6-AED8-79E51ECE910E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Value"
+              DTS:DTSID="{4B3F8252-019F-4A5C-BEAA-5E9BD07C7C2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c35"
+              DTS:DTSID="{8A3D3548-6056-4954-A588-02E78DA6EFBD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Currency"
+              DTS:DTSID="{7C1ADC60-98FE-4D0D-A260-B6CA98E80ED0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Driver name"
+              DTS:DTSID="{1E2D83DD-90B4-44FA-9A7F-7FB36A4107F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Remarks Field"
+              DTS:DTSID="{06F0E725-2509-4C16-8AE6-36CB6D5AAF0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="110"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CCI number"
+              DTS:DTSID="{A0DE8D34-B64F-4B58-B7CE-85AF184B9A95}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[flotaskjal]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+      DTS:ObjectName="flotaskjal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=flotaskjal;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-reservations-{CF062CA4-2929-4143-9077-FB5B817084CF}LocalHost.flotaskjal;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="flotaskjal"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{F6E91A94-5A04-4915-BC60-645FC1D45359}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A40E16D7-F986-4715-B8C8-C2ED8A675045}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="avis_archive">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Archive\Avis\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CB02AA63-5DFB-4294-B986-F22927CDA354}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::avis_incoming] +  @[User::imp_filename]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AVIS_full_filename_path">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Avis\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4FBAF1F-2F6D-48CF-8DF9-5D93C726B16B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="avis_incoming">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Avis\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2DFA25AC-2943-4E6D-843E-0B1EE2BA541D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="bud_archive">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Archive\Budget\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC33FE92-11F0-4F3D-8621-40C798B25218}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="bud_file">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{86107CB5-03CD-4572-9276-1E43DF7E8054}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="bud_incoming_path">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Budget\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34B43682-F6EF-47A8-896D-FEF7F083609A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="file_exists">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D93ADDF-C625-4740-BCAF-30AF108FDDD2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::bud_incoming_path]  +  @[User::imp_filename]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="full_filename_path">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Budget\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{327454E3-AA45-467A-A069-BD13A999BB6F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="imp_filename">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ABC11F6A-EEC0-4E13-869F-C96964DECB8C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="oud_folder">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\out\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D04E11D9-6DA6-4B89-BE31-45FA55163E64}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tmp_out_file">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">5,7,OnError,13,OnPostExecute,12,OnPreExecute,12,OnTaskFailed,9,OnWarning</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPostExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPreExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{F6E91A94-5A04-4915-BC60-645FC1D45359}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Avis"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{180B5C66-DFF6-4820-B54B-8BDCDD5A892B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Avis">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Avis\Avis to staging hist"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{00858ec4-c3d8-41a9-913e-505dae6cd986}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Avis to staging hist"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+              SQLTask:SqlStatementSource="exec etl.mergeAvisBooking" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Avis\avis_res"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{556cdd78-0276-47af-8868-cf66178405f5}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="avis_res">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{5409de3d-b85f-4d50-8356-e50ceada94a3}"
+            DTS:ObjectName="{A64A9809-68BF-4791-992A-5C238AB1A69A}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="d:\ftp_flotaskjol\Incoming\Avis\" />
+                <FEFEProperty
+                  FileSpec="res0*.zip" />
+                <FEFEProperty
+                  FileNameRetrievalType="1" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Avis\avis_res\check if file exists"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{8e884700-d9ee-4dd6-9339-17286080a435}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="check if file exists"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+                  SQLTask:SqlStatementSource="declare @impFile varchar (100) ; &#xA;declare @ImportFileNamePath varchar(200) &#xA;declare  @exists int =0&#xA;declare @year varchar (10)&#xA;&#xA;set @year  =left(convert(varchar(10),getdate() ,121),4)  +'_'&#xA;&#xA; -- update  dbo.ImportFileLog set ImportFile_year = convert(varchar(10),datepart(year,ImportDateStamp)) +'_'+ ImportFile&#xA;set @ImportFileNamePath   =? &#xA;set @impFile   = ? &#xA;&#xA;set @impFile   =@year+ @impFile &#xA;if exists (select 1 from ImportFileLog where ImportFileType= 'AVIS_RSFDATA_IS' and ImportFile_year =@impfile ) &#xA;begin &#xA;  set @exists = 1 &#xA;end   &#xA;set ? = @exists &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::full_filename_path"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::imp_filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::file_exists"
+                    SQLTask:ParameterDirection="Output"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Avis\avis_res\Imp avis_rsfdata_is"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{c471f737-b191-44cd-bad6-7e0953972c44}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Imp avis_rsfdata_is"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="1039"
+                      name="avis_rsfdata_is"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[avis_rsfdata_is]"
+                          connectionManagerRefId="Package.ConnectionManagers[avis_rsfdata_is]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking Type]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking Type]"
+                              length="50"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking Type]"
+                              name="Booking Type"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Batch number]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Batch number]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Batch number]"
+                              name="Batch number"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Rental Length (x100)]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Rental Length (x100)]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Rental Length (x100)]"
+                              name="Rental Length (x100)"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Rate Code]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Rate Code]"
+                              length="2"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Rate Code]"
+                              name="Rate Code"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Car Group]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Car Group]"
+                              length="1"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Car Group]"
+                              name="Car Group"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[AWD BCD Number]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[AWD BCD Number]"
+                              length="8"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[AWD BCD Number]"
+                              name="AWD BCD Number"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Reservation status]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Reservation status]"
+                              length="2"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Reservation status]"
+                              name="Reservation status"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkout Station]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkout Station]"
+                              length="10"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkout Station]"
+                              name="Checkout Station"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin Station]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkin Station]"
+                              length="10"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin Station]"
+                              name="Checkin Station"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking confirmed by]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking confirmed by]"
+                              length="7"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking confirmed by]"
+                              name="Booking confirmed by"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Wizard Number]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Wizard Number]"
+                              length="6"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Wizard Number]"
+                              name="Wizard Number"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkout Time]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkout Time]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkout Time]"
+                              name="Checkout Time"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Value]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Value]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Value]"
+                              name="Value"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Currency]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Currency]"
+                              length="5"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Currency]"
+                              name="Currency"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Driver name]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Driver name]"
+                              length="30"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Driver name]"
+                              name="Driver name"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Remarks Field]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Remarks Field]"
+                              length="150"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Remarks Field]"
+                              name="Remarks Field"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin date]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkin date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin date]"
+                              name="Checkin date"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Car Group on request]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Car Group on request]"
+                              length="1"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Car Group on request]"
+                              name="Car Group on request"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Souce]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Souce]"
+                              length="15"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Souce]"
+                              name="Souce"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Reservation Number]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Reservation Number]"
+                              length="11"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Reservation Number]"
+                              name="Reservation Number"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking  change date]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking  change date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking  change date]"
+                              name="Booking  change date"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin Time]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkin Time]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin Time]"
+                              name="Checkin Time"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[CCI number]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[CCI number]"
+                              length="110"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[CCI number]"
+                              name="CCI number"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[CheckOut Date]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[CheckOut Date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[CheckOut Date]"
+                              name="CheckOut Date"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking Date]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking Date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking Date]"
+                              name="Booking Date"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Flight]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Flight]"
+                              length="10"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Flight]"
+                              name="Flight"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[booking change time]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[booking change time]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[booking change time]"
+                              name="booking change time"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c22]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c22]"
+                              length="1"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c22]"
+                              name="c22"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c23]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c23]"
+                              length="1"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c23]"
+                              name="c23"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c24]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c24]"
+                              length="1"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c24]"
+                              name="c24"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c28]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c28]"
+                              length="5"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c28]"
+                              name="c28"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c30]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c30]"
+                              length="10"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c30]"
+                              name="c30"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c35]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c35]"
+                              length="5"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c35]"
+                              name="c35"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c2]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c2]"
+                              length="8"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c2]"
+                              name="c2"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c3]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c3]"
+                              length="2"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c3]"
+                              name="c3"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Some datec20]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Some datec20]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Some datec20]"
+                              name="Some datec20"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[some timec21]"
+                              dataType="i2"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[some timec21]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[some timec21]"
+                              name="some timec21"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c9]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c9]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c9]"
+                              name="c9"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c8]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c8]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c8]"
+                              name="c8"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking Type]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Booking Type" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Batch number]"
+                              dataType="i2"
+                              name="Batch number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Rental Length (x100)]"
+                              dataType="i2"
+                              name="Rental Length (x100)" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Rate Code]"
+                              codePage="1252"
+                              dataType="str"
+                              length="2"
+                              name="Rate Code" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Car Group]"
+                              codePage="1252"
+                              dataType="str"
+                              length="1"
+                              name="Car Group" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[AWD BCD Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="8"
+                              name="AWD BCD Number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Reservation status]"
+                              codePage="1252"
+                              dataType="str"
+                              length="2"
+                              name="Reservation status" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkout Station]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Checkout Station" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkin Station]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Checkin Station" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking confirmed by]"
+                              codePage="1252"
+                              dataType="str"
+                              length="7"
+                              name="Booking confirmed by" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Wizard Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="6"
+                              name="Wizard Number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkout Time]"
+                              dataType="i2"
+                              name="Checkout Time" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Value]"
+                              dataType="i4"
+                              name="Value" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Currency]"
+                              codePage="1252"
+                              dataType="str"
+                              length="5"
+                              name="Currency" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Driver name]"
+                              codePage="1252"
+                              dataType="str"
+                              length="30"
+                              name="Driver name" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Remarks Field]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Remarks Field" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkin date]"
+                              dataType="i4"
+                              name="Checkin date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Car Group on request]"
+                              codePage="1252"
+                              dataType="str"
+                              length="1"
+                              name="Car Group on request" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Souce]"
+                              codePage="1252"
+                              dataType="str"
+                              length="15"
+                              name="Souce" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Reservation Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="11"
+                              name="Reservation Number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking  change date]"
+                              dataType="i4"
+                              name="Booking  change date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Checkin Time]"
+                              dataType="i2"
+                              name="Checkin Time" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[CCI number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="110"
+                              name="CCI number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[CheckOut Date]"
+                              dataType="i4"
+                              name="CheckOut Date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Booking Date]"
+                              dataType="i4"
+                              name="Booking Date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Flight]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Flight" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[booking change time]"
+                              dataType="i2"
+                              name="booking change time" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c22]"
+                              codePage="1252"
+                              dataType="str"
+                              length="1"
+                              name="c22" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c23]"
+                              codePage="1252"
+                              dataType="str"
+                              length="1"
+                              name="c23" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c24]"
+                              codePage="1252"
+                              dataType="str"
+                              length="1"
+                              name="c24" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c28]"
+                              codePage="1252"
+                              dataType="str"
+                              length="5"
+                              name="c28" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c30]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="c30" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c35]"
+                              codePage="1252"
+                              dataType="str"
+                              length="5"
+                              name="c35" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c2]"
+                              codePage="1252"
+                              dataType="str"
+                              length="8"
+                              name="c2" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c3]"
+                              codePage="1252"
+                              dataType="str"
+                              length="2"
+                              name="c3" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Some datec20]"
+                              dataType="i4"
+                              name="Some datec20" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[some timec21]"
+                              dataType="i2"
+                              name="some timec21" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c9]"
+                              dataType="i4"
+                              name="c9" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[c8]"
+                              dataType="i4"
+                              name="c8" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="1252"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="booking"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[wrk].[Booking]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[flotaskjal]"
+                          connectionManagerRefId="Package.ConnectionManagers[flotaskjal]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Booking Type]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="Booking Type"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking Type]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking Type]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Batch number]"
+                              cachedDataType="i2"
+                              cachedName="Batch number"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Batch number]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Batch number]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Rental Length (x100)]"
+                              cachedDataType="i2"
+                              cachedName="Rental Length (x100)"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Rental Length (x100)]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Rental Length (x100)]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Rate Code]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="2"
+                              cachedName="Rate Code"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Rate Code]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Rate Code]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Car Group]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="1"
+                              cachedName="Car Group"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Car Group]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Car Group]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[AWD BCD Number]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="8"
+                              cachedName="AWD BCD Number"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[AWD BCD Number]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[AWD BCD Number]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Reservation status]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="2"
+                              cachedName="Reservation status"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Reservation status]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Reservation status]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Checkout Station]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="10"
+                              cachedName="Checkout Station"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkout Station]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkout Station]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Checkin Station]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="10"
+                              cachedName="Checkin Station"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkin Station]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin Station]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Wizard Number]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="6"
+                              cachedName="Wizard Number"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Wizard Number]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Wizard Number]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Checkout Time]"
+                              cachedDataType="i2"
+                              cachedName="Checkout Time"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkout Time]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkout Time]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Value]"
+                              cachedDataType="i4"
+                              cachedName="Value"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Value]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Currency]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="5"
+                              cachedName="Currency"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Currency]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Driver name]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="30"
+                              cachedName="Driver name"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Driver name]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Driver name]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Remarks Field]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="150"
+                              cachedName="Remarks Field"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Remarks Field]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Remarks Field]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Checkin date]"
+                              cachedDataType="i4"
+                              cachedName="Checkin date"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkin Date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin date]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Reservation Number]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="11"
+                              cachedName="Reservation Number"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Reservation number]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Reservation Number]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Checkin Time]"
+                              cachedDataType="i2"
+                              cachedName="Checkin Time"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[CheckIn Time]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Checkin Time]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[CCI number]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="110"
+                              cachedName="CCI number"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[CCI number]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[CCI number]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[CheckOut Date]"
+                              cachedDataType="i4"
+                              cachedName="CheckOut Date"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[CheckOut Date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[CheckOut Date]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Booking Date]"
+                              cachedDataType="i4"
+                              cachedName="Booking Date"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking Date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking Date]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Flight]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="10"
+                              cachedName="Flight"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Flight]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Flight]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[importFile]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="importFile"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[importFile]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Output].Columns[importFile]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Booking  change date]"
+                              cachedDataType="i4"
+                              cachedName="Booking  change date"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking change date]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking  change date]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Souce]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="15"
+                              cachedName="Souce"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Souce]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Booking time]"
+                              cachedDataType="i4"
+                              cachedName="Booking time"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking_time]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\214:invalid" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c23]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="1"
+                              cachedName="c23"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c23]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c23]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c24]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="1"
+                              cachedName="c24"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c24]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c24]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c28]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="5"
+                              cachedName="c28"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c28]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c28]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Some datec20]"
+                              cachedDataType="i4"
+                              cachedName="Some datec20"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[some_datec20]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Some datec20]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[some timec21]"
+                              cachedDataType="i2"
+                              cachedName="some timec21"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[some_timec21]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[some timec21]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c2]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="8"
+                              cachedName="c2"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c2]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c2]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c22]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="1"
+                              cachedName="c22"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c22]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c22]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c3]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="2"
+                              cachedName="c3"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c3]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c3]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c30]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="10"
+                              cachedName="c30"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c30]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c30]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c35]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="5"
+                              cachedName="c35"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c35]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c35]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[booking change time]"
+                              cachedDataType="i2"
+                              cachedName="booking change time"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking change time]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[booking change time]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Booking confirmed by]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="7"
+                              cachedName="Booking confirmed by"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking confirmed by]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Booking confirmed by]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[c9]"
+                              cachedDataType="i4"
+                              cachedName="c9"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c9]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[c9]" />
+                            <inputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].Columns[Car Group on request]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="1"
+                              cachedName="Car Group on request"
+                              externalMetadataColumnId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Car Group on Request]"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output].Columns[Car Group on request]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[bookingID_pk]"
+                              dataType="i4"
+                              name="bookingID_pk" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[importFile]"
+                              dataType="wstr"
+                              length="300"
+                              name="importFile" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking Type]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="Booking Type" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Batch number]"
+                              dataType="i4"
+                              name="Batch number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[CheckOut Date]"
+                              dataType="i4"
+                              name="CheckOut Date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkin Date]"
+                              dataType="i4"
+                              name="Checkin Date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Rental Length (x100)]"
+                              dataType="i4"
+                              name="Rental Length (x100)" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking Date]"
+                              dataType="i4"
+                              name="Booking Date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Rate Code]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Rate Code" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Car Group]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Car Group" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Car Group on Request]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Car Group on Request" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[AWD BCD Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="8"
+                              name="AWD BCD Number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Flight]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Flight" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Source" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Reservation number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Reservation number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Reservation status]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Reservation status" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking change date]"
+                              dataType="i4"
+                              name="Booking change date" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkout Station]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Checkout Station" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkin Station]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Checkin Station" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking confirmed by]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Booking confirmed by" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Wizard Number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Wizard Number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Checkout Time]"
+                              dataType="i2"
+                              name="Checkout Time" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[CheckIn Time]"
+                              dataType="i2"
+                              name="CheckIn Time" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                              dataType="i4"
+                              name="Value" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="Currency" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Driver name]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="Driver name" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Remarks Field]"
+                              codePage="1252"
+                              dataType="str"
+                              length="200"
+                              name="Remarks Field" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[CCI number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="200"
+                              name="CCI number" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[RowRecorded]"
+                              dataType="dbTimeStamp2"
+                              name="RowRecorded"
+                              scale="7" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking_time]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Booking_time" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[some_datec20]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="some_datec20" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[some_timec21]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="some_timec21" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c22]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c22" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c23]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c23" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c24]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c24" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c28]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c28" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c30]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c30" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c35]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c35" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c2]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c2" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c3]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c3" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[c9]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="c9" />
+                            <externalMetadataColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input].ExternalColumns[Booking change time]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="Booking change time" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="Derived Column"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Output].Columns[importFile]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Output].Columns[importFile]"
+                              name="importFile"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::imp_filename]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::imp_filename]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Avis\avis_res\Imp avis_rsfdata_is.Paths[Derived Column Output]"
+                      endId="Package\Avis\avis_res\Imp avis_rsfdata_is\booking.Inputs[OLE DB Destination Input]"
+                      name="Derived Column Output"
+                      startId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Avis\avis_res\Imp avis_rsfdata_is.Paths[Flat File Source Output]"
+                      endId="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column.Inputs[Derived Column Input]"
+                      name="Flat File Source Output"
+                      startId="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is.Outputs[Flat File Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Avis\avis_res\log file import"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{9ff58314-cee7-4e3c-a317-70d97c7e387d}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="log file import"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+                  SQLTask:SqlStatementSource="&#xA;declare @impFile varchar (100) ; &#xA;declare @impFile_year varchar (100) ; &#xA;declare @ImportFileNamePath varchar(200) &#xA;declare  @exists int =0&#xA;&#xA;set @ImportFileNamePath   =? &#xA;set @impFile   = ? &#xA;&#xA;&#xA;set @impFile_year = left(convert(varchar(10) , getdate(),121) ,4) +'_'+@impFile   &#xA;select  @impFile_year &#xA;&#xA;if exists (select 1 from ImportFileLog where ImportFileType= 'AVIS_RSFDATA_IS' and ImportFile_year =@impFile_year  ) &#xA;begin &#xA;  set @exists = 1 &#xA;  print 'exists '&#xA;end   &#xA;else &#xA;begin &#xA; set @exists = 0 &#xA; insert into ImportFileLog &#xA; (&#xA;  ImportFileNamePath&#xA; ,ImportFile_org&#x9;&#xA; ,ImportFile &#xA; ,ImportFile_year&#xA; ,ImportFileType&#xA; ) values(@ImportFileNamePath,@impFile,@impFile_year ,@impFile_year ,'AVIS_RSFDATA_IS')&#xA;end &#xA;set ? = @exists &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::full_filename_path"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::imp_filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::file_exists"
+                    SQLTask:ParameterDirection="Output"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Avis\avis_res\Unzip"
+              DTS:CreationName="Microsoft.ExecuteProcess"
+              DTS:Description="d:\ftp_flotaskjol\Bin\7-Zip\7z.exe"
+              DTS:DTSID="{f95ea832-6da3-4175-a21a-219da2cccf23}"
+              DTS:ExecutableType="Microsoft.ExecuteProcess"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Unzip"
+              DTS:TaskContact="Execute Process Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:PropertyExpression
+                DTS:Name="Arguments">"x -y -o"  +@[User::oud_folder]+"  "+  @[User::avis_incoming] + @[User::imp_filename]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="WorkingDirectory">@[User::avis_incoming]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecuteProcessData
+                  Executable="d:\ftp_flotaskjol\Bin\7-Zip\7z.exe"
+                  Arguments="x -y -od:\ftp_flotaskjol\Incoming\out\  d:\ftp_flotaskjol\Incoming\Avis\"
+                  WorkingDirectory="d:\ftp_flotaskjol\Incoming\Avis\" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Avis\avis_res\Unzip 1"
+              DTS:CreationName="Microsoft.ExecuteProcess"
+              DTS:Description="Execute Process Task"
+              DTS:Disabled="True"
+              DTS:DTSID="{caa4c94c-f4f3-42ff-b792-29a3cae5ee4b}"
+              DTS:ExecutableType="Microsoft.ExecuteProcess"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Unzip 1"
+              DTS:TaskContact="Execute Process Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:PropertyExpression
+                DTS:Name="Arguments">"x -y -o"  +@[User::oud_folder]+"  "+  @[User::bud_incoming_path] + @[User::imp_filename]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="WorkingDirectory">@[User::bud_incoming_path]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecuteProcessData
+                  Executable="d:\ftp_flotaskjol\Bin\7-Zip\7z.exe"
+                  Arguments="x -y -od:\ftp_flotaskjol\Incoming\out\  d:\ftp_flotaskjol\Incoming\Budget\"
+                  WorkingDirectory="d:\ftp_flotaskjol\Incoming\Budget\" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Avis\avis_res.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{F80BE027-10B2-4E8A-9CF7-1F8ACE33FBEE}"
+              DTS:EvalOp="3"
+              DTS:Expression="(@file_exists==0)"
+              DTS:From="Package\Avis\avis_res\check if file exists"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Avis\avis_res\Unzip" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Avis\avis_res.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{F681B7CC-4366-4D76-ACF2-B87226787813}"
+              DTS:From="Package\Avis\avis_res\Unzip"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Avis\avis_res\Imp avis_rsfdata_is" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Avis\avis_res.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{404CD71C-FCB0-48EF-91C2-3B021EDB9317}"
+              DTS:From="Package\Avis\avis_res\Imp avis_rsfdata_is"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Avis\avis_res\log file import" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{80D84EED-6840-4EE6-B3C3-B95F07432528}"
+              DTS:ObjectName="{80D84EED-6840-4EE6-B3C3-B95F07432528}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::imp_filename" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Avis\improt current day again"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{28992f43-219d-41b9-b50a-29b72c0b2d80}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="improt current day again"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+              SQLTask:SqlStatementSource="exec flotaskjal..reimportCurrentDayBookings" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Avis\truncate staging tables AVIS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{634352e0-95bd-42b8-9ab6-3d5835bd878f}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate staging tables AVIS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+              SQLTask:SqlStatementSource="truncate table [wrk].[Booking]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Avis.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E4F2FE99-A15E-4932-8A72-927A2BA0A1DD}"
+          DTS:From="Package\Avis\truncate staging tables AVIS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Avis\improt current day again" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Avis.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{C2F1E417-B98E-4D65-9442-5F25A95F49B6}"
+          DTS:From="Package\Avis\improt current day again"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Avis\avis_res" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Avis.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{12A544DF-19B5-4D47-98A4-C96CC2049DCA}"
+          DTS:From="Package\Avis\avis_res"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Avis\Avis to staging hist" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Avis.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{843D69BA-B993-4AF5-B53A-981F1787B7D5}"
+          DTS:From="Package\Avis\truncate staging tables AVIS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Avis\avis_res" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="184,44"
+          Id="Package\Avis\Avis to staging hist"
+          TopLeft="216.622641509434,683.358490566038" />
+        <NodeLayout
+          Size="165,44"
+          Id="Package\Avis\avis_res\check if file exists"
+          TopLeft="139.037735849057,18.3018867924528" />
+        <NodeLayout
+          Size="158,44"
+          Id="Package\Avis\avis_res\Imp avis_rsfdata_is"
+          TopLeft="145.792452830189,216.301886792453" />
+        <NodeLayout
+          Size="155,44"
+          Id="Package\Avis\avis_res\log file import"
+          TopLeft="154.830188679245,313.981132075472" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Avis\avis_res\Unzip"
+          TopLeft="165.018867924528,118.811320754717" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\Avis\avis_res\Unzip 1"
+          TopLeft="366.792452830189,114.981132075472" />
+        <EdgeLayout
+          Id="Package\Avis\avis_res.PrecedenceConstraints[Constraint]"
+          TopLeft="219.528301886792,62.3018867924528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,56.5094339622642"
+              Start="0,0"
+              End="0,49.0094339622642">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.0094339622642" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,16.5047169811321,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Avis\avis_res.PrecedenceConstraints[Constraint 1]"
+          TopLeft="221.155660377359,160.811320754717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,55.490566037736"
+              Start="0,0"
+              End="0,47.990566037736">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.990566037736" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Avis\avis_res.PrecedenceConstraints[Constraint 2]"
+          TopLeft="228.561320754717,260.301886792453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,53.679245283019"
+              Start="0,0"
+              End="0,46.179245283019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.179245283019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Only import new files ..!!"
+          ParentId="Package\Avis\avis_res"
+          Size="226,38"
+          Id="de32792e-7108-4a12-988f-f1ec3907803d"
+          TopLeft="305.698113207547,86.6603773584906">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="547,515"
+          Size="547,559"
+          Id="Package\Avis\avis_res"
+          TopLeft="35.3584905660377,109.830188679245" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Avis\improt current day again"
+          TopLeft="366.22641509434,5.5" />
+        <NodeLayout
+          Size="155,44"
+          Id="Package\Avis\truncate staging tables AVIS"
+          TopLeft="106.528301886792,8.7358490566038" />
+        <EdgeLayout
+          Id="Package\Avis.PrecedenceConstraints[Constraint]"
+          TopLeft="261.528301886792,28.6179245283019">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="104.698113207548,0"
+              Start="0,0"
+              End="97.198113207548,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.198113207548,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Avis.PrecedenceConstraints[Constraint 1]"
+          TopLeft="463.72641509434,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-65.034591194969,62.330188679245"
+              Start="0,0"
+              End="-65.034591194969,54.830188679245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.2890410581994" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.2890410581994"
+                    Point2="0,37.2890410581994"
+                    Point3="-4,37.2890410581994" />
+                  <mssgle:LineSegment
+                    End="-61.034591194969,37.2890410581994" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.034591194969,37.2890410581994"
+                    Point2="-65.034591194969,37.2890410581994"
+                    Point3="-65.034591194969,41.2890410581994" />
+                  <mssgle:LineSegment
+                    End="-65.034591194969,54.830188679245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Avis.PrecedenceConstraints[Constraint 4]"
+          TopLeft="308.858490566038,668.830188679245">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="91.7641509433963,36.528301886793"
+              Start="0,0"
+              End="84.2641509433963,36.528301886793">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.528301886793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.528301886793"
+                    Point2="0,36.528301886793"
+                    Point3="4,36.528301886793" />
+                  <mssgle:LineSegment
+                    End="84.2641509433963,36.528301886793" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Avis.PrecedenceConstraints[Constraint 5]"
+          TopLeft="184.028301886792,52.7358490566038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="34.9968553459123,57.0943396226412"
+              Start="0,0"
+              End="34.9968553459123,49.5943396226412">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1566938828852" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.1566938828852"
+                    Point2="0,34.1566938828852"
+                    Point3="4,34.1566938828852" />
+                  <mssgle:LineSegment
+                    End="30.9968553459123,34.1566938828852" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.9968553459123,34.1566938828852"
+                    Point2="34.9968553459123,34.1566938828852"
+                    Point3="34.9968553459123,38.1566938828852" />
+                  <mssgle:LineSegment
+                    End="34.9968553459123,49.5943396226412" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="602,863"
+          Size="602,907"
+          Id="Package\Avis"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Avis\avis_res\Imp avis_rsfdata_is">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Avis\avis_res\Imp avis_rsfdata_is\Derived Column"
+          TopLeft="16.5,109.5" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Avis\avis_res\Imp avis_rsfdata_is\booking"
+          TopLeft="28,216" />
+        <NodeLayout
+          Size="152,44"
+          Id="Package\Avis\avis_res\Imp avis_rsfdata_is\avis_rsfdata_is"
+          TopLeft="8.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\Avis\avis_res\Imp avis_rsfdata_is.Paths[Flat File Source Output]"
+          TopLeft="84.5,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Avis\avis_res\Imp avis_rsfdata_is.Paths[Derived Column Output]"
+          TopLeft="85.25,153.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,62.5"
+              Start="0,0"
+              End="0,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Avis\avis_res\Imp avis_rsfdata_is\booking">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

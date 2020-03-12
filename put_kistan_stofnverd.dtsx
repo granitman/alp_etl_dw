@@ -1,0 +1,611 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2018 4:56:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-02"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{ED279C7B-3836-4423-BF83-FB829C7BADE9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="put_kistan_stofnverd"
+  DTS:PackageType="5"
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{3DD0DADD-AC52-47F5-9D40-CC4427D2979A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[kistan.miracle]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{5F83449E-A246-4309-964C-17206DCF9365}"
+      DTS:ObjectName="kistan.miracle">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=miracle;Dsn=kistan;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA17Z0N/Fs0kGjjk5RhOxwtwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADQ5cax0FrD8G9/Nw/BP4DLAAAAAASAAACgAAAAEAAAACODT2h9ffZdrYdAtxhRmeYYAAAAxGC7NHZ6xJdilcqEFeRi46dXKcVbtgW+FAAAAKbIB1CHGNEJ3SpTYlvsl6EsqXJk</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[kistan_10.150.4.3.miracle]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{DE2CFD60-AD6C-4EF3-8190-47D666BB73E4}"
+      DTS:ObjectName="kistan_10.150.4.3.miracle">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=kistan.alp.is;user id=miracle;sslmode=None;persistsecurityinfo=True;database=kistan;logging=True;sqlservermode=True;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA17Z0N/Fs0kGjjk5RhOxwtwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADxb1UAE47mS4l46FMvzOwsAAAAAASAAACgAAAAEAAAABFDqf5CvbQJ2A0zXfzZPU0YAAAAbzY+GO3L6paH0TRqG+bO5MG7HJjMP8ulFAAAAFrytN6NxqOHOWg9Y2aMK4nDo/k1</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5F75F30F-FADE-4036-B0AB-499616B539DA}"
+      DTS:ObjectName="staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4EE82D84-A1AC-4949-83DB-BAAFFF25139E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select  * from carwash where ID&gt;= &quot;+ (DT_WSTR,20)  @[User::MaxId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CarwashSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">select  * from carwash where ID&gt;= 0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{048811F2-3D3C-430F-8769-0003CE342A03}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\get kistan sala"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DD808BC5-CB9B-4E58-810D-429CE2A95E00}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get kistan sala"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\get kistan sala\sala_bokad_b"
+              componentClassID="Attunity.SSISODBCDst"
+              contactInfo="ODBC Destination;Connector for Open Database Connectivity (ODBC) by Attunity; Attunity Ltd.; All Rights Reserved; http://www.attunity.com;7"
+              description="ODBC Destination"
+              name="sala_bokad_b"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for inserting data. Possible values are 'Batch' or 'Row by row'."
+                  expressionType="Notify"
+                  name="InsertMethod"
+                  typeConverter="InsertMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs"
+                  typeConverter="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs"
+                  typeConverter="BindNumericAs">0</property>
+                <property
+                  dataType="System.String"
+                  description="Destination table"
+                  expressionType="Notify"
+                  name="TableName">`sala_bokfaert`</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows inserted per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of rows inserted under the same transaction."
+                  expressionType="Notify"
+                  name="TransactionSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get kistan sala\sala_bokad_b.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[kistan.miracle]"
+                  connectionManagerRefId="Package.ConnectionManagers[kistan.miracle]"
+                  description="The ODBC runtime connection"
+                  name="ODBCConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ODBC Destination Input"
+                  truncationRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].Columns[CarNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="CarNumber"
+                      externalMetadataColumnId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[bilnumer]"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[CarNumber]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].Columns[Stofnverð]"
+                      cachedDataType="numeric"
+                      cachedName="Stofnverð"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[bokfaert]"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[Stofnverð]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].Columns[EftirstöðvarLánadrottna]"
+                      cachedDataType="numeric"
+                      cachedName="EftirstöðvarLánadrottna"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[lanastada]"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[EftirstöðvarLánadrottna]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[bilnumer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="bilnumer" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[bokfaert]"
+                      dataType="i4"
+                      name="bokfaert" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[lanastada]"
+                      dataType="i4"
+                      name="lanastada" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[raunvirdi]"
+                      dataType="i4"
+                      name="raunvirdi" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Destination Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[bilnumer]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[bilnumer]"
+                      length="10"
+                      lineageId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[bilnumer]"
+                      name="bilnumer" />
+                    <outputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[bokfaert]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[bokfaert]"
+                      lineageId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[bokfaert]"
+                      name="bokfaert" />
+                    <outputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[lanastada]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[lanastada]"
+                      lineageId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[lanastada]"
+                      name="lanastada" />
+                    <outputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[raunvirdi]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input].ExternalColumns[raunvirdi]"
+                      lineageId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[raunvirdi]"
+                      name="raunvirdi" />
+                    <outputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\sala_bokad_b.Outputs[ODBC Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\get kistan sala\stofnverð_ok_fl"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="stofnverð_ok_fl"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+  convert(char(5),[CarNumber])  as [CarNumber]
+      ,[Stofnverð]
+      ,[Afskriftir]
+      ,[EftirstöðvarLánadrottna]
+from [flotaskjal].[report].[stofnverð_og_eftirstöðvar_lánadrottins]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get kistan sala\stofnverð_ok_fl.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[CarNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[CarNumber]"
+                      length="5"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[CarNumber]"
+                      name="CarNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[Stofnverð]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[Stofnverð]"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[Stofnverð]"
+                      name="Stofnverð"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[Afskriftir]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[Afskriftir]"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[Afskriftir]"
+                      name="Afskriftir"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[EftirstöðvarLánadrottna]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[EftirstöðvarLánadrottna]"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].Columns[EftirstöðvarLánadrottna]"
+                      name="EftirstöðvarLánadrottna"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[CarNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CarNumber" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[Stofnverð]"
+                      dataType="numeric"
+                      name="Stofnverð"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[Afskriftir]"
+                      dataType="numeric"
+                      name="Afskriftir"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output].ExternalColumns[EftirstöðvarLánadrottna]"
+                      dataType="numeric"
+                      name="EftirstöðvarLánadrottna"
+                      precision="38"
+                      scale="20" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[CarNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[CarNumber]"
+                      name="CarNumber" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[Stofnverð]"
+                      dataType="numeric"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[Stofnverð]"
+                      name="Stofnverð"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[Afskriftir]"
+                      dataType="numeric"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[Afskriftir]"
+                      name="Afskriftir"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[EftirstöðvarLánadrottna]"
+                      dataType="numeric"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[EftirstöðvarLánadrottna]"
+                      name="EftirstöðvarLánadrottna"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\get kistan sala.Paths[OLE DB Source Output]"
+              endId="Package\get kistan sala\sala_bokad_b.Inputs[ODBC Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\get kistan sala\stofnverð_ok_fl.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\hreinsa"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1FCB92B5-6E6A-4021-9652-90636E334F6A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="hreinsa"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5F83449E-A246-4309-964C-17206DCF9365}"
+          SQLTask:SqlStatementSource="delete from sala_bokfaert where bilnumer &gt; ''&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0E8D5600-0E35-49E6-B0C5-4E693A7C3056}"
+      DTS:From="Package\hreinsa"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\get kistan sala" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147,42"
+          Id="Package\get kistan sala"
+          TopLeft="419,201" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\hreinsa"
+          TopLeft="420,106" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="476.5,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="16,53"
+              Start="0,0"
+              End="16,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="12,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,26.5"
+                    Point2="16,26.5"
+                    Point3="16,30.5" />
+                  <mssgle:LineSegment
+                    End="16,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\get kistan sala">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\get kistan sala\stofnverð_ok_fl"
+          TopLeft="728,134" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\get kistan sala\sala_bokad_b"
+          TopLeft="735,402" />
+        <EdgeLayout
+          Id="Package\get kistan sala.Paths[OLE DB Source Output]"
+          TopLeft="805.25,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,226"
+              Start="0,0"
+              End="0,218.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,218.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get kistan sala\stofnverð_ok_fl">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get kistan sala\sala_bokad_b">
+    <Properties>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

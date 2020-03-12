@@ -1,0 +1,2987 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="dc00405b-e5d3-4518-a78b-c0f23c26fd83" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>15edb81e-6bdc-406d-9b2e-a46c88424d8a</ID>
+  <Name>Wise Cube Sales</Name>
+  <CreatedTimestamp>2016-03-04T15:00:23.516667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:23.516667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>15edb81e-6bdc-406d-9b2e-a46c88424d8a</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:46:10.363333Z</LastProcessed>
+  <State>Processed</State>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <Dimensions>
+    <Dimension dwd:design-time-name="7e4260e2-e26a-40fd-a742-273a75f17c09">
+      <ID>b51ebe69-baaa-475b-8d4d-a46c89e79bea</ID>
+      <Name>Company</Name>
+      <DimensionID>2ec80572-226f-4378-821c-ccfe40408cb4</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="2b0439f1-9e55-4ccf-b399-e8e5fea690f8">
+          <AttributeID>5cb21466-16f0-4e08-97dd-500fc64da93e</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="52c93009-2b7d-4085-96cd-41777add2baf">
+          <AttributeID>82df39c1-729e-4f50-8668-555e4ca93bf8</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="624d2027-c8fa-442e-b2e7-c9165ba82789">
+      <ID>10bf63df-e866-463b-9f3b-a46c89e79e92</ID>
+      <Name>Currency</Name>
+      <DimensionID>a32f4712-1539-47d8-b8d3-e869c274ed16</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4212300c-7a71-475a-88c8-1892cfe5492f">
+          <AttributeID>30492597-b8f0-48a3-b97f-7664cb4f5f6f</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="70f3ca07-f792-4e36-9e29-6980946a01f8">
+          <AttributeID>4e8896b5-b3b9-4453-9d70-85a2667bcf5c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a4148a3c-1b19-4b96-9577-34370bea75fd">
+          <AttributeID>52047903-222a-4d5a-add7-df2d999f8e1d</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="eab48dee-f339-4cef-ba1c-3459355ffa13">
+          <AttributeID>97fdbc4e-60d1-460e-b867-f33ce92cda38</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="34f4108e-a303-4d4d-9f5f-f3b4b0cf82d1">
+      <ID>7ec626f4-5ace-459f-950b-a46c89e7a04a</ID>
+      <Name>Customer</Name>
+      <DimensionID>54b9560c-c848-4d8c-8c64-a0f2f7ea6b95</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="0c0ece11-48ae-49af-af2f-f82deac777c9">
+          <AttributeID>f9473972-a51a-46ad-9c10-465d14f5dcaa</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="218bf497-7312-48fe-90b0-43cba6f86d8f">
+          <AttributeID>4eb82bb4-c538-4fd8-8134-b576d5bb49c3</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="26728077-b4e5-4e16-aada-6af123b95009">
+          <AttributeID>43af6784-d1bb-432f-af4d-a3d50ff8b319</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1d3931df-c8ce-4246-8f13-034c4d2a6fc0">
+          <AttributeID>5a19c8ca-c726-47d1-ad5d-e12754668724</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e4444cdb-be4d-47b8-9237-bf50bb64cb30">
+          <AttributeID>e4675cc3-cbc3-4a27-8be8-62f432108989</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="40ea8606-f6e9-4735-9034-3a4cce594ff2">
+          <AttributeID>8c854ccc-82b9-4a35-8798-3bbbe586432d</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="393c2ea3-3a36-4fe8-b609-ab68fd445718">
+          <AttributeID>9bda91a4-0df7-4be6-856b-2b94940ac715</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="07d77b16-b949-4ad1-b121-4877133a7c8b">
+          <AttributeID>ac946ca4-1fe0-4218-ae69-17559f3b79b9</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="26da951a-6083-4eb7-b578-bb0e8602fa05">
+          <AttributeID>0cd78c92-939b-4d35-b964-056a1e4e2963</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2868e768-8cfb-40f3-8099-170c0478b421">
+          <AttributeID>e3ab52ad-8edc-4f7d-9e60-5eb53fb46306</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="78ad037c-f6dc-44e7-8098-2b9b69cfa8bd">
+          <AttributeID>2af11356-0d5c-4b49-96c4-96f423eb9a58</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bca119cd-c4e2-4691-930f-891f5ab596d2">
+          <AttributeID>ec0f7c1e-9afa-4c28-a4ff-8eaa5f74b39f</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a9dcc7c9-9845-4f48-8a36-8222efc5e2d6">
+          <AttributeID>05d573d3-0be6-45fc-a898-08371dc8a93e</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2ddda4db-99db-42ee-be64-fa4e0caea3da">
+          <AttributeID>100d9205-559c-4c35-b766-a5316bedb870</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7d41f941-9f38-4cf5-8e5b-fb560d98beac">
+          <AttributeID>c5c71491-c6fa-423d-aa64-a5b15d5800df</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="94e46b89-ec09-4f99-a591-8c4522bbdb9a">
+      <ID>820576b2-0d29-4eb6-aca1-a46c89e7a482</ID>
+      <Name>Date</Name>
+      <DimensionID>78b70431-dc10-4499-81a2-c2631024b9f5</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f3502eff-f643-43eb-ac95-4acd258ce261">
+          <AttributeID>96ea5c01-aff5-43dc-8a34-1b321bc63a7c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="290c9078-0f71-4ace-b736-704b9aea207c">
+          <AttributeID>63eee970-3804-46bf-95e3-694b215fc25e</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2047de9b-e4f7-4144-8ae5-7098c66e850e">
+          <AttributeID>e61fd379-0008-4c3d-bae1-b6815b100818</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="904b3428-3f74-4d18-b56a-3c8f293562fa">
+          <AttributeID>f2399f89-d2e1-4198-b81f-14d6c76c2d00</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9730a489-73f0-43d9-92e1-e8b1369fc9f4">
+          <AttributeID>2c0270d2-90d9-4e36-9689-6fc1880cf71b</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="27e8755b-dc21-42b7-9a19-3995c3f30f09">
+          <AttributeID>e86be2fe-e514-4fa8-875c-65bb71ff9456</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6c3ed9c4-c5d0-4e89-b076-c3168a6069e8">
+          <AttributeID>5b8e9a14-57f8-49e0-bfb7-a04e5e91d0a1</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="8b9a8df2-d476-4b30-b6c8-75afccc6f4a8">
+          <AttributeID>74e862a2-90bb-4d8c-be42-befe5495d760</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="339ed459-61ab-492a-83bd-ef3a6712eaa6">
+          <HierarchyID>9c08cddb-1b0e-42b7-97ed-20cc8dbd1be8</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="034cd615-4408-4ff7-bb86-8b06a14f3d42">
+          <HierarchyID>98e72b3d-6d81-444f-84e8-4be9e84df00e</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="b0b3e5e2-8b35-4a3a-ba30-c94c0da35504">
+          <HierarchyID>7d287d70-3020-440f-a791-64cc5a0190d6</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="ad7dfe6c-80d0-4249-b643-b4ff1edefdb3">
+      <ID>63604c3c-f5fb-488b-99f9-a46c89e7a72a</ID>
+      <Name>Item</Name>
+      <DimensionID>562cd7c8-8614-4819-934e-250ca906050c</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c6a07c86-1552-4461-be8d-850a48457df2">
+          <AttributeID>5c0ac58f-467e-478b-a3bc-c1f8e2fefbeb</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="0b29d3eb-e931-4db7-ac91-498d62866d15">
+          <AttributeID>7998352e-451a-42b1-966f-55ddfd927c90</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d0b6bcef-7836-4947-8e61-b2fb7b311279">
+          <AttributeID>411ec1a3-6cf3-40ed-b562-b324ce151841</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="251fc968-9047-4d45-b3f8-6aa7c6b05d55">
+          <AttributeID>7d1827dd-985b-4625-bae4-d11e373e7796</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6b9080f7-37a0-417a-80c1-4ba818ced3a3">
+          <AttributeID>0762364b-38f9-49e1-8a3f-1b0bcbc10269</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a7778e76-897f-42c5-913c-03679770622d">
+          <AttributeID>aea5a2e4-e6e5-4a64-9598-272d765becfc</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="12e746d4-f85a-4f7c-9eee-8d18b347563a">
+          <AttributeID>117a02b9-8487-46e3-af7a-e58b5a8a684d</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3fade73a-2bda-4cde-9eaa-e536d9efb467">
+          <AttributeID>ae11094a-1278-48e0-8969-1a5b67a21882</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0be7820a-f04a-46e8-9bbc-534640751f87">
+          <AttributeID>aa3ec70c-4ae9-4507-8566-776632743263</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="97c1a2ff-8c56-44e9-9a1d-8227fcd197fd">
+      <ID>ec669962-5638-480f-8dad-a46c89e7aa9a</ID>
+      <Name>Item Variant</Name>
+      <DimensionID>bf0a5800-5b8c-4e0e-a742-e0c80b6fa6d6</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="409e0f56-0c41-42fb-a97a-6d728384e7c7">
+          <AttributeID>710e7de0-1059-4e89-9cb8-2ade8077c4a5</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6b3a0038-0b56-4b48-af64-0d1d8d523159">
+          <AttributeID>5efe2571-a95d-4167-86a7-cb680884d29a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="04b2a925-bf17-4faf-af82-f8b4837ab059">
+          <AttributeID>987c6d2b-0579-4a30-86ee-696f58663c84</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="551fe4ef-aaf9-45e2-87d9-896f1f3188e7">
+          <AttributeID>ecfc428e-3d8f-472f-944e-b8b1aa7fcfc3</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="ddd2162b-b2d8-4e02-b58b-ce8dbf3de851">
+      <ID>f5d8975c-b5e9-4076-aa62-a46c89e7ad6a</ID>
+      <Name>Resource</Name>
+      <DimensionID>cd37aa33-ba7b-495e-96ac-568bb167f8c0</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="81cad25a-a7e6-4ad9-a2f8-743fc6cc4c26">
+          <AttributeID>875ae699-4c59-497c-afdf-0a5480e18b45</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="cfc7d6a5-d7d8-406a-a4fa-3f34d14d74b8">
+          <AttributeID>4890d997-92ca-4d0e-b0ff-0fcbf14802a7</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f9f9c069-b37d-412b-a83f-5ec37f2ee2b3">
+          <AttributeID>6e97c512-8750-4d60-b8d5-d362802b5f56</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8b3ec784-afc6-4fc5-adf5-20b6c9d615c9">
+          <AttributeID>4224782a-aa72-46b5-8f1f-a96dbdf5dedc</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f7c4a915-90f3-41fa-888a-5b291363efe0">
+          <AttributeID>8537e987-f274-4dc9-b40a-29decadb3a32</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="92eac12c-03bf-4677-b39a-a1c76414688e">
+          <AttributeID>177b5a5b-dc83-4e1f-80df-0e47ba02005e</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9bf068a3-ce03-4efc-b88c-4c59e603135f">
+          <AttributeID>d298b84d-9dab-48e9-ae9d-ddb516d117b4</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9063337c-ae6f-441c-8b66-b215b2410200">
+          <AttributeID>9f6db4fb-77d3-4563-8a17-b223411d1a27</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="067db542-fac6-47d5-b164-502944049474">
+          <AttributeID>4b6a80f4-079e-424c-bf8d-8681a2418b01</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5952f032-0ef9-4332-8094-cf12853220d4">
+          <AttributeID>169d1fb3-9c65-4185-94ea-9ef9b5e7be86</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c288f6fa-8dbb-4bd1-bb7f-f7305f269fe4">
+      <ID>7111195d-1ff4-4bcd-b9e8-a46c89e7b012</ID>
+      <Name>Account</Name>
+      <DimensionID>f909fe1d-4f27-44c3-b34a-e3757762bac4</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="827371ec-3015-4871-b5fb-9c80e3528623">
+          <AttributeID>852526be-4aac-403d-b53e-c4be860689e3</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="47c85edd-d098-482e-b1cd-4e878cf51b4a">
+          <AttributeID>f11e16bc-a0ce-465c-a8d4-0a91fbc8da71</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="811a1017-f37d-482c-97e2-13a2f54f2e37">
+          <AttributeID>84b24b64-8795-4fa6-bd97-67979c1a41ee</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cf2380e8-c6be-4047-9bd1-141fac60878a">
+          <AttributeID>4ffac3ac-94e5-4ecf-8e80-93789f844ce0</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="08fbff12-2e30-42aa-9b4a-abc017e7d2d4">
+          <AttributeID>da1ee508-2ab9-45f2-81e3-80bc4959753a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="614b7523-4158-42e9-b64c-bbebb90f3683">
+          <AttributeID>dd50853e-b2d4-460c-af7d-a23bdbdd9575</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="729e4ca9-b696-4ada-ad5c-9b85d7ebf775">
+          <AttributeID>f29ca106-145c-45ff-be76-c79e2580b043</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="08a019de-102d-42cd-af89-632bf4930103">
+      <ID>d8a06956-8d6a-46e3-9fee-a46c89e7b2e2</ID>
+      <Name>GD 1</Name>
+      <DimensionID>0284e440-3802-41b3-946f-643226ef60ac</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="23edfd30-4562-4556-8487-94fbedf87f37">
+          <AttributeID>45518da5-cef0-4317-8f95-964252ddf8af</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5bcd3575-f5dd-4a51-bfef-52133e98597e">
+          <AttributeID>4c96a102-ad67-4f48-a262-27ff1dc204cf</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="00ea1817-63ad-4656-83c0-c8be0d2e738d">
+          <AttributeID>f29c2e32-70fd-4f84-b2b1-dd883d381d74</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8d588bd8-d7bb-4dde-8b38-2bdb22980622">
+          <AttributeID>27d1dcfa-f409-41b7-ab33-b57f371454c8</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="0bbc4f07-b179-40d9-843a-badce48e54a5">
+      <ID>e7d502ca-69fc-4943-af2a-a46c89e7b49a</ID>
+      <Name>GD 2</Name>
+      <DimensionID>3a185990-b665-47ef-adac-5381eccc2414</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="536ecb33-5360-4b63-9c86-52469398bf9c">
+          <AttributeID>fad2a892-219b-4edb-a09f-d85d8134dc38</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="18c24e05-f7a8-437e-9ade-55a0587738e7">
+          <AttributeID>99aba31e-60ec-4abb-891b-bde005e50d1a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="44d195a0-d9d4-4653-8af6-b113ac85c0d6">
+          <AttributeID>1ee71610-2dae-450f-983e-2cc4a0448961</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b339aa03-33a0-43a5-be6f-657575104000">
+          <AttributeID>39ed7a21-6257-44c1-b923-070c529bca84</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b0c247d1-e2b6-48f0-adc1-e3d4da38d3f8">
+      <ID>0440c2a6-2097-4a1f-b989-a46c89e7b652</ID>
+      <Name>GD 3</Name>
+      <DimensionID>1132cd67-1376-4e14-8526-52d5146d13eb</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c9685a84-f1e2-4507-9deb-fb4adb041e23">
+          <AttributeID>aebec88c-a6cd-493c-8a84-d82322ce9058</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0b2cde06-cfff-4618-866a-fb203b7615c0">
+          <AttributeID>310fad36-2b78-491b-bcbe-53b4c0318221</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d2552f0c-4803-421e-a351-40d149e90838">
+          <AttributeID>c000e0f1-8047-4735-ac68-ff8fa40bdbf4</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8dfcdf4f-40ba-4ae3-bc23-c163c139b907">
+          <AttributeID>26d42839-65ec-437f-87f5-670616f3d82d</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="cecbae19-2860-4ff6-9417-0b8390d31dd3">
+      <ID>97c95223-c30d-4dc8-b03b-a46c89e7b832</ID>
+      <Name>GD 4</Name>
+      <DimensionID>df62e44e-1634-46f1-a7c5-79e6e023da76</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ac582f37-3348-41b2-96a9-686ee3f3869a">
+          <AttributeID>b6e6cf76-1471-43de-a45f-8753e2073e89</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ccbddccc-50a9-4dcb-8b3f-c467e487c2b2">
+          <AttributeID>044d3c52-38bd-4aee-a991-97e7efdd7c7f</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d69428dd-c7a1-47da-ad94-311311a74ab8">
+          <AttributeID>329c0b12-94d2-4c0a-b427-42be618ba7c4</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="69a54bac-94ee-4189-94ee-52649d34dfb8">
+          <AttributeID>11efd604-2a2e-4a1d-bb02-ca2780a37875</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="38be805b-0241-433a-acfd-fc406b83b402">
+      <ID>ee2df1be-4516-42a3-9c83-a46c89e7b9ea</ID>
+      <Name>GD 5</Name>
+      <DimensionID>6c06eb06-3cd8-4d76-9c64-ff897f704368</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="68edda34-6c63-485d-a181-9297e6b7eeba">
+          <AttributeID>1f31c63a-e585-4100-958a-15b972908099</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="578c5af3-bbdc-4342-9cb6-472d9d4c3bc7">
+          <AttributeID>6a1c972e-4b63-4d28-bf36-6089770a58fa</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bdbb95f8-a39a-4297-8264-45de6fa01cc6">
+          <AttributeID>11386ebb-cd43-4843-bcac-78725b291126</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b8a0a1fa-e860-4332-8560-422b4dd30455">
+          <AttributeID>ce0aed37-bff4-47ac-82ae-8c0e10baa008</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="438bbc65-8b46-4b83-9355-e0e3e7a7cf1d">
+      <ID>7fd357dc-f05e-44df-8b0a-a46c89e7bba2</ID>
+      <Name>GD 6</Name>
+      <DimensionID>78f5969f-d533-4c9e-a7d0-2174f5574728</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a5c81da7-227d-489e-930f-b3d35ee0aa74">
+          <AttributeID>9aabd3c7-9eca-427b-8473-696bbde9e126</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="05bc3cf8-6d42-484b-a11e-94f40026ebf5">
+          <AttributeID>60ec5d79-2210-4ccb-902b-06397688aaf0</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="da0df751-e308-4cc1-bf43-ff450ea8cb24">
+          <AttributeID>209b0690-a765-4c00-bbd8-448078b5d4df</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9ee58605-041a-4b9a-be11-2a52fe80d7cd">
+          <AttributeID>a80e002e-f4b1-4686-a484-06c339687a51</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="8934ffab-a581-407d-b80b-028288770e77">
+      <ID>cf3f6cd3-9a2d-47b4-9c45-a46c89e7c1e2</ID>
+      <Name>GD 7</Name>
+      <DimensionID>0534a91b-7e75-4243-91d7-f9552321cdbd</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="d204e4ee-231a-44db-9bbb-c69bb05ceb1f">
+          <AttributeID>256b0df7-2055-4b50-8885-a9306f17d897</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="433d5d07-5acf-4d9a-a33c-faf9aeee8d4a">
+          <AttributeID>e2ae5c01-e932-4231-b140-af3f4ebf2cc0</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cca5bc14-ecc4-4809-a2b8-1ea6283a6764">
+          <AttributeID>85132a8a-9544-4713-9f13-a0274b9256bf</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7c47646e-1c9e-4f1c-b1ac-e97513fca594">
+          <AttributeID>566a9edc-3160-4753-87fd-b1377bc49e55</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="4dd64e6f-7ed5-4960-99b8-250a4fdd6c4a">
+      <ID>c11d1b06-c381-48c1-92ad-a46c89e7c48a</ID>
+      <Name>GD 8</Name>
+      <DimensionID>117286bf-de1b-4b51-af16-f6f0c4677c2f</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5e170b82-96dd-4001-978b-9ea2039690e5">
+          <AttributeID>26049fc6-3c64-4097-ac85-aa382666be2b</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="17bfc805-210d-40b0-adc4-c48f489c1c43">
+          <AttributeID>1b9773d7-30f2-4776-a69b-8793ed11e2fe</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="153de175-f528-4aeb-bd18-c78ddd1bb73f">
+          <AttributeID>a83d362a-aa5a-4063-a4d7-5e777ad6b669</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c017e00a-d95d-44c1-9007-fa078637adc5">
+          <AttributeID>9740c55a-b43b-455a-869a-fcb84e1772d0</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="64197797-6b08-438a-98ac-e9643b854424">
+      <ID>d3264a21-0061-47df-b4f3-a46d858a6f5a</ID>
+      <Name>Fixed Asset</Name>
+      <DimensionID>7c61bff8-3da7-4145-9420-a0e08a5aedb4</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3fb6f7cc-3234-4c5e-b4bd-76b3217d9aed">
+          <AttributeID>ec278549-841c-4f63-ad3c-a0e08acd31dc</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="2aa669e6-a155-4531-9523-58bf95aa4a85">
+          <AttributeID>322f5320-1e73-490d-9534-a0e08acd354c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="13c57dff-ef0f-43bf-b0bd-2eb271a1db91">
+          <AttributeID>250b3850-f0bc-4ddc-ae2c-a0e08acd3574</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8405e714-dc69-4628-855a-a6e3e7e25525">
+          <AttributeID>7274a6f9-8576-4519-89b6-a0e08acd359c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dc61f41b-5373-44f9-a0c1-e07dc813b40f">
+          <AttributeID>dc74fd74-17d4-4377-8b11-a0e08acd35c4</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2d7c4eb2-64a6-49ad-8f78-afe0fc198667">
+          <AttributeID>e712fb4e-96c0-429c-8423-a0e08acd35ec</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dc351129-8502-4227-bf1b-bb05931e1355">
+          <AttributeID>67922413-5fc2-4a10-a3e9-a0e08acd3614</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="23e67b0c-6473-40ae-a23f-31086bad9ca9">
+          <AttributeID>b4d457e7-ce5a-4dab-a2e2-a0e08acd363c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4cd35e1f-af7d-4bcd-9b94-06f2ec78dd12">
+          <AttributeID>7392c287-3fe0-4aa0-80ab-a0e08acd3664</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a789431c-5c85-457c-b4d5-818ffef55964">
+          <AttributeID>d08493fc-e94a-41c2-9a78-a0e08acd368c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="764e2d12-2ecd-418c-8128-2f6a9cbcd1fb">
+          <AttributeID>4e8db3cc-4825-4639-84d9-a0e08acd36b4</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="55441c75-5308-4392-9258-d82af0c9d17a">
+          <AttributeID>cbb39679-98a6-4281-a5ce-a0e08acd36dc</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c29720f2-06c2-4c08-8501-def00045777e">
+          <AttributeID>9f495553-ba50-4174-94a2-a0e08acd3704</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d992dd0e-2829-4caa-88e0-720c10858934">
+          <AttributeID>5747d193-e6d6-4aaf-9fa1-a0e08acd372c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="358f91c5-795a-46f1-b944-29728047cdfc">
+          <AttributeID>e2f7a9a5-8fcb-4a6c-ab93-a0e08acd3754</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6703af08-3724-44bc-8873-9ef868aaa6bd">
+          <AttributeID>cdcf52c8-3576-4bd3-b3ae-a0e08acd377c</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="61b133d4-7028-49e2-9c43-fa2cadd8c819">
+          <AttributeID>a6cc0766-0565-4e56-8934-a0e08acd37a4</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="258abcac-bf7a-4f60-9746-d306cdbc5c28">
+          <AttributeID>25da9993-4a16-480b-8e3c-a0e08acd37cc</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="703af922-5c6c-4726-bcb6-60949b99cd3b">
+          <AttributeID>40c41424-2776-41a0-9dc9-a0e08acd37f4</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="16c6f770-fc01-4a9b-947b-4e6f7f6f7529">
+          <AttributeID>ddc2e343-e443-4d3b-9e4c-a4746486e6c6</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b58de25e-c12e-477d-be78-fe93a5c7b6ba">
+          <AttributeID>e89dc056-1ada-4ebc-9a22-a4746486f86d</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ec0f35a0-cb74-4894-b1e1-4c3bf53d940d">
+          <AttributeID>1eff9000-d142-4604-8886-a4746486f90d</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="248d684c-99c7-4ffa-8fe3-30dd3ee3c099">
+          <AttributeID>9aae1721-37ac-443f-8533-a4746486f9ad</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f6a6f3b6-6d5b-4317-afb3-434770ad2590">
+          <AttributeID>684cfa8d-4b55-4a97-936d-a4746486fa25</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bc9ffb4f-c9d1-4ef2-9867-5b6a355d20e5">
+          <AttributeID>7a0574d2-6e24-48ec-b00f-a4746486faed</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="53bfc771-893b-4300-98b8-1eef0b135ca5">
+          <AttributeID>f0b46064-49e4-4f0e-9ed7-a4746486fb8d</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="83612449-b8c9-4675-8806-8dde247a0a2b">
+          <AttributeID>b1a0467d-f9c6-4429-b7aa-a4746486fc2d</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="ebcee581-1c79-41d7-86dc-ee4ceb3ff629">
+      <ID>ff1ab54e-e591-46e1-9513-a46d8c34b982</ID>
+      <Name>Sales Info</Name>
+      <DimensionID>fd6f3d40-b3ff-4c59-ba90-a46d8c173bfa</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a4618598-00e1-4d27-b62d-67808c119ab9">
+          <AttributeID>770ee879-4a2b-4747-a1c3-a46d8c21135a</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="a999259c-0225-4cdb-9871-ac71e61038f2">
+          <AttributeID>db0487f8-784c-4122-96a5-a46d8c2117e2</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="68baca54-7a1d-4355-a823-d317600e86ec">
+          <AttributeID>39c3cd6c-79fe-4870-a6cf-a46d8c211832</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e987ffa7-1907-4e15-b7f7-6c2fa491e185">
+          <AttributeID>77554533-5692-49b5-81ae-a46d8c21185a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d5c59207-3fde-498f-8170-52b7edbb820e">
+          <AttributeID>abe87f76-b4fe-45be-8baa-a46d8c2118aa</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a5041d94-78fb-4130-8488-e9b8845d7f6b">
+          <AttributeID>0649f13b-8726-4cd5-be30-a46d8c2118d2</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8bb00c9c-73cb-4e2e-83cb-f7d3669f5661">
+          <AttributeID>e074b9b1-de08-4bb6-b848-a46d8c211922</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c0678edf-0ec3-4564-a231-2287898e7b7a">
+          <AttributeID>8d83df32-9dcc-4882-ab22-a46d8c21194a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4d828c85-2953-4958-9c95-471cc10d0ebe">
+          <AttributeID>d9ad5995-a423-4450-b309-a46d8c211972</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ec1d7bc0-8c87-4cce-a076-96470b402d36">
+          <AttributeID>c683ea52-9caa-4364-a5b1-a46d8c2119c2</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="20d05f58-31a3-46bf-9492-a7c75683ff18">
+          <AttributeID>33898b87-4765-45ac-824b-a46d8c211a12</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1b1abf37-3bf8-4408-bf3a-d7bedb052ac5">
+          <AttributeID>1de1d071-9e17-4960-8382-a46d8c211a3a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fe6d594a-b875-4509-9020-e6e4ca0762f7">
+          <AttributeID>cffabd3b-ffa5-488c-98f0-a46d8c211a8a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8fd0b870-aa8d-474a-9611-82467da79245">
+          <AttributeID>5d58182e-302a-4fe2-a932-a46d8c211ada</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="26e14593-785d-441a-bc2e-f144516c408d">
+          <AttributeID>8bd1fe88-e592-4798-b141-a46d8c211b2a</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c03dab89-8e43-4e4f-92d8-5041dabda0a4">
+          <AttributeID>a1ad7697-7ca0-4217-bbd0-a46d8c211b7a</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="9d72ed03-2599-4903-b37e-d4993e422638">
+      <ID>41647255-5605-4246-99d2-a4f4587b6b01</ID>
+      <Name>Document Sales</Name>
+      <DimensionID>2096a1e9-b0bf-44b4-9562-a4f456dedf99</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="cdf138aa-af93-46e8-9741-bf0d26789c06">
+          <AttributeID>cf9d6b03-173f-478b-b218-a4f456ea2cb9</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="8935d957-471a-4163-8b34-071ed725458f">
+          <AttributeID>fc034435-f8aa-490a-b85a-a4f456ea3169</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5bad86a6-4204-451f-98cd-c1e75dd27a6c">
+          <AttributeID>7fe98c94-d7c2-43fb-8cb3-a4f456ea31b9</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ed63546e-07b5-4c98-a14f-64f32e4b2636">
+          <AttributeID>1f78bfca-5543-49f0-bfd8-a4f456ea31e1</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="590fa47a-fa3b-43df-85ec-9bbf67166f48">
+          <AttributeID>15fa88bc-666c-49b7-9b91-a5af81c90aef</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="4116b775-2781-47c9-a9df-9b8a128f13d4">
+      <ID>97545f98-e2a9-48f5-ab18-a5bf804b77f8</ID>
+      <Name>Salesperson</Name>
+      <DimensionID>6d96500a-5c69-4701-97b5-e3e10cafa9a3</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f98eb0bd-8af4-4d12-90eb-afff9ea19272">
+          <AttributeID>d99e6fbe-84fb-496e-a973-fd59425b5db7</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="38d218b2-e93f-4577-9446-41f5f8700c36">
+          <AttributeID>46204908-c2a0-4469-99e2-c2c6cc23baca</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="512a84cf-7a9a-4c9b-bff6-8687aff83d73">
+          <AttributeID>6699d658-550e-48da-ac53-35cd36a44296</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="54f764a9-0e16-4d2f-93e2-3332c784978a">
+          <AttributeID>aaa2bf23-25c0-4eea-866b-702f005e141b</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="849dc3b5-dd6f-4a11-9539-90feb2248e03">
+          <AttributeID>13e1fa22-920c-46eb-bffc-817376a92b56</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fc4db9b2-846b-4f04-8b6c-4a58c610019e">
+          <AttributeID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="e49b763f-36a2-4dfa-9559-cd603d348dd5">
+      <ID>8753626b-bfbb-4124-8d64-a5bf8055bdf8</ID>
+      <Name>Starfsmaður útleigu</Name>
+      <DimensionID>6d96500a-5c69-4701-97b5-e3e10cafa9a3</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a32ece3c-4d4a-495a-97e0-ba5563d0f42e">
+          <AttributeID>d99e6fbe-84fb-496e-a973-fd59425b5db7</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="e7384426-dc1f-4a90-ad53-593b76882100">
+          <AttributeID>46204908-c2a0-4469-99e2-c2c6cc23baca</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1eaf4c52-56cb-40b2-9d4c-9c3fb23830d6">
+          <AttributeID>6699d658-550e-48da-ac53-35cd36a44296</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f8a6dd78-cd3f-4246-8ee4-d18cbcb613a4">
+          <AttributeID>aaa2bf23-25c0-4eea-866b-702f005e141b</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="aa8ab6ec-9acc-4722-a78a-b2a2e61e84fc">
+          <AttributeID>13e1fa22-920c-46eb-bffc-817376a92b56</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0da08d49-ed79-40fb-beb6-6e46ff74ca5b">
+          <AttributeID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="f2b43e60-4139-47e7-b7e7-cfebb75f9c52">
+      <ID>5a57cf62-fbdc-47a2-a348-a5bf8066a640</ID>
+      <Name>Starfsmaður skil</Name>
+      <DimensionID>6d96500a-5c69-4701-97b5-e3e10cafa9a3</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8eb8afe1-1757-4c67-8e76-294f78aec3ad">
+          <AttributeID>d99e6fbe-84fb-496e-a973-fd59425b5db7</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute dwd:design-time-name="483317d5-c236-4d87-807d-665670487a1a">
+          <AttributeID>46204908-c2a0-4469-99e2-c2c6cc23baca</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1f8247ca-05ab-4184-9c01-6f4766d5d82d">
+          <AttributeID>6699d658-550e-48da-ac53-35cd36a44296</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dfd8dccc-fd21-4000-b208-bf403b5c28d3">
+          <AttributeID>aaa2bf23-25c0-4eea-866b-702f005e141b</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6cf381fd-d42e-4eed-a69d-bc1d37754436">
+          <AttributeID>13e1fa22-920c-46eb-bffc-817376a92b56</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="abaf31e7-68a5-4d70-a891-28c0fe302230">
+          <AttributeID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <CubePermissions>
+    <CubePermission dwd:design-time-name="5fd57ba4-bb4a-4fc3-998d-e353339c2514">
+      <ID>CubePermission</ID>
+      <Name>CubePermission</Name>
+      <CreatedTimestamp>2016-03-04T15:00:25.526667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2016-03-04T15:00:25.526667Z</LastSchemaUpdate>
+      <RoleID>23529b52-33f2-4ef9-bc7f-a46c945900fa</RoleID>
+      <ReadDefinition>Basic</ReadDefinition>
+      <Read>Allowed</Read>
+      <ReadSourceData>Allowed</ReadSourceData>
+    </CubePermission>
+  </CubePermissions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="28ea0e12-1ca9-4ec1-8a9b-d086cbcd310c">
+      <ID>Sales Entries</ID>
+      <Name>Sales Entries</Name>
+      <CreatedTimestamp>2016-03-04T15:00:23.536667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2016-03-04T15:00:23.536667Z</LastSchemaUpdate>
+      <LastProcessed>2016-06-03T02:46:10.356667Z</LastProcessed>
+      <State>Processed</State>
+      <Measures>
+        <Measure dwd:design-time-name="0cf1f5ee-c462-4af0-bc76-dce7f2571f62">
+          <Annotations>
+            <Annotation>
+              <Name>TX Guid</Name>
+              <Value>a5519d62-e385-4aee-b3b8-a46c885299ba</Value>
+            </Annotation>
+            <Annotation>
+              <Name>TX Field Guid</Name>
+              <Value>604dea18-9348-4092-aa12-a46c84e68502</Value>
+            </Annotation>
+          </Annotations>
+          <ID>a5519d62-e385-4aee-b3b8-a46c885299ba</ID>
+          <Name>Net Sales LCY</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="fdc697e2-9fea-4cc1-b842-2b3bcc9d8a7b">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="94825037-33e5-4a58-a42a-567fab35df4c">
+              <TableID>Sales_x0020_Entries_V</TableID>
+              <ColumnID>Net_x0020_Sales</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,#.00</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="313e0de0-f543-4678-a78e-eca3b5aaeb15">
+          <Annotations>
+            <Annotation>
+              <Name>TX Guid</Name>
+              <Value>50bde11d-8e19-42ee-9fbc-a46c91818a32</Value>
+            </Annotation>
+            <Annotation>
+              <Name>TX Field Guid</Name>
+              <Value>d614dd32-c7a4-4482-9546-a46c84e6857a</Value>
+            </Annotation>
+          </Annotations>
+          <ID>50bde11d-8e19-42ee-9fbc-a46c91818a32</ID>
+          <Name>Invoiced Quantity</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="18bfc874-eff6-4da6-b6d2-d8eb3c7d62cd">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c51dd305-cc81-4aab-8cbe-33b8a6638aaf">
+              <TableID>Sales_x0020_Entries_V</TableID>
+              <ColumnID>Invoiced_x0020_Quantity</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,#.00</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="80563559-8acc-4df7-ab95-8aee1e196c02">
+          <Annotations>
+            <Annotation>
+              <Name>TX Guid</Name>
+              <Value>03d0c9c8-e9c8-4124-b115-a46c9193f302</Value>
+            </Annotation>
+            <Annotation>
+              <Name>TX Field Guid</Name>
+              <Value>83ab7bd5-e485-4b58-a73c-a46c8df8175a</Value>
+            </Annotation>
+          </Annotations>
+          <ID>03d0c9c8-e9c8-4124-b115-a46c9193f302</ID>
+          <Name>Net Sales Currency</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="bc35da95-30f2-4e51-aafe-5c5bd97c55d6">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="bc4bbd85-8751-4ff0-9076-bc1277a3d166">
+              <TableID>Sales_x0020_Entries_V</TableID>
+              <ColumnID>Net_x0020_Sales_x0020__x0028_Currency_x0029_</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,#.00</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="3f36f7aa-9389-4936-8ff5-85c4a1fb7482">
+          <Annotations>
+            <Annotation>
+              <Name>TX Guid</Name>
+              <Value>33fc552f-4936-47dc-b54c-a46c91b6c882</Value>
+            </Annotation>
+            <Annotation>
+              <Name>TX Field Guid</Name>
+              <Value>f35e55e5-ca40-4950-b2c5-a46c84e68552</Value>
+            </Annotation>
+          </Annotations>
+          <ID>33fc552f-4936-47dc-b54c-a46c91b6c882</ID>
+          <Name>Discount Amount LCY</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="7d0740eb-93b7-43c5-9f04-4442cd5d6c6a">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0ca98aff-8309-489f-bdb7-563cadaeed71">
+              <TableID>Sales_x0020_Entries_V</TableID>
+              <ColumnID>Sales_x0020_Disc_x0020_Amount</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,#.00</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="be2b9b72-7d19-4963-9c19-8412261f9fd3">
+          <ID>ccc2f6d3-8060-4380-a608-a46c91d76e02</ID>
+          <Name>Initial Margin LCY</Name>
+          <DataType>Double</DataType>
+          <Source dwd:design-time-name="a13a990b-a7bd-4af8-9163-1bc807fc9f13">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="28491400-c926-4fe2-a7c1-7599339dd0c8">
+              <TableID>Sales_x0020_Entries_V</TableID>
+              <ColumnID>DerivedWiseCubeSalesInitialMarginLCY</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,#.00</FormatString>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <EstimatedSize>79133547</EstimatedSize>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0290ce8e-b08c-4049-94b7-4f4e687822dd">
+          <CubeDimensionID>7111195d-1ff4-4bcd-b9e8-a46c89e7b012</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="12cd2796-55b5-4d72-9fea-0707f6a90b71">
+              <AttributeID>852526be-4aac-403d-b53e-c4be860689e3</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2d9a66a4-363b-4e81-8284-ef4d407d76ca">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7161f768-87c7-486f-a336-d7c0f263a6e5">
+                    <TableID>Account_V</TableID>
+                    <ColumnID>No_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="9c101aad-a6ae-4ed9-acd6-f7d71cef96f3">
+              <AttributeID>f11e16bc-a0ce-465c-a8d4-0a91fbc8da71</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="eb317ea3-c55e-4ff5-a0a7-b6c5e5b4b49f">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0555ef0d-933a-4a1a-8008-25400886ba4d">
+                    <TableID>Account_V</TableID>
+                    <ColumnID>Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="042068e1-ed5e-4b5b-a801-93f1bd6cc705">
+              <AttributeID>84b24b64-8795-4fa6-bd97-67979c1a41ee</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="5b222a13-5320-47c9-bc56-e96bf772f1a6">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5a02d38b-98bc-44e7-a640-1d88ce17001f">
+                    <TableID>Account_V</TableID>
+                    <ColumnID>Income_x0020_Balance</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="c15f789f-a93c-4203-a62f-df5fad1b5e87">
+              <AttributeID>4ffac3ac-94e5-4ecf-8e80-93789f844ce0</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="eebbde23-3ff4-4aed-965d-c5995f6f3d6c">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6405f60f-5490-4762-b022-fb7999f88c19">
+                    <TableID>Account_V</TableID>
+                    <ColumnID>Account_x0020_Type</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="6f2a6d62-6626-46a2-bc17-0da487b458d6">
+              <AttributeID>da1ee508-2ab9-45f2-81e3-80bc4959753a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7d7e79dd-fa8e-45fd-a573-1e5f9199dfc0">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="176d4602-006b-4e53-926b-8b6b843e4a68">
+                    <TableID>Account_V</TableID>
+                    <ColumnID>Totaling</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="f8d60b1f-0647-45a9-a0ab-cbe887cb5c7e">
+              <AttributeID>dd50853e-b2d4-460c-af7d-a23bdbdd9575</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="79bac6fb-bee0-4388-b58c-abdeabb25c21">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="326483eb-3655-4ecf-8dbc-bf63ca55f81e">
+                    <TableID>Account_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="2e520e2d-357f-4c63-b8b4-9995db5052bb">
+              <AttributeID>f29ca106-145c-45ff-be76-c79e2580b043</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1552907e-e97e-465d-a6f2-36614d97a758">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a2dad41f-8d73-43fe-8458-93001ab349db">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f3a16d0f-13dd-48bb-850d-2b0487c6e9aa">
+          <CubeDimensionID>d8a06956-8d6a-46e3-9fee-a46c89e7b2e2</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="3f85b32d-b6a2-4032-8dd5-6ac2318d23d8">
+              <AttributeID>45518da5-cef0-4317-8f95-964252ddf8af</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d2a6748c-9133-413e-a416-4c22e01ca4cc">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cfc6a044-a957-4917-aec7-6f2cd08a5f91">
+                    <TableID>GD_x0020_1_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="1c70d313-34b1-4c54-8926-d785ea6daa90">
+              <AttributeID>4c96a102-ad67-4f48-a262-27ff1dc204cf</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8d5b0d0f-f14b-42de-8d08-9203775e22f0">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5dd1d9c2-70fa-47c4-a448-a40920902943">
+                    <TableID>GD_x0020_1_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_1_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="99ac011c-c6eb-49b7-9940-a317cfa15bf7">
+              <AttributeID>f29c2e32-70fd-4f84-b2b1-dd883d381d74</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f6e5bedc-0501-461e-b46f-329e7ea37c4a">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f38a5229-ab0f-4917-8c41-d15dda94369a">
+                    <TableID>GD_x0020_1_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d18cbb95-d008-4ce4-80c1-e6bff17af0e7">
+              <AttributeID>27d1dcfa-f409-41b7-ab33-b57f371454c8</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f2b324c4-17fa-43d0-833f-87c74798ad62">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="80efd104-4e08-4fc5-b198-875f73638876">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="57f038a1-524b-40b0-9894-cdd6c58e03a2">
+          <CubeDimensionID>e7d502ca-69fc-4943-af2a-a46c89e7b49a</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="653031af-e1af-466f-8595-fcef16aeddee">
+              <AttributeID>fad2a892-219b-4edb-a09f-d85d8134dc38</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7a453714-1831-4981-abd4-7d5fdcae5d12">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="aeee87de-a3b7-4793-a688-a39602214650">
+                    <TableID>GD_x0020_2_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="f4d3bfdc-0afc-4e01-83dc-fb588951576b">
+              <AttributeID>99aba31e-60ec-4abb-891b-bde005e50d1a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d9271143-5260-42bb-b80a-b0baa37033ab">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="36f65213-9fc2-4b0d-bbb1-d6368c6db9f0">
+                    <TableID>GD_x0020_2_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_2_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="725f3d65-3117-41c6-984c-552af2f83fd6">
+              <AttributeID>1ee71610-2dae-450f-983e-2cc4a0448961</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9b25e09c-e8f8-4292-a910-0ca43c33f15a">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4b6b0d17-28c6-4c18-b8f1-cda82d17b3fd">
+                    <TableID>GD_x0020_2_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="56df0f7c-9ff8-459c-8266-8235a92efa13">
+              <AttributeID>39ed7a21-6257-44c1-b923-070c529bca84</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e39258a5-fb56-42a1-b2e9-48e860ed44c0">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b0576a2b-8144-4062-9b4d-b9c882a2d615">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="7cf0e676-8f1a-4d88-9b82-d1b2901b026b">
+          <CubeDimensionID>0440c2a6-2097-4a1f-b989-a46c89e7b652</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="18b6d769-84b9-41a8-9a46-5185d02b506d">
+              <AttributeID>aebec88c-a6cd-493c-8a84-d82322ce9058</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3c14ed4c-d5f0-47ea-a414-23440fdfa92d">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9ea80de3-b735-49e1-b0c4-bab9068c040f">
+                    <TableID>GD_x0020_3_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="6706a465-253c-4157-88d0-1091e25cac18">
+              <AttributeID>310fad36-2b78-491b-bcbe-53b4c0318221</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f69faf8e-a2c4-45a5-be2f-2cd5518d03b2">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d184a815-b597-41dd-98a0-3dc3e416b50b">
+                    <TableID>GD_x0020_3_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_3_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d570bf5d-d76b-4ad6-b42d-9d0bb74a6696">
+              <AttributeID>c000e0f1-8047-4735-ac68-ff8fa40bdbf4</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8f8d0fcd-c256-4e31-8d99-c1bcaf3b0aa5">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="66c79a49-9006-4dbd-af6c-7e56dd4fc142">
+                    <TableID>GD_x0020_3_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="b9f2163c-ba68-49dd-a3af-ede87455b192">
+              <AttributeID>26d42839-65ec-437f-87f5-670616f3d82d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c2d53d14-f888-4eb0-bbe1-6608e91870d5">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="af1b9abd-5791-427c-a620-d8d9a9c2e872">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD3</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="08f2a1f6-8a36-4668-ae6d-3682dbb3907c">
+          <CubeDimensionID>97c95223-c30d-4dc8-b03b-a46c89e7b832</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6e4f3d6c-ff04-458a-b1cd-d8583ebb2416">
+              <AttributeID>b6e6cf76-1471-43de-a45f-8753e2073e89</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="659273c5-7c4e-4c4d-bfca-425bfd71adc4">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3ceebfbc-13d0-4e40-b6bf-2f2f289f6bcc">
+                    <TableID>GD_x0020_4_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="05595fb8-f6b9-43e9-b560-061cdc9d0f6f">
+              <AttributeID>044d3c52-38bd-4aee-a991-97e7efdd7c7f</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e462fcdd-9637-4288-84fd-20af8e4ac11a">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ca3b35e7-102f-4aea-987b-798f13bc22f2">
+                    <TableID>GD_x0020_4_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_4_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="eb65b501-2a21-4475-931f-311c3656fe97">
+              <AttributeID>329c0b12-94d2-4c0a-b427-42be618ba7c4</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ad19bef0-ef22-4238-82cc-9c2c13c5f9b6">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b684b001-5472-41ba-9926-63bd7b659ff1">
+                    <TableID>GD_x0020_4_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="fe5af47c-6153-4bb6-80d8-bfb8647c8ba7">
+              <AttributeID>11efd604-2a2e-4a1d-bb02-ca2780a37875</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e50b6a32-9a1e-423e-a28b-d7ddd77a438d">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fe4c3214-1587-4c21-9a13-e4ba36dc688a">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD4</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1af6c469-6251-49fd-8045-4349b25e5134">
+          <CubeDimensionID>ee2df1be-4516-42a3-9c83-a46c89e7b9ea</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="b906bedc-4c43-4bbb-97c9-64e8b246d242">
+              <AttributeID>1f31c63a-e585-4100-958a-15b972908099</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b838af5b-b693-4162-9937-239011c3d97d">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="feddbcca-43ed-4abf-880b-b6801ea7ff59">
+                    <TableID>GD_x0020_5_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="403d2779-c914-4d98-b539-b8d237247605">
+              <AttributeID>6a1c972e-4b63-4d28-bf36-6089770a58fa</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0488230f-0b6a-480c-8420-236ebaf999b5">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cc6f210f-29c3-472b-b191-a35290a27b72">
+                    <TableID>GD_x0020_5_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_5_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="3b7ac057-b944-477c-a9ef-bae47ce955f8">
+              <AttributeID>11386ebb-cd43-4843-bcac-78725b291126</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b73ed4dd-d5ac-4d1b-b0f3-070732eae2b0">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fd66dedc-082e-4166-be4b-920ee0ea9b16">
+                    <TableID>GD_x0020_5_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="c1461387-3a7a-42fa-af9d-eb7bfbc5c05a">
+              <AttributeID>ce0aed37-bff4-47ac-82ae-8c0e10baa008</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e86eb9a1-0d44-4959-8f83-0b0d88023ea7">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9f75ecce-67ff-4513-b44c-4611cde5d2f3">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD5</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="cb4ee963-4a5f-40de-b79c-63126f99906a">
+          <CubeDimensionID>7fd357dc-f05e-44df-8b0a-a46c89e7bba2</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2d425abc-48a4-4bd2-8967-71bb5e98239f">
+              <AttributeID>9aabd3c7-9eca-427b-8473-696bbde9e126</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c13ed547-6e89-4daf-80c7-5024cfe11c2a">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a059dfce-9d31-48c7-89ea-05ccbc26264e">
+                    <TableID>GD_x0020_6_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="411431c9-a526-4eba-b8eb-e1be7074e857">
+              <AttributeID>60ec5d79-2210-4ccb-902b-06397688aaf0</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1b0a89c2-f5f1-44b2-91a2-0c03d6615c6f">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d7f11147-562b-4527-8133-bc3773c4e6b7">
+                    <TableID>GD_x0020_6_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_6_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="f8610b4c-6262-4c9e-ba5e-f8752908492e">
+              <AttributeID>209b0690-a765-4c00-bbd8-448078b5d4df</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6d095aad-aef9-48dc-af63-e857912311bb">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a67e7aa1-a83b-452b-a671-2929654b8985">
+                    <TableID>GD_x0020_6_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="197fd516-c180-4def-ac72-82911773141e">
+              <AttributeID>a80e002e-f4b1-4686-a484-06c339687a51</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c731f989-b1ea-494c-9acb-225f37a9784e">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7820afbb-8319-4634-8c19-4a356e69f475">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD6</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0d2c5319-112d-457f-8324-f34d01f49594">
+          <CubeDimensionID>cf3f6cd3-9a2d-47b4-9c45-a46c89e7c1e2</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="915141f9-515a-4bc2-a617-226127bfcdb1">
+              <AttributeID>256b0df7-2055-4b50-8885-a9306f17d897</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c67ad912-41b1-470a-bacc-75304f009847">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6897b57b-d48c-43c3-ae44-bfdb2df91d94">
+                    <TableID>GD_x0020_7_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="80778580-53a2-4d21-8610-ea5802b5ac9a">
+              <AttributeID>e2ae5c01-e932-4231-b140-af3f4ebf2cc0</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a33cb9ad-1fca-40b1-959b-499d2111c3b9">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c9febf61-87d4-4113-a7a1-750235b7d5ee">
+                    <TableID>GD_x0020_7_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_7_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="e8b8a89b-8615-4137-98ba-92137726bf07">
+              <AttributeID>85132a8a-9544-4713-9f13-a0274b9256bf</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="93379f88-e327-4231-beaf-0a94de88cdc1">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3389fb9c-ad81-4273-be80-7a14dad85f38">
+                    <TableID>GD_x0020_7_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="900a99db-b6a7-4e50-b640-315483002124">
+              <AttributeID>566a9edc-3160-4753-87fd-b1377bc49e55</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7c98598f-3ef6-43b6-8277-b2e0c09f9ec9">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a18ec72d-0b76-435f-b0e0-3c0cc06a07b4">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD7</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="5548a7f9-1a0a-4991-980a-bb663e48b00b">
+          <CubeDimensionID>c11d1b06-c381-48c1-92ad-a46c89e7c48a</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="022eb8cf-9e46-4815-b25f-9958e9f2b349">
+              <AttributeID>26049fc6-3c64-4097-ac85-aa382666be2b</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="053e2c9b-50ce-4761-8c32-18f3f6d87ee6">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cf480b92-d468-4980-ad1c-077ef7b8ae27">
+                    <TableID>GD_x0020_8_V</TableID>
+                    <ColumnID>Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="befd92de-dfa6-45bd-acaf-f7feedefc459">
+              <AttributeID>1b9773d7-30f2-4776-a69b-8793ed11e2fe</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e53252b2-5595-477e-9a6c-4b50b08cc3ae">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3dc8d262-0c74-49bd-9609-defa2077c20a">
+                    <TableID>GD_x0020_8_V</TableID>
+                    <ColumnID>Global_x0020_Dim_x0020_8_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="b8e0cb09-a402-496d-960c-0a6107f6822c">
+              <AttributeID>a83d362a-aa5a-4063-a4d7-5e777ad6b669</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="eb9f341e-1bba-4d46-9155-a079d6cf553c">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="809f44fc-0aee-4a66-83b8-0cd851596f76">
+                    <TableID>GD_x0020_8_V</TableID>
+                    <ColumnID>DW_Parent_Id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="696be079-ba96-49b6-983f-9b8273ff2135">
+              <AttributeID>9740c55a-b43b-455a-869a-fcb84e1772d0</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0ed88a1e-96a5-4c38-9a6d-6cb0c7973ea1">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7447f10c-f604-4ec5-933a-f1e870db329c">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_GD8</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="278042b6-6746-41c8-80fe-61366dc05dab">
+          <CubeDimensionID>b51ebe69-baaa-475b-8d4d-a46c89e79bea</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9b4741a4-5411-4531-945b-abdbf9f7294c">
+              <AttributeID>5cb21466-16f0-4e08-97dd-500fc64da93e</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1697e925-4107-4267-9773-d20683b1af7e">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3505c09e-bf0b-4da2-a74b-951362f4da33">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>SK_Company</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="85d50beb-3e4e-4cde-9d8a-641ec38a440e">
+              <AttributeID>82df39c1-729e-4f50-8668-555e4ca93bf8</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d883d70d-3a68-4fde-8816-06cbd75e8033">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3985ebe2-172b-48ca-96c1-25fe3231ade2">
+                    <TableID>Company_V</TableID>
+                    <ColumnID>LCY_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="de1779d2-d788-4a1c-8d0d-821cb191158e">
+          <CubeDimensionID>10bf63df-e866-463b-9f3b-a46c89e79e92</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="77593fd2-2e01-4b84-96aa-3fc0029c11b7">
+              <AttributeID>30492597-b8f0-48a3-b97f-7664cb4f5f6f</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6bb16130-36c3-452a-9b3c-b912208acfe1">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="98de9263-da33-4e4d-a938-0edcce7266dd">
+                    <TableID>Currency_V</TableID>
+                    <ColumnID>Currency_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="1431b48f-e061-4b1c-9e92-903a6c6fae26">
+              <AttributeID>4e8896b5-b3b9-4453-9d70-85a2667bcf5c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="49012cdb-98e3-45aa-b992-f2d272ef4f51">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="122c5e92-cee7-4c66-8f62-6ef4d6cf1932">
+                    <TableID>Currency_V</TableID>
+                    <ColumnID>Currency_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="cedc1237-8d5d-441b-b63a-ef60ff7037fb">
+              <AttributeID>52047903-222a-4d5a-add7-df2d999f8e1d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0b995762-be66-4223-9f9b-4ea52394c6dd">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1a0d0ca5-ce03-48e0-9029-ad726aa48947">
+                    <TableID>Currency_V</TableID>
+                    <ColumnID>Currency</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="54f5189a-bd31-4677-a5e1-0ea838964203">
+              <AttributeID>97fdbc4e-60d1-460e-b867-f33ce92cda38</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d720467b-3acc-4380-8790-d6892d4ecd9c">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="299b5dc6-a860-4ef6-b8c8-e79162144a01">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="d30bd790-2f6f-4202-b2b5-7ec593f20c60">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="66a1f7fe-a624-4deb-9340-144512c0bafa">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Currency_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c873ce67-1692-4855-a93c-117eda8f9450">
+          <CubeDimensionID>7ec626f4-5ace-459f-950b-a46c89e7a04a</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="1586243e-3ab0-4e36-b66f-f637fb7bf1d8">
+              <AttributeID>f9473972-a51a-46ad-9c10-465d14f5dcaa</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c0f8bb38-fff8-4835-9c66-85c248fd0b83">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f163b13c-4b47-4dfa-b785-e32f05f588fb">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>County</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="f0afd414-b779-4baa-8186-6a9f3693f7b7">
+              <AttributeID>4eb82bb4-c538-4fd8-8134-b576d5bb49c3</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="52762ded-6f1f-4f54-b37a-0b876a46bcde">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="aff1c8d0-1d56-4b08-a11c-0dc1675d242c">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Customer_x0020_Disc_x0020_Group</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="caa97b7c-578c-4c47-b2a7-84c56033bb14">
+              <AttributeID>43af6784-d1bb-432f-af4d-a3d50ff8b319</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="fc6ff9de-fff3-420f-ad47-80335b999c45">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="af11639f-23e3-4007-9b6d-fd058128c641">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Customer_x0020_Posting_x0020_Group</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="146b30e9-62b4-41b0-b7a6-4f4b865ba5e6">
+              <AttributeID>5a19c8ca-c726-47d1-ad5d-e12754668724</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0b5f2c30-345f-48e2-af40-fa0da6d9b205">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="585c22dd-08cd-47a2-9954-12ab29afb8d2">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Customer_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="83916b4c-73c1-44e7-9f0f-274ac13b3df8">
+              <AttributeID>e4675cc3-cbc3-4a27-8be8-62f432108989</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ec3fe456-671a-460d-b141-cd6a137854ed">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="649a255d-9eb6-443c-932e-fd5e57866ac9">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="9acdc02f-46ad-47a3-addd-8fe8507a6ef7">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="54cc16e3-e403-420d-878d-85e7ad26f00a">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Sell-to_x0020_Customer_x0020_No_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="7e492219-8ca8-4d6d-977d-3bd37a607831">
+              <AttributeID>8c854ccc-82b9-4a35-8798-3bbbe586432d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1bf22fb3-aab0-4218-b305-26989984edb8">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a319a048-788c-4d12-94ae-424931f03d59">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Territory_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d9505689-3262-4700-a194-dbfd8120e4bc">
+              <AttributeID>9bda91a4-0df7-4be6-856b-2b94940ac715</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9cd6ca47-5087-4f80-afc2-1cdb23ebbe33">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="88b8d3a5-3ce6-4991-90a3-033301d3791f">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>City</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="21fe4142-2c80-48dc-a39d-faf0e18e22a5">
+              <AttributeID>ac946ca4-1fe0-4218-ae69-17559f3b79b9</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2f4c0eae-929f-45c2-aa0f-a650043d0b00">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f0869aed-5088-4f43-821a-fe9e7d223856">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Blocked</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a7a69176-b4c5-44f5-ac53-53bc3111e1af">
+              <AttributeID>0cd78c92-939b-4d35-b964-056a1e4e2963</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="abd10d60-223c-41de-a695-5245df5939ec">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fbf70555-3ed8-4ed4-8894-f55469c02313">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Chain_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="2673b761-6e3e-42fd-b466-9ee6228606b3">
+              <AttributeID>e3ab52ad-8edc-4f7d-9e60-5eb53fb46306</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cb656e3f-446e-4e20-8433-9e76f486699c">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="dbd7401e-2913-46fc-9ae8-7c815e95377b">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Customer</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="8129d131-3a9a-44b5-8c32-1c59c645c718">
+              <AttributeID>2af11356-0d5c-4b49-96c4-96f423eb9a58</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="859e0188-8058-4760-8b87-9cf201939d62">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c90dc45e-6d01-47c4-9e2f-8c1802b22a1f">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Customer_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="b540d38a-ef7c-4e58-bb6a-48d533118bed">
+              <AttributeID>ec0f7c1e-9afa-4c28-a4ff-8eaa5f74b39f</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c91504a8-c693-4de3-bfe6-0f48f2635451">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="799dd4b6-2849-4061-bdb6-10c309b52e27">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Customer_x0020_GD_x0020_1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="644d04d5-faba-4ec8-b4f1-3d7396e47068">
+              <AttributeID>05d573d3-0be6-45fc-a898-08371dc8a93e</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d492401c-4c0d-430f-bc59-04142d09d514">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="bd4e7826-62c6-4370-8854-9646fe750cd1">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Customer_x0020_GD_x0020_2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="795c5806-80c3-4e75-9bf1-9526c6db98d8">
+              <AttributeID>100d9205-559c-4c35-b766-a5316bedb870</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="610e16c5-28af-4400-abe3-fbe2b8fbf8f2">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4299773f-8591-4651-96f1-7057226c3662">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Search_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="5f781e53-5be2-407c-a632-6db8d1d645f0">
+              <AttributeID>c5c71491-c6fa-423d-aa64-a5b15d5800df</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3e3f9bc9-151f-4875-b835-f607eb4b281a">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="dcb4abe1-d8c3-4f44-b409-ec3d3b1fd16b">
+                    <TableID>Customer_V</TableID>
+                    <ColumnID>Kennitala</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="12be84f5-df23-484f-a840-3cf31bac9acd">
+          <CubeDimensionID>820576b2-0d29-4eb6-aca1-a46c89e7a482</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="407b459e-7305-4e66-a2fd-fcdd1ce0850f">
+              <AttributeID>96ea5c01-aff5-43dc-8a34-1b321bc63a7c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0bba9161-66c2-4664-8f4f-07b038ccb6f6">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3fb1c350-2bff-4e7b-a561-44f4d0af01a3">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Posting_x0020_Date</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="d076c7e6-9f9a-4b2f-813d-42cf0009a33f">
+              <AttributeID>63eee970-3804-46bf-95e3-694b215fc25e</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ef362bc3-450e-4d82-b3b5-9e1f3ea6f268">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="63951824-fced-4318-a74e-bee81b2b3f70">
+                    <TableID>Date_V</TableID>
+                    <ColumnID>Year</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d49f6c88-d45c-4e88-89ec-00459ff2cc5d">
+              <AttributeID>e61fd379-0008-4c3d-bae1-b6815b100818</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="139e4820-4782-4378-b43a-4c4d8ac2251e">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="91522c1d-b038-4322-a16f-9c53634d6218">
+                    <TableID>Date_V</TableID>
+                    <ColumnID>Quarter</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="1b8cc298-4f62-412c-a4cf-6b6575165a07">
+              <AttributeID>f2399f89-d2e1-4198-b81f-14d6c76c2d00</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="db320f7c-445a-4a42-a7a1-9878ce6b66d3">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e5f1c37e-a6ac-4245-a3f9-54ab09616777">
+                    <TableID>Date_V</TableID>
+                    <ColumnID>Month</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="2a5a878d-15b1-44c4-b7ba-bf3813acf7e4">
+              <AttributeID>2c0270d2-90d9-4e36-9689-6fc1880cf71b</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="87210995-9e71-4e8f-9727-196c11fdd92b">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="04d0c716-9071-41ce-bac4-a854bd80ad17">
+                    <TableID>Date_V</TableID>
+                    <ColumnID>YearQuarterKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="43d5718d-6900-4069-87c8-d95951381359">
+              <AttributeID>e86be2fe-e514-4fa8-875c-65bb71ff9456</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="20b00f1e-40fa-4ce0-94fe-4ef21eac0547">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3d21ea79-deb8-4d69-92e6-57d904fc0b4d">
+                    <TableID>Date_V</TableID>
+                    <ColumnID>YearMonthKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="33e35fc9-9384-42b8-84c3-7aac829bbafa">
+              <AttributeID>5b8e9a14-57f8-49e0-bfb7-a04e5e91d0a1</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="08949378-b837-4c6c-a5cc-2f4570b75cfe">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="93e07f7a-8803-4412-bdf8-a0adbd8a8b41">
+                    <TableID>Date_V</TableID>
+                    <ColumnID>YearWeekKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="94920bfa-b42f-45de-bad0-f1d1dde087c9">
+              <AttributeID>74e862a2-90bb-4d8c-be42-befe5495d760</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="94f5b4ea-90f4-4716-9f1e-6a1fde41488d">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="01090766-2b8e-4da5-a6c7-acfffe3283ba">
+                    <TableID>Date_V</TableID>
+                    <ColumnID>Week</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c7880aa3-804d-489b-aebd-75872165ca05">
+          <CubeDimensionID>63604c3c-f5fb-488b-99f9-a46c89e7a72a</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="7933e4bd-cb44-4517-af0a-3e687f082eca">
+              <AttributeID>5c0ac58f-467e-478b-a3bc-c1f8e2fefbeb</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e980991f-5c13-4c37-94b4-c7962372a4f8">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7932ff4e-433f-4202-aed9-3e63fbee8845">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="9c8d5c72-b7e2-4cbd-b7da-2de7eff13cb2">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="89374086-4412-42b8-a60f-4e9f1c5db61d">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>ItemNo</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="2f48a18d-4b74-47de-a86d-0fa7750f2dcd">
+              <AttributeID>7998352e-451a-42b1-966f-55ddfd927c90</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3e3ff2fd-b905-4839-89db-9e162f750adf">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="350f15b5-6e0f-4113-b4c1-bb24493b2b85">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>Item_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d2f601e3-aabb-46c5-bd3c-2bd6016920ea">
+              <AttributeID>411ec1a3-6cf3-40ed-b562-b324ce151841</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ffcea799-a666-4014-a77e-9baa05e2e897">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="51cd2b44-f599-400a-ad34-6606fb717583">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>Item_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d59eaee4-b633-4d1f-89b6-d9c06c4a3501">
+              <AttributeID>7d1827dd-985b-4625-bae4-d11e373e7796</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f50b6a7f-6a5d-4f7d-892f-51c4f18d8af6">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1b3d9b7d-756d-4959-941f-b2ee5f407e2b">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>Item</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="97c96302-f431-49c4-b0e0-3699208897c4">
+              <AttributeID>0762364b-38f9-49e1-8a3f-1b0bcbc10269</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8d9c615a-5b32-411f-94a4-807e45831285">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f991fbd2-c064-44cb-8e0d-7d93a782415f">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>Inventory_x0020_Posting_x0020_Group</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="487802ac-7ea5-43d2-9484-d66e957e7f64">
+              <AttributeID>aea5a2e4-e6e5-4a64-9598-272d765becfc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4795db5a-ae10-4c13-9611-2413511750fc">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2625292c-3f81-4568-8a1d-f3b0af2ffbf0">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>Gen_x0020_Prod_x0020_Posting_x0020_Group</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d9d82dce-9298-400a-9d32-81c0ff49f7cc">
+              <AttributeID>117a02b9-8487-46e3-af7a-e58b5a8a684d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="31590fdb-2e0b-4dc8-8919-c7b0fffc726c">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="20618046-336e-485c-8c1f-2f34d719f625">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>Vendor_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="eb0df266-af29-4d79-92d9-0b0bc446f558">
+              <AttributeID>ae11094a-1278-48e0-8969-1a5b67a21882</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a04d4d76-f408-4b1d-ad6d-8dfc72f51a0a">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b99bcf48-731e-44c3-939e-a25f4b191dba">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>GD_x0020_1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="9910bb2d-837a-4d84-ad56-7cc2cc3e692b">
+              <AttributeID>aa3ec70c-4ae9-4507-8566-776632743263</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e7d4bb7f-1626-4596-b80f-b471092173aa">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6f0604c4-0aaa-4d36-a12d-9399245378ab">
+                    <TableID>Item_V</TableID>
+                    <ColumnID>GD_x0020_2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="34b307db-bb16-42b5-b162-b69a90ab483d">
+          <CubeDimensionID>ec669962-5638-480f-8dad-a46c89e7aa9a</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="1b212064-5b54-45e7-ac20-18df38520425">
+              <AttributeID>710e7de0-1059-4e89-9cb8-2ade8077c4a5</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3529e2b2-a86d-4453-b6ad-dbbc932a67c7">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="78ba012e-84e0-4eab-8fa3-92d4ff949a24">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="c619df1e-f351-4ebc-a67f-e996b0319c4c">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b3513a5d-80ef-47b8-aef4-f9c9d9a04aa5">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Variant_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="585cf207-f57e-4e37-9fbb-9b4024ebb767">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cab7e56d-6b4f-4f0d-8ef3-9dff68efd7b6">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>ItemNo</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="4d66c9e0-9be5-4645-831d-035c409d648d">
+              <AttributeID>5efe2571-a95d-4167-86a7-cb680884d29a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="71d445a9-7cdf-43aa-a78f-a723fb7c6cb2">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f3a11dd8-04db-48cd-8dd6-0d2f2ba895f9">
+                    <TableID>Item_x0020_Variant_V</TableID>
+                    <ColumnID>Item_x0020_Variant_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="18bf5883-b7f7-4ff2-8613-eb516f835f14">
+              <AttributeID>987c6d2b-0579-4a30-86ee-696f58663c84</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8910d591-9c6c-49ba-b5fa-ea6a680152fb">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fc5f1083-e7fd-4058-aa04-4c368fef09d1">
+                    <TableID>Item_x0020_Variant_V</TableID>
+                    <ColumnID>Item_x0020_Variant_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="009e0bbd-d5a7-402a-a5eb-8a7beed62390">
+              <AttributeID>ecfc428e-3d8f-472f-944e-b8b1aa7fcfc3</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="de2a2b0d-2ac4-45a1-9954-27c13e2913b9">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ef6a8fd1-d6c0-411d-8ccb-ed3336501fa4">
+                    <TableID>Item_x0020_Variant_V</TableID>
+                    <ColumnID>Item_x0020_Variant</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="094a13a4-1354-4513-aef4-03f4d90d4c6d">
+          <CubeDimensionID>f5d8975c-b5e9-4076-aa62-a46c89e7ad6a</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d71f09e8-ede4-4862-86d7-61493d615d73">
+              <AttributeID>875ae699-4c59-497c-afdf-0a5480e18b45</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="332bb5df-228c-41db-8d8c-832c241291e3">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="95aebb02-7733-4623-b2d9-f5a47f5b4d0e">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="a28c34f4-2b82-4aa3-a67b-7bcf515af897">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="50b20634-d273-4c20-9efa-8075c9eb4c89">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>ResourceNo</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="256743f5-9e44-4d04-b293-469ade987366">
+              <AttributeID>4890d997-92ca-4d0e-b0ff-0fcbf14802a7</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="eace4f55-bfbd-43ec-88ef-e5a668304411">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8902cd8a-2f3c-41d7-a500-a9501d863d32">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Resource_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="76a647c8-3c64-49f3-a781-3967d2fc1c23">
+              <AttributeID>6e97c512-8750-4d60-b8d5-d362802b5f56</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d974b878-c870-44f1-aefa-b2bc0e966ebd">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d3a965de-1e51-4a7c-a086-d054a76b9033">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Resource_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="603ced31-5179-4c07-b5d9-a1194e5fdc7b">
+              <AttributeID>4224782a-aa72-46b5-8f1f-a96dbdf5dedc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="11a4e650-6dda-4126-8b58-030ff5f3d256">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="831309b7-9639-44a5-8b15-fc03190fd03b">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Resource</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="e9f4d321-3062-4ba0-bb26-6122329e0c2f">
+              <AttributeID>8537e987-f274-4dc9-b40a-29decadb3a32</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f2bcb8ca-a40e-4b9f-8f44-b86c53c219da">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="02436347-0eac-4c80-aa10-ebece956758a">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Resource_x0020_Type</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="94be6c83-f2f7-47e1-ac6c-4c07e98ad4e6">
+              <AttributeID>177b5a5b-dc83-4e1f-80df-0e47ba02005e</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c791a110-4525-4287-98a0-9f8fdba45555">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1335fa1a-3aed-4844-ab66-bc997904ad90">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Base_x0020_Unit_x0020_of_x0020_Measure</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="4f1c3fc7-ee7a-4ed0-a23f-68d4d325a19d">
+              <AttributeID>d298b84d-9dab-48e9-ae9d-ddb516d117b4</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2ee57abe-e201-4a60-bf3b-ac48f96d7450">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="096f2ed4-52ba-481a-a756-1c85996ebbbf">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Blocked</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="7e41c1c2-4423-415b-9cc1-f8dd07218761">
+              <AttributeID>9f6db4fb-77d3-4563-8a17-b223411d1a27</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="987853f2-d0bd-4fb3-936a-f16edd956679">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ea77a2d2-387e-496b-b3b1-cffa0441c0e2">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Resource_x0020_GD_x0020_1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="9cbba0f3-0521-46ed-abb9-5780fc624ab6">
+              <AttributeID>4b6a80f4-079e-424c-bf8d-8681a2418b01</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="fa72c302-8c2d-4ead-b100-698432b980bb">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3b8b5298-bc68-4828-8a69-2e63a06189a2">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Resource_x0020_GD_x0020_2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a654d73f-7527-4db8-b29d-fd90bbbb5cd4">
+              <AttributeID>169d1fb3-9c65-4185-94ea-9ef9b5e7be86</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d6bb543f-6b45-458a-80d7-5f2ea3349025">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="eed52551-9aa9-4a47-a949-74e308cd8ed5">
+                    <TableID>Resource_V</TableID>
+                    <ColumnID>Gen_x0020_Prod_x0020_Posting_x0020_Group</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="b8d4df72-d680-4d3e-9343-9cfacf93ebb8">
+          <CubeDimensionID>d3264a21-0061-47df-b4f3-a46d858a6f5a</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="99ecd905-0bf6-49b4-b8ae-03dba8b02639">
+              <AttributeID>ec278549-841c-4f63-ad3c-a0e08acd31dc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a0bb727a-181b-4895-bd51-c0ff28a9d4d8">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4e8c38fd-45e5-4dbb-bfec-65368dccf2ea">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="d5cba7c2-0e1b-48d6-b7ab-668f5f21c0a7">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="916548af-6257-45a3-9257-29d817a51641">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>GD5</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="cf6b2f66-02d2-4206-9e22-7e2993b7c2c1">
+              <AttributeID>322f5320-1e73-490d-9534-a0e08acd354c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="68e75d25-eb50-4572-82f4-9695bc74fb52">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="af5cad52-7335-49bc-8203-21ee28cb3e20">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Fixed_x0020_Asset_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="139fc4c9-33ac-4a2f-a11c-2626460f3899">
+              <AttributeID>250b3850-f0bc-4ddc-ae2c-a0e08acd3574</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="53f26303-5bb0-4bdd-9128-f96d79da8ebe">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="01be1e7b-3aa4-46e4-bd1a-45e87d0b1d78">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Fixed_x0020_Asset_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="9f514b31-cd54-49f5-9a69-1275f9d5f7bc">
+              <AttributeID>7274a6f9-8576-4519-89b6-a0e08acd359c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a0df12a2-0d5e-48fe-9158-60de39aae2d7">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b099c4ee-1926-4a29-8c9e-0c42e192fae8">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Fixed_x0020_Asset</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a365b029-940a-4693-a785-3ffc4d12816e">
+              <AttributeID>dc74fd74-17d4-4377-8b11-a0e08acd35c4</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="71440493-5c25-405e-8d53-f73b93c2188d">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8dd37fc3-0a44-4b13-836b-a5b545f116ce">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Main_x0020_Asset_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="fed83e23-c32f-4a3d-9487-5675f4f99f58">
+              <AttributeID>e712fb4e-96c0-429c-8423-a0e08acd35ec</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0ddf52a4-55bb-42e0-b25c-95b981e5fa1b">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d6c1323e-6578-4b1d-bde4-524f0746eef0">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Main_x0020_Asset_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="14bc4c0c-7e3a-44c9-96e3-eb16f49c4e26">
+              <AttributeID>67922413-5fc2-4a10-a3e9-a0e08acd3614</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8e05b1e8-69d6-4abd-8b0d-8da14eb08c89">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b0f22b4f-76e2-44a7-bca4-0a8ee1fcc790">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Main_x0020_Asset</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="9f64d568-7d84-464f-a95c-d14ea547eb28">
+              <AttributeID>b4d457e7-ce5a-4dab-a2e2-a0e08acd363c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a4605d85-984e-4bbe-ad5f-6a460c4392f0">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1647d4f5-9aa4-43eb-8449-e2ca017eb2e0">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Vélarstærð</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="e74b9741-4eab-40b2-b02e-e1ecf9f3a129">
+              <AttributeID>7392c287-3fe0-4aa0-80ab-a0e08acd3664</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="86d76d2e-9546-4a4a-a491-53db2fe5af54">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2131be21-b4a8-40f4-b31f-7c744565f1ec">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Co_x0020_losun</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="35a7c9a9-7c2a-44f9-8404-e20f14f411f7">
+              <AttributeID>d08493fc-e94a-41c2-9a78-a0e08acd368c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e992207d-b59c-4eed-994e-2a5fe137e01e">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="38ae5307-918f-4ba2-8d9e-51c8707f8c6f">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Annað</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="e0943dd3-1c11-4af9-bf4c-95db211068a9">
+              <AttributeID>4e8db3cc-4825-4639-84d9-a0e08acd36b4</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3032c8ff-dda1-469f-9b59-81b4d024d4df">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7ae70594-c3c4-4cc2-988b-49bd33e46d73">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Serial_x0020_númer</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="3acb62c2-2f7b-4d01-a9b4-f88970c59098">
+              <AttributeID>cbb39679-98a6-4281-a5ce-a0e08acd36dc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="996071f9-bd12-4f36-8a30-ab5b161c2deb">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8008b011-e3d0-47f3-8477-e8735223a0b3">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Dekkjastærð_x0020_frá_x0020_umf_x0020_stofu</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="43c32e44-8907-4df6-a43e-254e6b207ad5">
+              <AttributeID>9f495553-ba50-4174-94a2-a0e08acd3704</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9ef4e742-7939-4d7e-866c-1df7a21c781c">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="74cb45b2-2d2b-4d03-905c-269ac09fec16">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>SkráningarmánuðurKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="baeadf4e-80e2-4636-887c-060987ca0c65">
+              <AttributeID>5747d193-e6d6-4aaf-9fa1-a0e08acd372c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="92c0dd98-dc5e-44db-962d-8dee23ffa942">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="59e0de39-7e38-4049-a294-6bdc497204ae">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Tryggingarfélag</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="3b0b8ba8-2268-4026-b693-75bbadd71201">
+              <AttributeID>e2f7a9a5-8fcb-4a6c-ab93-a0e08acd3754</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a0644053-9f15-4796-ac1f-fd47bf9dde77">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b812ad99-cf41-4e1d-a510-f7fb0bb8d56f">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Skipting</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="c05b1449-6857-4fa6-824c-ca8f92dc756d">
+              <AttributeID>cdcf52c8-3576-4bd3-b3ae-a0e08acd377c</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="db257e76-4fc0-4742-a4ad-573344f5f84e">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a1a9e319-4b82-40cc-aa8d-6032c5a9c3d0">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Fjöldi_x0020_dyra</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="489aa7aa-e22b-4e80-b9e4-60a7459d0ac1">
+              <AttributeID>a6cc0766-0565-4e56-8934-a0e08acd37a4</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ae95b983-d30b-4cf6-b3ac-c505a163500c">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="618ab375-4da6-4c8d-8d4f-88156ce424a0">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Litur</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="6c4e06a7-a1c2-4cc5-a445-99e448ff35c6">
+              <AttributeID>25da9993-4a16-480b-8e3c-a0e08acd37cc</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7304d721-3701-4f25-abba-8d7375884868">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="dc2a147a-aac6-4bde-8b97-a62b319ef5c3">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Eldsneyti</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="2dea2001-8170-4b28-959c-2732ccd952e6">
+              <AttributeID>40c41424-2776-41a0-9dc9-a0e08acd37f4</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8b60ee6f-0f56-4521-bb5f-2d26ac068c05">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3f1a91fb-4650-41d4-90ac-91d691ba6349">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Ár</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="956417dc-06fa-4bd5-8d35-066aa4a5541a">
+              <AttributeID>ddc2e343-e443-4d3b-9e4c-a4746486e6c6</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ec6f60e6-f1ce-4ba2-8ee8-bc1109e9531c">
+                  <DataType>UnsignedTinyInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7b62f500-59e1-4a72-bf32-6b95ac6d5071">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Blocked</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="40203845-0d92-4a55-beb3-5dc386c56560">
+              <AttributeID>e89dc056-1ada-4ebc-9a22-a4746486f86d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2167650f-2ce2-4297-818b-0d5bb17af9e8">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b93b613f-8d5f-48bb-bbf2-904cca1d5378">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>GD1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="68f5cff2-bdbf-4fa5-a404-9a7a925819d8">
+              <AttributeID>1eff9000-d142-4604-8886-a4746486f90d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cbb246f4-c7e5-49bb-9277-440d67314661">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1d06cdee-fd75-4c19-9d8e-82b4e4d1cbf4">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>GD2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="2811c0b4-0d81-44a6-b7cc-c9c3e5dad2b1">
+              <AttributeID>9aae1721-37ac-443f-8533-a4746486f9ad</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7bf43c7a-178d-4da6-bdae-5dc60fd46d36">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="21929a60-d61e-4e32-bdc7-83f15e9d088d">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>FA_x0020_Class_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a951ae1c-87ac-44d3-9a59-16689d6e6de5">
+              <AttributeID>684cfa8d-4b55-4a97-936d-a4746486fa25</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1beb3ebd-6deb-4395-9260-dd394ca1630a">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="794a8503-2718-44bd-8b29-bb89677c5751">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>FA_x0020_Location_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="384993ec-7e3c-48de-bcc1-5def844ca442">
+              <AttributeID>7a0574d2-6e24-48ec-b00f-a4746486faed</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="092e96a5-6dac-4cd2-b308-c79a818b1811">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="075d62a4-05ec-4466-a937-ad516b53ff16">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>FA_x0020_Posting_x0020_Group</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a54cef04-198d-44b2-a79f-6aa1e3186513">
+              <AttributeID>f0b46064-49e4-4f0e-9ed7-a4746486fb8d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6e93c063-6efd-4948-a804-1592eba18fde">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="11704c55-e1d3-4fb0-baa7-56df9001fd5d">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>FA_x0020_Subclass_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="4f2d3921-94e5-46f5-a5fc-56ed6abcc5d5">
+              <AttributeID>b1a0467d-f9c6-4429-b7aa-a4746486fc2d</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4d2ea0e4-ab2a-4087-b984-9c86532754a8">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a652a630-257d-4288-832b-44c86375998d">
+                    <TableID>Fixed_x0020_Asset_V</TableID>
+                    <ColumnID>Last_x0020_Mileage</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a9c106d0-3a5c-4018-bf0a-e4c7e5416fc4">
+          <CubeDimensionID>ff1ab54e-e591-46e1-9513-a46d8c34b982</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="5968362c-5162-4fb0-b48e-569b29c5ebbb">
+              <AttributeID>770ee879-4a2b-4747-a1c3-a46d8c21135a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f3e4b4ef-70a2-4eed-a137-5ef098e2919f">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f2c372b1-1ae0-4359-bacc-4d4630cc6502">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="ac0f4bb7-4c86-41e0-b6d0-1fa8a8bc4e80">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="57e0b7ff-8075-43d3-9cbb-52f542ee6538">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Document_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="1bbfa021-5c6c-422b-902a-170a1b46239b">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b8665224-0fa2-4e48-a5e7-681c6a956dc6">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Table_x0020_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="9bdba62f-d074-46b9-acb2-69377913e067">
+              <AttributeID>db0487f8-784c-4122-96a5-a46d8c2117e2</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="fcdcfd9e-a72d-41bb-8e0d-0260115b767b">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5a37999d-7ea5-42fc-acac-22f32264a9a2">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Röðun_x0020_á_x0020_Reiknuðum_x0020_flokki</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="54983432-5467-41c1-b32c-19dc146afa34">
+              <AttributeID>39c3cd6c-79fe-4870-a6cf-a46d8c211832</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4d7d7d17-1f1a-4167-a67f-3edc397c4ba5">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="56dee8a8-a613-4ff5-8a93-a62bdce87c9f">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Röðun_x0020_á_x0020_Leigðum_x0020_flokki</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d90e62ea-c9c0-4946-9258-984fd0302a69">
+              <AttributeID>77554533-5692-49b5-81ae-a46d8c21185a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="733d798b-f0e2-4ab6-9cf1-2a569e658426">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="70549b45-b2de-4161-9c74-0a9549ecbd2c">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Leigður_x0020_hærri</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="8de6cdcd-547f-47bb-8b3b-717d15cb6f4f">
+              <AttributeID>abe87f76-b4fe-45be-8baa-a46d8c2118aa</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="62a78069-39a6-482e-b709-39833c8476bd">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ba108e5d-b986-4db1-bf31-9764fffa1c52">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Leigður_x0020_lægri</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="5542a3fc-64f5-4f61-9786-182c07cefc8b">
+              <AttributeID>0649f13b-8726-4cd5-be30-a46d8c2118d2</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="27f9b305-226e-4153-9e30-c66790190b7c">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5de4a671-beb0-40cb-bd94-b49d7648e378">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Röðun_x0020_á_x0020_Reiknuðum_x0020_flokki</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="6eed8d75-8d9d-4f36-aaf0-379417c62720">
+              <AttributeID>e074b9b1-de08-4bb6-b848-a46d8c211922</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f8370ab3-6dfc-4058-add6-ac8f5aeac0f8">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="df915194-f236-4c1f-b220-135515325ab6">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Röðun_x0020_á_x0020_Leigðum_x0020_flokki</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="3350cd7e-8bb3-4e9e-92d7-5f13d380892e">
+              <AttributeID>8d83df32-9dcc-4882-ab22-a46d8c21194a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="dc89ab17-ee2e-4d41-994b-8c8216ffc796">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="39e406d3-92f2-4258-b936-3c90d30494ea">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Skilastöð</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="6d448b53-830e-4b7b-bcbe-d5d4ccce125a">
+              <AttributeID>d9ad5995-a423-4450-b309-a46d8c211972</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c7033612-13f5-480a-82f8-ea244406e5b6">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8b6cd7f6-fb73-4b6a-ba00-1277041f8968">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Leigustöð</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="75f8ec62-a770-4a05-852c-8e40292cb04c">
+              <AttributeID>c683ea52-9caa-4364-a5b1-a46d8c2119c2</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1019f4f1-399c-46a6-a66f-c08a7ec1b914">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="46eb16ea-676d-47eb-9795-8234430e326b">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>SOR</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="1b1ed290-dfcd-4d45-ad34-86b8b4a3207b">
+              <AttributeID>33898b87-4765-45ac-824b-a46d8c211a12</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e26116a2-cc85-4fff-bdea-f79427e503a3">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="da3b04cf-c993-4dbd-aad9-9679c040ec4d">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Voucher_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d60bbd39-40f8-48d8-bccf-78d6c577139b">
+              <AttributeID>1de1d071-9e17-4960-8382-a46d8c211a3a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="18f0b990-d470-48f1-8903-84de49a51283">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="aecd2ffd-37fd-4c9a-9298-1c2989e2044f">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Þín_x0020_tilvísun</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="20889679-cbbb-426b-8f8a-5158c5238bdc">
+              <AttributeID>cffabd3b-ffa5-488c-98f0-a46d8c211a8a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ebf29430-6b7e-48e3-bae7-3d7d6c4c9315">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1e50bc76-d2c5-452c-9205-f7d1a74d2986">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>AWD</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a7f758ab-ea42-46df-9dfb-a1958cde9038">
+              <AttributeID>5d58182e-302a-4fe2-a932-a46d8c211ada</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="caa8f60f-12f7-40fc-852c-dcf2a7e459ee">
+                  <DataType>Double</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d9f3fa1c-77dd-4e40-8be8-311987cdcbd8">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Eknir_x0020_km</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="9419418d-23c4-4cbe-a2a6-2bc466edf440">
+              <AttributeID>8bd1fe88-e592-4798-b141-a46d8c211b2a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cb40b6a6-84b1-4971-8b15-2c18f6a2bbe3">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="df00de8c-ad5b-42e1-bf6d-0a627aef0241">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Leigudagar</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d455e400-a96a-449e-b7c1-2e2b26c9194d">
+              <AttributeID>a1ad7697-7ca0-4217-bbd0-a46d8c211b7a</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="28bb3b00-1f75-413e-9f42-a54f75eb2d96">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="26f9d44e-38df-4f89-94fd-ff5cd4841589">
+                    <TableID>Sales_x0020_Info_V</TableID>
+                    <ColumnID>Nafn_x0020_Leigutaka</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="69caadd9-aed1-4717-944b-03b91f446628">
+          <CubeDimensionID>41647255-5605-4246-99d2-a4f4587b6b01</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d953d83d-4cfe-4f75-9356-fd1befab343f">
+              <AttributeID>cf9d6b03-173f-478b-b218-a4f456ea2cb9</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0968b1e8-cebf-4e46-9f81-cbfbea629d89">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e76a2ff8-ecdf-45ad-8a53-4b4dede1fd02">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="ebc74f45-7239-4305-9e53-d3fe0c2da1a6">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="227ce588-2638-44ab-92cb-e3890c0e40e8">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Table_x0020_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="4be3a592-cecf-4d20-9823-3bc6b89fc3f8">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="99371241-357e-49be-94e5-7757ce76d473">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Document_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="1a405183-36c5-4383-b352-8417e1f57f8c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5a9de9b7-2c69-4328-a6dd-c140fbdbfab8">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>YM</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="dad69268-8646-4a18-a954-c3df3b75c5db">
+              <AttributeID>fc034435-f8aa-490a-b85a-a4f456ea3169</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="599e164f-692f-4ad4-b47c-77518957ed20">
+                  <DataType>BigInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="09c14fab-d966-46ff-9f9c-83e939bc9b90">
+                    <TableID>Document_x0020_Sales_V</TableID>
+                    <ColumnID>Table_x0020_ID</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="2ff22629-a00d-49f9-9b29-6b2d29fd797b">
+              <AttributeID>7fe98c94-d7c2-43fb-8cb3-a4f456ea31b9</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="615792d3-e26a-490c-882b-4a3963ce12c3">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f0dae8e5-435c-4940-bd61-9e7709a561be">
+                    <TableID>Document_x0020_Sales_V</TableID>
+                    <ColumnID>Document_x0020_No</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="cbbdf317-56ab-406d-9217-31eee93474ab">
+              <AttributeID>1f78bfca-5543-49f0-bfd8-a4f456ea31e1</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="520f2592-2e89-49ac-aed1-6f100c5b5a66">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5da77c72-63f3-45c6-aaef-14166056c853">
+                    <TableID>Document_x0020_Sales_V</TableID>
+                    <ColumnID>YM</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d718387e-17a5-4edc-8f33-9d28eafe3bb6">
+              <AttributeID>15fa88bc-666c-49b7-9b91-a5af81c90aef</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="df946971-5f8a-45a2-abc6-7af630ba6b29">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2d9a7474-2d0f-4f11-b278-684be0f371b7">
+                    <TableID>Document_x0020_Sales_V</TableID>
+                    <ColumnID>External_x0020_Document_x0020_No_</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="abf9c026-2be3-4ee9-8fff-415d45e0a3dd">
+          <CubeDimensionID>97545f98-e2a9-48f5-ab18-a5bf804b77f8</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="7dd700fe-51fa-40d3-90bc-b98a1528a7d1">
+              <AttributeID>d99e6fbe-84fb-496e-a973-fd59425b5db7</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b825e157-d334-4b33-9c88-925b0ac67fe8">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1f51a6ad-b7ad-4a12-ba1b-7b6786359948">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="e1449d51-f8d6-4a1d-9667-ccce5038d24c">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9612cc3a-8185-4cf8-b9fe-dac2f56c9b48">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Salesperson_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="724923f9-38b8-4ff5-bb7b-6cd81943c483">
+              <AttributeID>46204908-c2a0-4469-99e2-c2c6cc23baca</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c604e4b7-e407-4425-a71e-701e706495e6">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6bb315be-89ef-4a0b-a359-7d36e99d2207">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="001037fc-ad9c-49bc-992d-4fa2eac09870">
+              <AttributeID>6699d658-550e-48da-ac53-35cd36a44296</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d0e92fd6-3ab0-4da3-9b1e-c0c18459254a">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f4d4a796-ed7a-4c9e-9357-92e7b943764e">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="900934c7-88ba-4d0f-8ea5-a49d0e254570">
+              <AttributeID>aaa2bf23-25c0-4eea-866b-702f005e141b</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="1b37bb38-99c6-4f44-9069-beb243ce0ba5">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="44391820-e931-43db-a2dd-b419e0e70a30">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="0f95fb71-674b-4322-b8f8-c455761f53d6">
+              <AttributeID>13e1fa22-920c-46eb-bffc-817376a92b56</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="59d16ec8-7c04-4695-ba46-b81365aa7a06">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="53d907c3-1040-4c59-a2f4-30ee1e3d9bbe">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>GD_x0020_1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="512b1c80-0b89-43fe-a8d6-3231ecd59f0d">
+              <AttributeID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e1346cf7-51d6-4047-9fdd-be5b02ec2d46">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4fc775d4-658a-4e0b-a627-192d3dcfaca0">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>GD_x0020_2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="00d89a55-6770-4a7a-9f58-3c1f07547746">
+          <CubeDimensionID>8753626b-bfbb-4124-8d64-a5bf8055bdf8</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="417269d4-6309-4c05-a817-25c8ae1559ec">
+              <AttributeID>d99e6fbe-84fb-496e-a973-fd59425b5db7</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="aa5afbb4-3d99-45d6-b1af-36ab9ca034dc">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="070d3261-df32-40af-96b6-a403c5293d3d">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="06f81267-ed77-4200-b3b9-60a3768f3367">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="00e5199f-c1ba-4624-8d51-00557e52868b">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Starfsmaður_x0020_-_x0020_útleigu</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="c71eba70-f884-4550-8ca9-2ac8d047e4ce">
+              <AttributeID>46204908-c2a0-4469-99e2-c2c6cc23baca</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0b641d78-41a7-44e1-ac01-f28bf8779326">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="97fda10b-d9cc-4ff8-b229-219399d5b964">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="cc6f0401-e0b4-4b63-a39d-f0eec2b0a86c">
+              <AttributeID>6699d658-550e-48da-ac53-35cd36a44296</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="91c6bc5e-db71-4db0-b999-4a47269dfd70">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="69b53c05-09d1-4f37-91a9-75e0e1e5af10">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="d0a53703-b1f6-4964-81c3-d0f5a084b24d">
+              <AttributeID>aaa2bf23-25c0-4eea-866b-702f005e141b</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b0072ce3-907b-4a87-bee6-69d501c96304">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="040512db-157c-421c-afe7-b93038d8c30a">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="0b828d3d-9e1f-4dbf-b27d-8d7e93ab6028">
+              <AttributeID>13e1fa22-920c-46eb-bffc-817376a92b56</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="459238aa-6460-4d34-9120-aac568a49d83">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4d7a50a7-7f3c-4406-8ea8-264a6ccbcc50">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>GD_x0020_1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="a67dbb58-12c6-44ea-b173-6d27695756e0">
+              <AttributeID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="681de75d-caac-4e7f-9017-348611e89448">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7306da01-67ac-47de-921b-8fa79a239aa0">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>GD_x0020_2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="68df3b00-da43-48a7-86a3-35857bffdcea">
+          <CubeDimensionID>5a57cf62-fbdc-47a2-a348-a5bf8066a640</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="54fc8913-7ae6-4fe9-95e7-edd36f5bdabc">
+              <AttributeID>d99e6fbe-84fb-496e-a973-fd59425b5db7</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4dcfe32e-c0b6-4172-b197-00854d72f566">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="556f702c-9db6-4000-87d3-1f91b0d3870e">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>DW_Account</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="90999001-1ed0-4600-ae7e-317cb1d13b36">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="669d1ed6-e276-4c72-8bea-e07fea114f65">
+                    <TableID>Sales_x0020_Entries_V</TableID>
+                    <ColumnID>Starfsmaður_x0020_-_x0020_skil</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute dwd:design-time-name="3f0cd047-e4fb-4cc4-bf87-697e3b0f5285">
+              <AttributeID>46204908-c2a0-4469-99e2-c2c6cc23baca</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d9ecaeb4-de4f-4671-8708-d1773dfdaa10">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6c66deec-f34e-4adb-be05-740de33851ec">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser_x0020_Code</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="1bb67941-37f1-4129-8c4b-45e7dd2241c3">
+              <AttributeID>6699d658-550e-48da-ac53-35cd36a44296</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6ad3e9a2-5af5-4147-9bdf-d0ccfc39c9ee">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2693a984-d471-44be-8a96-0f21b4bc5b35">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="70e4b1f0-a777-4df8-a119-290db7108362">
+              <AttributeID>aaa2bf23-25c0-4eea-866b-702f005e141b</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6074ae98-dae7-4f9b-9cce-f0fccee90e68">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a74a56c4-81c5-482f-8e91-6651f460722e">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>Salesperson_x0020_Purchaser</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="24518877-15ac-415b-b2af-38faf4565dbd">
+              <AttributeID>13e1fa22-920c-46eb-bffc-817376a92b56</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6da3bd3f-bb1f-494b-b013-363f1f44c32a">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3d103bf0-72c6-400a-aecf-c45d69378f39">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>GD_x0020_1</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="200da430-936d-44fc-a4a1-2578622211ac">
+              <AttributeID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="15698cf2-7039-4364-b1b7-fe669111fa60">
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="241649d6-55ec-42af-9937-2cf314a41a2b">
+                    <TableID>Salesperson_x0020_Purchaser_V</TableID>
+                    <ColumnID>GD_x0020_2</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+      <ProactiveCaching dwd:design-time-name="a82c1df9-3fba-4c37-8dcc-864083ccd516">
+        <SilenceInterval>-PT1S</SilenceInterval>
+        <Latency>-PT1S</Latency>
+        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+        <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ecec6090-f2af-4316-9435-9e1384973965" />
+      </ProactiveCaching>
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="365a8511-f884-4231-83c9-91f8e6a97bdb">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <MdxScripts>
+    <MdxScript dwd:design-time-name="1bb01c0f-f4cb-4f8e-800e-ddbe5d6414ed">
+      <ID>Sales Entries</ID>
+      <Name>Sales Entries</Name>
+      <CreatedTimestamp>2016-03-04T15:00:23.566667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2016-03-04T15:00:23.736667Z</LastSchemaUpdate>
+      <Commands>
+        <Command>
+          <Text>CALCULATE;</Text>
+        </Command>
+      </Commands>
+    </MdxScript>
+  </MdxScripts>
+  <ProactiveCaching dwd:design-time-name="f1009695-5c57-48d7-b97b-ccdc6847e50f">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="b14e6f6c-0447-4a40-8f4d-260753a77386" />
+  </ProactiveCaching>
+</Cube>

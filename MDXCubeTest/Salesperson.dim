@@ -1,0 +1,244 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>6d96500a-5c69-4701-97b5-e3e10cafa9a3</ID>
+  <Name>Salesperson</Name>
+  <CreatedTimestamp>2016-03-04T15:00:14.616667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:14.616667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>6d96500a-5c69-4701-97b5-e3e10cafa9a3</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:36:23.483333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>d99e6fbe-84fb-496e-a973-fd59425b5db7</ID>
+      <Name>Key</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Salesperson_x0020_Purchaser_V</TableID>
+            <ColumnID>DW_Account</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Salesperson_x0020_Purchaser_V</TableID>
+            <ColumnID>Salesperson_x0020_Purchaser_x0020_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>46204908-c2a0-4469-99e2-c2c6cc23baca</AttributeID>
+          <Name>Salesperson Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>6699d658-550e-48da-ac53-35cd36a44296</AttributeID>
+          <Name>Salesperson Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>aaa2bf23-25c0-4eea-866b-702f005e141b</AttributeID>
+          <Name>Salesperson</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>13e1fa22-920c-46eb-bffc-817376a92b56</AttributeID>
+          <Name>Salesperson GD 1</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</AttributeID>
+          <Name>Salesperson GD 2</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </ValueColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>46204908-c2a0-4469-99e2-c2c6cc23baca</ID>
+      <Name>Salesperson Code</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Salesperson_x0020_Purchaser_V</TableID>
+            <ColumnID>Salesperson_x0020_Purchaser_x0020_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>Salesperson_x0020_Purchaser_x0020_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>Salesperson_x0020_Purchaser_x0020_Code</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>6699d658-550e-48da-ac53-35cd36a44296</ID>
+      <Name>Salesperson Name</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Salesperson_x0020_Purchaser_V</TableID>
+            <ColumnID>Salesperson_x0020_Purchaser_x0020_Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>Salesperson_x0020_Purchaser_x0020_Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>Salesperson_x0020_Purchaser_x0020_Name</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>aaa2bf23-25c0-4eea-866b-702f005e141b</ID>
+      <Name>Salesperson</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Salesperson_x0020_Purchaser_V</TableID>
+            <ColumnID>Salesperson_x0020_Purchaser</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>Salesperson_x0020_Purchaser</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>Salesperson_x0020_Purchaser</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>13e1fa22-920c-46eb-bffc-817376a92b56</ID>
+      <Name>Salesperson GD 1</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Salesperson_x0020_Purchaser_V</TableID>
+            <ColumnID>GD_x0020_1</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>GD_x0020_1</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>GD_x0020_1</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>6d7aa4be-8f29-4dad-bfd5-257b0ad445c7</ID>
+      <Name>Salesperson GD 2</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Salesperson_x0020_Purchaser_V</TableID>
+            <ColumnID>GD_x0020_2</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>GD_x0020_2</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Salesperson_x0020_Purchaser_V</TableID>
+          <ColumnID>GD_x0020_2</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Salesperson</AttributeAllMemberName>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

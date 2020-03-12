@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2018 4:56:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-02"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{F0A304DD-009F-46C7-B339-A4F186733977}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="stg_kistan_Stoppbilar"
+  DTS:PackageType="5"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{157E748F-74D2-40F6-B10D-30049AB8D911}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.150.4.3.miracle]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{A9C41035-FDE9-47C8-B298-B1343383A80D}"
+      DTS:ObjectName="10.150.4.3.miracle">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=kistan.alp.is;user id=miracle;sslmode=None;persistsecurityinfo=True;database=carwash;logging=True;sqlservermode=True;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPlq6uVPykU+sQTtFVI9azQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB8+FXwys+g728P8kEwkuu+AAAAAASAAACgAAAAEAAAABdH42NfBo+M7icgQ6WYrIsYAAAAZstuk5SxWz3GbW75FXz08Hg0Dda9DyV2FAAAAIvqn6HryZC1r/22bj3EXj65FMyM</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.flotaskjal]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{34865B34-F88D-4012-99CD-35EEA1C7DBC1}"
+      DTS:ObjectName="LocalHost.flotaskjal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=flotaskjal;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C66960B-E7E6-478C-A502-8D1C5DD0C589}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select  * from carwash where ID&gt;= &quot;+ (DT_WSTR,20)  @[User::MaxId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CarwashSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">select  * from carwash where ID&gt;= 0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{77774892-C059-4721-B2E5-C7E4B661B114}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{928CDECC-2F19-4DF8-A1C2-EA53759FB932}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{34865B34-F88D-4012-99CD-35EEA1C7DBC1}"
+          SQLTask:SqlStatementSource="SELECT ?= MAX(ID) FROM STG.STOPPBILAR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::MaxId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\get stoppbilar"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{913BC27C-F324-436E-99AC-853E9D2E3C62}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get stoppbilar"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\get stoppbilar\kistan stoppbilar"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="kistan stoppbilar"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT * FROM kistan.stoppbilalistinn</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get stoppbilar\kistan stoppbilar.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.150.4.3.miracle]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.150.4.3.miracle]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stoppnumer]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stoppnumer]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stoppnumer]"
+                      name="stoppnumer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[bilnumer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[bilnumer]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[bilnumer]"
+                      name="bilnumer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[gerd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[gerd]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[gerd]"
+                      name="gerd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[undirgerd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[undirgerd]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[undirgerd]"
+                      name="undirgerd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[skipting]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[skipting]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[skipting]"
+                      name="skipting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[vel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[vel]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[vel]"
+                      name="vel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stoppdags]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stoppdags]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stoppdags]"
+                      name="stoppdags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[plandags]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[plandags]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[plandags]"
+                      name="plandags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[lokdags]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[lokdags]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[lokdags]"
+                      name="lokdags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stadur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stadur]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stadur]"
+                      name="stadur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[tegundvidgerdar]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[tegundvidgerdar]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[tegundvidgerdar]"
+                      name="tegundvidgerdar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[bilanalysing]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[bilanalysing]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[bilanalysing]"
+                      name="bilanalysing"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[adgerdir]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[adgerdir]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[adgerdir]"
+                      name="adgerdir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[starfsmadur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[starfsmadur]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[starfsmadur]"
+                      name="starfsmadur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stada]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stada]"
+                      name="stada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[argerd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[argerd]"
+                      length="25"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[argerd]"
+                      name="argerd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[lastchange]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[lastchange]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[lastchange]"
+                      name="lastchange"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[tjoncaseid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[tjoncaseid]"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[tjoncaseid]"
+                      name="tjoncaseid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stoppnumer]"
+                      dataType="i4"
+                      name="stoppnumer" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[bilnumer]"
+                      dataType="wstr"
+                      length="50"
+                      name="bilnumer" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[gerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="gerd" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[undirgerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="undirgerd" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[skipting]"
+                      dataType="wstr"
+                      length="50"
+                      name="skipting" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[vel]"
+                      dataType="wstr"
+                      length="50"
+                      name="vel" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stoppdags]"
+                      dataType="dbTimeStamp"
+                      name="stoppdags" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[plandags]"
+                      dataType="dbTimeStamp"
+                      name="plandags" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[lokdags]"
+                      dataType="dbTimeStamp"
+                      name="lokdags" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stadur]"
+                      dataType="wstr"
+                      length="50"
+                      name="stadur" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[tegundvidgerdar]"
+                      dataType="wstr"
+                      length="50"
+                      name="tegundvidgerdar" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[bilanalysing]"
+                      dataType="nText"
+                      name="bilanalysing" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[adgerdir]"
+                      dataType="nText"
+                      name="adgerdir" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[starfsmadur]"
+                      dataType="wstr"
+                      length="50"
+                      name="starfsmadur" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[stada]"
+                      dataType="wstr"
+                      length="50"
+                      name="stada" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[argerd]"
+                      dataType="wstr"
+                      length="25"
+                      name="argerd" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[lastchange]"
+                      dataType="wstr"
+                      length="50"
+                      name="lastchange" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].ExternalColumns[tjoncaseid]"
+                      dataType="wstr"
+                      length="50"
+                      name="tjoncaseid" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stoppnumer]"
+                      dataType="i4"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stoppnumer]"
+                      name="stoppnumer" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[bilnumer]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[bilnumer]"
+                      name="bilnumer" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[gerd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[gerd]"
+                      name="gerd" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[undirgerd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[undirgerd]"
+                      name="undirgerd" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[skipting]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[skipting]"
+                      name="skipting" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[vel]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[vel]"
+                      name="vel" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stoppdags]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stoppdags]"
+                      name="stoppdags" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[plandags]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[plandags]"
+                      name="plandags" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[lokdags]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[lokdags]"
+                      name="lokdags" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stadur]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stadur]"
+                      name="stadur" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[tegundvidgerdar]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[tegundvidgerdar]"
+                      name="tegundvidgerdar" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[bilanalysing]"
+                      dataType="nText"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[bilanalysing]"
+                      name="bilanalysing" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[adgerdir]"
+                      dataType="nText"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[adgerdir]"
+                      name="adgerdir" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[starfsmadur]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[starfsmadur]"
+                      name="starfsmadur" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stada]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[stada]"
+                      name="stada" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[argerd]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[argerd]"
+                      name="argerd" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[lastchange]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[lastchange]"
+                      name="lastchange" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[tjoncaseid]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[tjoncaseid]"
+                      name="tjoncaseid" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\get stoppbilar\wrk stoppbilar"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="wrk stoppbilar"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[stoppbilar]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get stoppbilar\wrk stoppbilar.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.flotaskjal]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[stoppnumer]"
+                      cachedDataType="i4"
+                      cachedName="stoppnumer"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stoppnumer]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stoppnumer]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[bilnumer]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="bilnumer"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[bilnumer]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[bilnumer]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[gerd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="gerd"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[gerd]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[gerd]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[undirgerd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="undirgerd"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[undirgerd]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[undirgerd]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[skipting]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="skipting"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[skipting]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[skipting]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[vel]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="vel"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[vel]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[vel]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[stoppdags]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="stoppdags"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stoppdags]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stoppdags]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[plandags]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="plandags"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[plandags]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[plandags]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[lokdags]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="lokdags"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[lokdags]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[lokdags]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[stadur]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="stadur"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stadur]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stadur]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[tegundvidgerdar]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="tegundvidgerdar"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[tegundvidgerdar]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[tegundvidgerdar]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[bilanalysing]"
+                      cachedDataType="nText"
+                      cachedName="bilanalysing"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[bilanalysing]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[bilanalysing]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[adgerdir]"
+                      cachedDataType="nText"
+                      cachedName="adgerdir"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[adgerdir]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[adgerdir]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[starfsmadur]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="starfsmadur"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[starfsmadur]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[starfsmadur]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[stada]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="stada"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stada]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[stada]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[argerd]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="argerd"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[argerd]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[argerd]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[lastchange]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="lastchange"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[lastchange]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[lastchange]" />
+                    <inputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].Columns[tjoncaseid]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="tjoncaseid"
+                      externalMetadataColumnId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[tjoncaseid]"
+                      lineageId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output].Columns[tjoncaseid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stoppnumer]"
+                      dataType="i4"
+                      name="stoppnumer" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[bilnumer]"
+                      dataType="wstr"
+                      length="50"
+                      name="bilnumer" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[gerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="gerd" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[undirgerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="undirgerd" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[skipting]"
+                      dataType="wstr"
+                      length="50"
+                      name="skipting" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[vel]"
+                      dataType="wstr"
+                      length="50"
+                      name="vel" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stoppdags]"
+                      dataType="dbTimeStamp"
+                      name="stoppdags" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[plandags]"
+                      dataType="dbTimeStamp"
+                      name="plandags" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[lokdags]"
+                      dataType="dbTimeStamp"
+                      name="lokdags" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stadur]"
+                      dataType="wstr"
+                      length="50"
+                      name="stadur" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[tegundvidgerdar]"
+                      dataType="wstr"
+                      length="50"
+                      name="tegundvidgerdar" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[bilanalysing]"
+                      dataType="nText"
+                      name="bilanalysing" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[adgerdir]"
+                      dataType="nText"
+                      name="adgerdir" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[starfsmadur]"
+                      dataType="wstr"
+                      length="50"
+                      name="starfsmadur" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[stada]"
+                      dataType="wstr"
+                      length="50"
+                      name="stada" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[argerd]"
+                      dataType="wstr"
+                      length="25"
+                      name="argerd" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[lastchange]"
+                      dataType="wstr"
+                      length="50"
+                      name="lastchange" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[tjoncaseid]"
+                      dataType="wstr"
+                      length="50"
+                      name="tjoncaseid" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[IsStop]"
+                      dataType="i4"
+                      name="IsStop" />
+                    <externalMetadataColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input].ExternalColumns[Rowrecordeddatetime]"
+                      dataType="dbTimeStamp2"
+                      name="Rowrecordeddatetime"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\get stoppbilar\wrk stoppbilar.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get stoppbilar\wrk stoppbilar.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get stoppbilar\wrk stoppbilar.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get stoppbilar\wrk stoppbilar.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\get stoppbilar.Paths[ADO NET Source Output]"
+              endId="Package\get stoppbilar\wrk stoppbilar.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\get stoppbilar\kistan stoppbilar.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\popCarwash_stg"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{C8765439-40C0-4DF4-8363-C9CB8923BA42}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="popCarwash_stg"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{34865B34-F88D-4012-99CD-35EEA1C7DBC1}"
+          SQLTask:SqlStatementSource="exec popCarwash_stg" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\trunc wrk stoppbilar"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1CE8849B-D87B-4424-9BF9-BDE7E2863882}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="trunc wrk stoppbilar"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{34865B34-F88D-4012-99CD-35EEA1C7DBC1}"
+          SQLTask:SqlStatementSource="truncate table stg.stoppbilar" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB90355B-FB9C-4AE3-80E3-313C2E5A5F2A}"
+      DTS:From="Package\trunc wrk stoppbilar"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\get stoppbilar" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="661,51" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\get stoppbilar"
+          TopLeft="163,107" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\popCarwash_stg"
+          TopLeft="166,192" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\trunc wrk stoppbilar"
+          TopLeft="136,9" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="222.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="12.5,56"
+              Start="0,0"
+              End="12.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="8.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.5,28"
+                    Point2="12.5,28"
+                    Point3="12.5,32" />
+                  <mssgle:LineSegment
+                    End="12.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\get stoppbilar">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="146,42"
+          Id="Package\get stoppbilar\wrk stoppbilar"
+          TopLeft="95,246" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\get stoppbilar\kistan stoppbilar"
+          TopLeft="93,93" />
+        <EdgeLayout
+          Id="Package\get stoppbilar.Paths[ADO NET Source Output]"
+          TopLeft="169.5,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,111"
+              Start="0,0"
+              End="0,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get stoppbilar\kistan stoppbilar">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get stoppbilar\wrk stoppbilar">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

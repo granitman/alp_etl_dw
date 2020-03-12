@@ -1,0 +1,2039 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2015 4:06:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-01"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{5840DA96-0A3B-42EC-B353-CCBB4ED20A03}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="reservations_bud_light_test"
+  DTS:PackageType="5"
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{F74B6D6B-16F4-4ABE-AF67-EB59EEF3F69F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[bud_rsfdata_is]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Budget reservation data"
+      DTS:DTSID="{18758B83-F3D9-4F1B-92FB-0B9F5A23D6FA}"
+      DTS:ObjectName="bud_rsfdata_is">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1039"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="d:\ftp_flotaskjol\Incoming\out\BUD_RSFDATA_IS.TXT">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="16"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking Type"
+              DTS:DTSID="{BCD877A5-9D1A-43ED-8FB0-A2D8A636FFC5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Batch number"
+              DTS:DTSID="{4462ACE6-377D-438C-BCC5-F80B86FFDE86}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c2"
+              DTS:DTSID="{352D06F4-EEC7-48F6-A29B-0B43E3F4D421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c3"
+              DTS:DTSID="{69401C71-51D6-4BFD-AC08-810E59C2750D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CheckOut Date"
+              DTS:DTSID="{B2C31587-3068-402D-ABC6-641984D63FD2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkin date"
+              DTS:DTSID="{7C6C6C49-5F7C-4E78-9AD3-416A5C6FD021}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Rental Length (x100)"
+              DTS:DTSID="{332847E6-D707-4E59-AA48-24A06A46C224}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking Date"
+              DTS:DTSID="{D2A8D542-6A92-447E-92E7-53E0C29F4531}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking time"
+              DTS:DTSID="{D27AF872-A723-4A6C-A3F2-C67BDF92D380}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c9"
+              DTS:DTSID="{B4F4831E-0CFE-4CA5-95CA-B920922983B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Rate Code"
+              DTS:DTSID="{734798BC-538F-496A-ABBF-9F9BF6B9FE49}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Car Group"
+              DTS:DTSID="{EF31215C-A019-4387-A80E-589EEED511E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Car Group on request"
+              DTS:DTSID="{6E2E5FEC-E214-44A0-8E31-7ED54205A460}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AWD BCD Number"
+              DTS:DTSID="{DE902345-BA03-4B45-A8D2-5A7790227B9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flight"
+              DTS:DTSID="{B8F58B54-0B52-4729-939B-2BCC3BF9BCBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Souce"
+              DTS:DTSID="{20365B40-5134-4D97-993A-9A834D3B964E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="11"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Reservation Number"
+              DTS:DTSID="{4CE8BF34-C33E-432E-A279-E44BB4FEFAAF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Reservation status"
+              DTS:DTSID="{CDE52134-82FF-48D2-A7CB-CC4A25457AF0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking  change date"
+              DTS:DTSID="{0D4ABECE-6C7B-486C-B912-B07F068924F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking change time"
+              DTS:DTSID="{35F963FA-E461-493B-8882-26CD768FF7BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="o6"
+              DTS:DTSID="{9406C98E-C093-40CA-8FD4-3CF3B8FFBA9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="o7"
+              DTS:DTSID="{68546E49-F124-4DE1-AD18-FFEA75CE18D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="o8"
+              DTS:DTSID="{045601A0-58AF-4AD1-8FA6-68840D538EB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="o9"
+              DTS:DTSID="{7E2896C3-5B19-4073-A7B1-3793D38D35F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="o10"
+              DTS:DTSID="{7176CDFB-12AF-459F-A84A-1EBA268DD5AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkout Station"
+              DTS:DTSID="{84149DFB-06D3-4BDC-B99F-9745A32B540A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkin Station"
+              DTS:DTSID="{7A961A28-4543-4556-92D5-BEDC843D251C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Booking confirmed by"
+              DTS:DTSID="{5F8ED044-776B-41B0-ACEA-44DF6F702084}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="o11"
+              DTS:DTSID="{A386173B-69F7-44A3-B7AB-E57D6A53F696}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Wizard Number"
+              DTS:DTSID="{DAC8CD91-B31D-405C-91AE-249967E1F470}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="o12"
+              DTS:DTSID="{943D1318-6148-4BBA-A714-A99745E3A9B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkout Time"
+              DTS:DTSID="{B242F55F-3E6D-4D68-A72A-8A605F5B08F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Checkin Time"
+              DTS:DTSID="{28B60363-EC35-42DE-8401-21E8257772D3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Value"
+              DTS:DTSID="{55FCF9E0-AA0E-4400-9CF9-37678579FE51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="q13"
+              DTS:DTSID="{E48EFF2C-EB49-48AE-A2EC-2863051D5515}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Currency"
+              DTS:DTSID="{B38F8257-21A7-473D-80B6-10C3390C940F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Driver name"
+              DTS:DTSID="{9F2C429C-F092-4CCA-AF2B-9370EE9A4A47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Remarks Field"
+              DTS:DTSID="{E6FE6DE3-F8DB-4C2F-85A6-2A21D4611279}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="44"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CCI number"
+              DTS:DTSID="{54CDFBCA-98F0-41BB-8376-4A96886F7875}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BUD_RSFDATA_IS]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{34C9D15B-2EF9-49D8-AF92-9363E78C703A}"
+      DTS:ObjectName="BUD_RSFDATA_IS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="RaggedRight"
+          DTS:LocaleID="1039"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter="_x000A_"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="d:\ftp_flotaskjol\Incoming\out\BUD_RSFDATA_IS.TXT">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="294"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{D9B141D1-9D91-4058-BEE7-3C65DB960ADD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[flotaskjal]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+      DTS:ObjectName="flotaskjal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=flotaskjal;Provider=SQLNCLI11;Integrated Security=SSPI;Application Name=SSIS-reservations-{FC030052-9C75-44B2-B0F1-02923E412C7C}LocalHost.flotaskjal;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="flotaskjal"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{65A542D4-AB02-4755-BAD3-ABD98E0C150B}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6E709BEA-FA7C-4216-88C5-2DDA5088737A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="avis_archive">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Archive\Avis\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{95E5711C-32B1-4FBF-BCFC-B2DC64D18947}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::avis_incoming] +  @[User::imp_filename]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AVIS_full_filename_path">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Avis\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{40280089-5505-43B0-A3F9-8036AC8006B0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="avis_incoming">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Avis\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A23F2388-17A4-4480-9582-0B5FD96CEC73}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="bud_archive">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Archive\Budget\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{873D685D-BEFF-44B1-881E-9346C7DCE649}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="bud_file">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48DBC2E1-A66A-4861-9A46-4E6A13446C7D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="bud_incoming_path">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Budget\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{371A9A0F-7496-4F78-A612-5ED90328DAE3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="file_exists">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3BCDC153-01D4-4128-BB74-2E6A875966FD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::bud_incoming_path]  +  @[User::imp_filename]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="full_filename_path">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\Budget\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BC56B883-6057-4665-8DC8-E4A700B2DB3F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="imp_filename">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42280FF1-0C36-4861-A744-C55CC5712AB6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="oud_folder">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Incoming\out\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4DAE1B3-8173-44BE-A7A7-11CC6CD7C52B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tmp_out_file">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">5,7,OnError,13,OnPostExecute,12,OnPreExecute,12,OnTaskFailed,9,OnWarning</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPostExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPreExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{65A542D4-AB02-4755-BAD3-ABD98E0C150B}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Budget"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{65A83170-D131-4041-9CDD-2120045D19C9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Budget">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Budget\bud_res"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{1BC4BA7A-BFDA-44FD-A54F-D4AA13D7553E}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="bud_res">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{7D04E9EE-287E-450E-8943-6F4955732BE5}"
+            DTS:ObjectName="{7D04E9EE-287E-450E-8943-6F4955732BE5}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="d:\ftp_flotaskjol\Incoming\Budget\" />
+                <FEFEProperty
+                  FileSpec="bud_res0*.zip" />
+                <FEFEProperty
+                  FileNameRetrievalType="1" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\DELETE TMP_FILES_BUD"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{1E6C0513-166C-4F7D-8094-469CCE32B362}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DELETE TMP_FILES_BUD"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="DeleteFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="{34C9D15B-2EF9-49D8-AF92-9363E78C703A}" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\DELETE TMP_FILES_BUD 1"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{02AA3F91-8CF2-4C2B-988B-3F7737D5DB8C}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DELETE TMP_FILES_BUD 1"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="DeleteFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="{34C9D15B-2EF9-49D8-AF92-9363E78C703A}" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\file existsdo nothing"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{04D42DCA-977C-48DB-9FB9-313F5E8CBF5D}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="file existsdo nothing"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+                  SQLTask:SqlStatementSource="select 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\Imp bud_rsfdata_is"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{9BC2AAED-9626-49A9-BAB4-EB519C7A346F}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Imp bud_rsfdata_is"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="Booking_lines"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[wrk].[Booking_lines]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[flotaskjal]"
+                          connectionManagerRefId="Package.ConnectionManagers[flotaskjal]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input].Columns[importFile]"
+                              cachedDataType="wstr"
+                              cachedName="importFile"
+                              externalMetadataColumnId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input].ExternalColumns[importFile]"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Output].Columns[importFile]" />
+                            <inputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input].Columns[Column 0]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="294"
+                              cachedName="Column 0"
+                              externalMetadataColumnId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input].ExternalColumns[Line]"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Output].Columns[Column 0]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input].ExternalColumns[importFile]"
+                              dataType="wstr"
+                              length="100"
+                              name="importFile" />
+                            <externalMetadataColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input].ExternalColumns[Line]"
+                              codePage="1252"
+                              dataType="str"
+                              length="500"
+                              name="Line" />
+                            <externalMetadataColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input].ExternalColumns[Lineid]"
+                              dataType="i4"
+                              name="Lineid" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="1039"
+                      name="bud_rsfdata_is"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[BUD_RSFDATA_IS]"
+                          connectionManagerRefId="Package.ConnectionManagers[BUD_RSFDATA_IS]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Output].Columns[Column 0]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                              length="294"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Output].Columns[Column 0]"
+                              name="Column 0"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                              codePage="1252"
+                              dataType="str"
+                              length="294"
+                              name="Column 0" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="1252"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column"
+                      componentClassID="Microsoft.DerivedColumn"
+                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Updates column values using expressions"
+                      name="Derived Column"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Inputs[Derived Column Input]"
+                          description="Input to the Derived Column Transformation"
+                          name="Derived Column Input">
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Output]"
+                          description="Default Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          name="Derived Column Output"
+                          synchronousInputId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Output].Columns[importFile]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="100"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Output].Columns[importFile]"
+                              name="importFile"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">@[User::imp_filename]</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">@[User::imp_filename]</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Error Output]"
+                          description="Error Output of the Derived Column Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Derived Column Error Output"
+                          synchronousInputId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Inputs[Derived Column Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Budget\bud_res\Imp bud_rsfdata_is.Paths[Derived Column Output]"
+                      endId="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines.Inputs[OLE DB Destination Input]"
+                      name="Derived Column Output"
+                      startId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Outputs[Derived Column Output]" />
+                    <path
+                      refId="Package\Budget\bud_res\Imp bud_rsfdata_is.Paths[Flat File Source Output]"
+                      endId="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column.Inputs[Derived Column Input]"
+                      name="Flat File Source Output"
+                      startId="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is.Outputs[Flat File Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\log import file"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{469DBEEB-847F-4967-B8BA-0E233702E559}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="log import file"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+                  SQLTask:SqlStatementSource="&#xA;&#xA;declare @impFile varchar (100) ; &#xA;declare @impFile_year varchar (100) ; &#xA;declare @ImportFileNamePath varchar(200) &#xA;declare  @exists int =0&#xA;&#xA;set @ImportFileNamePath   =? &#xA;set @impFile   = ? &#xA;&#xA;set @impFile_year = left(convert(varchar(10) , getdate(),121) ,4) +'_'+@impFile   &#xA;&#xA;set @impFile_year = left(convert(varchar(10) , getdate(),121) ,4) +'_'+@impFile   &#xA;select  @impFile_year &#xA;&#xA;if exists (select 1 from ImportFileLog where ImportFileType= 'BUD_RSFDATA_IS' and ImportFile_year =@impFile_year  ) &#xA;begin &#xA;  set @exists = 1 &#xA;  print 'exists '&#xA;end   &#xA;else &#xA;begin &#xA; set @exists = 0 &#xA; insert into ImportFileLog &#xA; (&#xA;  ImportFileNamePath&#xA; ,ImportFile_org&#x9;&#xA; ,ImportFile &#xA; ,ImportFile_year&#xA; ,ImportFileType&#xA; ) values(@ImportFileNamePath,@impFile,@impFile_year ,@impFile_year ,'BUD_RSFDATA_IS')&#xA;end &#xA;set ? = @exists " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::full_filename_path"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::imp_filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::file_exists"
+                    SQLTask:ParameterDirection="Output"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\log_file_import bud res"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{6738AD4B-8130-4E1A-8B4B-842F00F5341B}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="log_file_import bud res"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+                  SQLTask:SqlStatementSource="declare @impFile varchar (100) ; &#xA;declare @ImportFileNamePath varchar(200) &#xA;declare  @exists int =0&#xA;declare @year varchar (10)&#xA;&#xA;set @year  =left(convert(varchar(10),getdate() ,121),4)  +'_'&#xA;&#xA; -- update  dbo.ImportFileLog set ImportFile_year = convert(varchar(10),datepart(year,ImportDateStamp)) +'_'+ ImportFile&#xA;set @ImportFileNamePath   =? &#xA;set @impFile   = ? &#xA;&#xA;set @impFile   =@year+ @impFile &#xA;if exists (select 1 from ImportFileLog where ImportFileType= 'BUD_RSFDATA_IS' and ImportFile_year =@impfile ) &#xA;begin &#xA;  set @exists = 1 &#xA;end   &#xA;set ? = @exists " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::full_filename_path"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::imp_filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::file_exists"
+                    SQLTask:ParameterDirection="Output"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\split budget lines"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{B3D3A76B-525F-49D6-B9D5-0FAF9AFFFE6C}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="split budget lines"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="2">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+                  SQLTask:SqlStatementSource=" exec wrk.parseBudgetlines  &#xA;&#xA;-- exec [wrk].[parseBudgetlines_v3]    " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::full_filename_path"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::imp_filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\trunc BookingLines"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{E891BDD5-5EC2-463D-BC95-505C690537A4}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="trunc BookingLines"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+                  SQLTask:SqlStatementSource="&#xA;truncate table wrk.Booking_lines " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::full_filename_path"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::imp_filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::file_exists"
+                    SQLTask:ParameterDirection="Output"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Budget\bud_res\Unzip"
+              DTS:CreationName="Microsoft.ExecuteProcess"
+              DTS:Description="Execute Process Task"
+              DTS:DTSID="{917C6F4E-AA66-4C72-8A6D-9206498162B4}"
+              DTS:ExecutableType="Microsoft.ExecuteProcess"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Unzip"
+              DTS:TaskContact="Execute Process Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:PropertyExpression
+                DTS:Name="Arguments">"x -y -o"  +@[User::oud_folder]+"  "+  @[User::bud_incoming_path] + @[User::imp_filename]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="WorkingDirectory">@[User::bud_incoming_path]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <ExecuteProcessData
+                  Executable="d:\ftp_flotaskjol\Bin\7-Zip\7z.exe"
+                  Arguments="x -y -od:\ftp_flotaskjol\Incoming\out\  d:\ftp_flotaskjol\Incoming\Budget\"
+                  WorkingDirectory="d:\ftp_flotaskjol\Incoming\Budget\" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{07A551BB-08BB-4906-9145-34B37CB2FBB0}"
+              DTS:EvalOp="3"
+              DTS:Expression="(@file_exists==0)"
+              DTS:From="Package\Budget\bud_res\log_file_import bud res"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Budget\bud_res\Unzip" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{7254C3BE-0AD6-418B-BBFE-9B542164097A}"
+              DTS:EvalOp="3"
+              DTS:Expression="(@file_exists==1)"
+              DTS:From="Package\Budget\bud_res\log_file_import bud res"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Budget\bud_res\file existsdo nothing" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{B4440355-EB48-4AC7-93B8-182F056EF512}"
+              DTS:From="Package\Budget\bud_res\split budget lines"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\Budget\bud_res\log import file" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{2EEA69B0-85ED-4A10-B7CA-69EB44E0AAEA}"
+              DTS:From="Package\Budget\bud_res\Unzip"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\Budget\bud_res\Imp bud_rsfdata_is" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 4]"
+              DTS:CreationName=""
+              DTS:DTSID="{02C81DA3-6CE6-4BBF-8752-7853CC60AFAE}"
+              DTS:From="Package\Budget\bud_res\Imp bud_rsfdata_is"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 4"
+              DTS:To="Package\Budget\bud_res\split budget lines" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 5]"
+              DTS:CreationName=""
+              DTS:DTSID="{05837350-D9E8-409F-902C-031495B9D1C5}"
+              DTS:From="Package\Budget\bud_res\Unzip"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 5"
+              DTS:To="Package\Budget\bud_res\trunc BookingLines" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 6]"
+              DTS:CreationName=""
+              DTS:DTSID="{C67AA222-415B-4E4B-9A67-E221F9C41375}"
+              DTS:From="Package\Budget\bud_res\trunc BookingLines"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 6"
+              DTS:To="Package\Budget\bud_res\Imp bud_rsfdata_is" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 7]"
+              DTS:CreationName=""
+              DTS:DTSID="{A41BAA68-D215-4EEC-88AD-776F87681045}"
+              DTS:From="Package\Budget\bud_res\DELETE TMP_FILES_BUD"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 7"
+              DTS:To="Package\Budget\bud_res\Unzip" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Budget\bud_res.PrecedenceConstraints[Constraint 8]"
+              DTS:CreationName=""
+              DTS:DTSID="{42EA41BA-0309-4589-95C9-5D56C3278935}"
+              DTS:From="Package\Budget\bud_res\log import file"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 8"
+              DTS:To="Package\Budget\bud_res\DELETE TMP_FILES_BUD 1" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{D98B2943-23A7-4BB6-B58C-FA3CEAC829D6}"
+              DTS:ObjectName="{D98B2943-23A7-4BB6-B58C-FA3CEAC829D6}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::imp_filename" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Budget\merge to staging history"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{31EF3681-EE3C-405C-BF88-AF66B35074D1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="merge to staging history"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+              SQLTask:SqlStatementSource="exec etl.Merge_budget_booking_to_booking" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Budget\trunc BookingLinesPivot"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{078FB963-88D2-4D7F-A497-7B91450D68B5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc BookingLinesPivot"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+              SQLTask:SqlStatementSource="truncate table wrk.TmpBookinglinesPIVOT  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::file_exists"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Budget\truncate staging tables"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F856E07C-30D5-4DB5-A22C-7CB92F87536A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate staging tables"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{FC030052-9C75-44B2-B0F1-02923E412C7C}"
+              SQLTask:SqlStatementSource="exec flotaskjal..reimportCurrentDayBookings&#xA;&#xA;truncate table [wrk].[Booking_lines]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Budget.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DF4A4BD3-1F61-446F-B69D-66D14EB37627}"
+          DTS:From="Package\Budget\truncate staging tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Budget\bud_res" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Budget.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{FB9C02B2-A422-4C96-9552-B6AA98A9FEC1}"
+          DTS:From="Package\Budget\truncate staging tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Budget\trunc BookingLinesPivot" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Budget.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E6E55B5E-D0E1-4F6C-BEB5-B802C8AC1716}"
+          DTS:From="Package\Budget\bud_res"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Budget\merge to staging history" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Budget.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{8E4430DF-A86E-41C1-B440-D097AF56B34E}"
+          DTS:From="Package\Budget\trunc BookingLinesPivot"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\Budget\bud_res" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Budget\bud_res\DELETE TMP_FILES_BUD"
+          TopLeft="429,11" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\Budget\bud_res\DELETE TMP_FILES_BUD 1"
+          TopLeft="5.50000000000003,515.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Budget\bud_res\file existsdo nothing"
+          TopLeft="256,100.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Budget\bud_res\Imp bud_rsfdata_is"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Budget\bud_res\log import file"
+          TopLeft="19.5000000000001,413.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Budget\bud_res\log_file_import bud res"
+          TopLeft="98.5,9.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Budget\bud_res\split budget lines"
+          TopLeft="11,311.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Budget\bud_res\trunc BookingLines"
+          TopLeft="276.5,168.5" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Budget\bud_res\Unzip"
+          TopLeft="38,107.5" />
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint]"
+          TopLeft="162.5,51.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-88.1666666666667,56"
+              Start="0,0"
+              End="-88.1666666666667,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7713273639673" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7713273639673"
+                    Point2="0,27.7713273639673"
+                    Point3="-4,27.7713273639673" />
+                  <mssgle:LineSegment
+                    End="-84.1666666666667,27.7713273639673" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84.1666666666667,27.7713273639673"
+                    Point2="-88.1666666666667,27.7713273639673"
+                    Point3="-88.1666666666667,31.7713273639673" />
+                  <mssgle:LineSegment
+                    End="-88.1666666666667,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-52.0833333333334,32.7713273639673,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 1]"
+          TopLeft="222.5,51.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="120,49"
+              Start="0,0"
+              End="120,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8481012658228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8481012658228"
+                    Point2="0,19.8481012658228"
+                    Point3="4,19.8481012658228" />
+                  <mssgle:LineSegment
+                    End="116,19.8481012658228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116,19.8481012658228"
+                    Point2="120,19.8481012658228"
+                    Point3="120,23.8481012658228" />
+                  <mssgle:LineSegment
+                    End="120,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="52,24.8481012658228,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 2]"
+          TopLeft="91.0000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 3]"
+          TopLeft="90.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 4]"
+          TopLeft="90.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 5]"
+          TopLeft="143,128.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="133.5,55.3333333333333"
+              Start="0,0"
+              End="126,55.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73.1605504587156,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.1605504587156,0"
+                    Point2="77.1605504587156,0"
+                    Point3="77.1605504587156,4" />
+                  <mssgle:LineSegment
+                    End="77.1605504587156,51.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.1605504587156,51.3333333333333"
+                    Point2="77.1605504587156,55.3333333333333"
+                    Point3="81.1605504587156,55.3333333333333" />
+                  <mssgle:LineSegment
+                    End="126,55.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 6]"
+          TopLeft="276.5,195.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-101,35.3333333333333"
+              Start="0,0"
+              End="-93.5,35.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-38.6238532110092,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.6238532110092,0"
+                    Point2="-42.6238532110092,0"
+                    Point3="-42.6238532110092,4" />
+                  <mssgle:LineSegment
+                    End="-42.6238532110092,31.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-42.6238532110092,31.3333333333333"
+                    Point2="-42.6238532110092,35.3333333333333"
+                    Point3="-46.6238532110092,35.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-93.5,35.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 7]"
+          TopLeft="528,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-421.333333333333,54.5"
+              Start="0,0"
+              End="-421.333333333333,47">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2091932457786" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.2091932457786"
+                    Point2="0,32.2091932457786"
+                    Point3="-4,32.2091932457786" />
+                  <mssgle:LineSegment
+                    End="-417.333333333333,32.2091932457786" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-417.333333333333,32.2091932457786"
+                    Point2="-421.333333333333,32.2091932457786"
+                    Point3="-421.333333333333,36.2091932457786" />
+                  <mssgle:LineSegment
+                    End="-421.333333333333,47" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res.PrecedenceConstraints[Constraint 8]"
+          TopLeft="91.5000000000001,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="33.4999999999999,60"
+              Start="0,0"
+              End="33.4999999999999,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="29.4999999999999,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.4999999999999,30"
+                    Point2="33.4999999999999,30"
+                    Point3="33.4999999999999,34" />
+                  <mssgle:LineSegment
+                    End="33.4999999999999,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="710,613"
+          Size="710,656"
+          Id="Package\Budget\bud_res"
+          TopLeft="11.5000000000001,219.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Budget\merge to staging history"
+          TopLeft="82.5,902.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Budget\trunc BookingLinesPivot"
+          TopLeft="263,99.5" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Budget\truncate staging tables"
+          TopLeft="81,5.5" />
+        <EdgeLayout
+          Id="Package\Budget.PrecedenceConstraints[Constraint]"
+          TopLeft="204.333333333333,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="45.1666666666668,172"
+              Start="0,0"
+              End="45.1666666666668,164.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.6684997473321" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82.6684997473321"
+                    Point2="0,86.6684997473321"
+                    Point3="4,86.6684997473321" />
+                  <mssgle:LineSegment
+                    End="41.1666666666668,86.6684997473321" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.1666666666668,86.6684997473321"
+                    Point2="45.1666666666668,86.6684997473321"
+                    Point3="45.1666666666668,90.6684997473321" />
+                  <mssgle:LineSegment
+                    End="45.1666666666668,164.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget.PrecedenceConstraints[Constraint 1]"
+          TopLeft="204.333333333333,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="154.166666666667,52"
+              Start="0,0"
+              End="154.166666666667,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.0646871686108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0646871686108"
+                    Point2="0,21.0646871686108"
+                    Point3="4,21.0646871686108" />
+                  <mssgle:LineSegment
+                    End="150.166666666667,21.0646871686108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="150.166666666667,21.0646871686108"
+                    Point2="154.166666666667,21.0646871686108"
+                    Point3="154.166666666667,25.0646871686108" />
+                  <mssgle:LineSegment
+                    End="154.166666666667,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget.PrecedenceConstraints[Constraint 2]"
+          TopLeft="366.5,875.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-187,27"
+              Start="0,0"
+              End="-187,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="-4,13.5" />
+                  <mssgle:LineSegment
+                    End="-183,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-183,13.5"
+                    Point2="-187,13.5"
+                    Point3="-187,17.5" />
+                  <mssgle:LineSegment
+                    End="-187,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget.PrecedenceConstraints[Constraint 7]"
+          TopLeft="358.5,141.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="125,78"
+              Start="0,0"
+              End="125,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.6947723440135" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.6947723440135"
+                    Point2="0,46.6947723440135"
+                    Point3="4,46.6947723440135" />
+                  <mssgle:LineSegment
+                    End="121,46.6947723440135" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121,46.6947723440135"
+                    Point2="125,46.6947723440135"
+                    Point3="125,50.6947723440135" />
+                  <mssgle:LineSegment
+                    End="125,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="727,1002"
+          Size="727,1045"
+          Id="Package\Budget"
+          TopLeft="5.50000000000011,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Budget\bud_res\Imp bud_rsfdata_is">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Budget\bud_res\Imp bud_rsfdata_is\bud_rsfdata_is"
+          TopLeft="6.51886792452831,5.5" />
+        <NodeLayout
+          Size="184,44"
+          Id="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines"
+          TopLeft="6.48113207547171,191.198113207547" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Budget\bud_res\Imp bud_rsfdata_is\Derived Column"
+          TopLeft="5.5,92.3679245283019" />
+        <EdgeLayout
+          Id="Package\Budget\bud_res\Imp bud_rsfdata_is.Paths[Flat File Source Output]"
+          TopLeft="74.4056603773585,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1.01886792452831,42.9433962264151"
+              Start="0,0"
+              End="-1.01886792452831,35.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-1.01886792452831,21.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-1.01886792452831,35.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Budget\bud_res\Imp bud_rsfdata_is.Paths[Derived Column Output]"
+          TopLeft="73.5,136.367924528302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="24.9811320754717,54.8301886792453"
+              Start="0,0"
+              End="24.9811320754717,47.3301886792453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4150943396226" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.4150943396226"
+                    Point2="0,27.4150943396226"
+                    Point3="4,27.4150943396226" />
+                  <mssgle:LineSegment
+                    End="20.9811320754717,27.4150943396226" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.9811320754717,27.4150943396226"
+                    Point2="24.9811320754717,27.4150943396226"
+                    Point3="24.9811320754717,31.4150943396226" />
+                  <mssgle:LineSegment
+                    End="24.9811320754717,47.3301886792453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Budget\bud_res\Imp bud_rsfdata_is\Booking_lines">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

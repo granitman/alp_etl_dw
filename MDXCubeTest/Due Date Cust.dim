@@ -1,0 +1,119 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>f9fc74f1-ed99-422d-8d72-29525ed9621a</ID>
+  <Name>Due Date Cust</Name>
+  <CreatedTimestamp>2016-03-04T15:00:11.79Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:11.79Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>f9fc74f1-ed99-422d-8d72-29525ed9621a</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:35:09.62Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Hidden</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>47bf12ec-73d2-4f91-bc68-bde9c23ed73e</ID>
+      <Name>Bucket</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Due_x0020_Date_x0020_Cust_V</TableID>
+            <ColumnID>BucketOrder</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Due_x0020_Date_x0020_Cust_V</TableID>
+          <ColumnID>Bucket</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Due_x0020_Date_x0020_Cust_V</TableID>
+          <ColumnID>Bucket</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>a49b5fdd-0b31-41ef-98f5-ea41ddc6634e</ID>
+      <Name>Due Days</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Due_x0020_Date_x0020_Cust_V</TableID>
+            <ColumnID>Due_x0020_Days</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Due_x0020_Date_x0020_Cust_V</TableID>
+          <ColumnID>Due_x0020_Days</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>47bf12ec-73d2-4f91-bc68-bde9c23ed73e</AttributeID>
+          <Name>Bucket</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>BigInt</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Due_x0020_Date_x0020_Cust_V</TableID>
+          <ColumnID>Due_x0020_Days</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Due Date Cust</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>fdd6f528-754a-45e4-bdcb-e7f11d72b23b</ID>
+      <Name>Due Date Bucket</Name>
+      <AllMemberName>All Due Date Cust</AllMemberName>
+      <Levels>
+        <Level>
+          <ID>b05baaf5-3828-4eda-b07a-0908f750dfdc</ID>
+          <Name>Bucket</Name>
+          <SourceAttributeID>47bf12ec-73d2-4f91-bc68-bde9c23ed73e</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>580c05f2-37f8-453b-b9d6-73fe7fd9f8c2</ID>
+          <Name>Due Days</Name>
+          <SourceAttributeID>a49b5fdd-0b31-41ef-98f5-ea41ddc6634e</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,958 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>7c61bff8-3da7-4145-9420-a0e08a5aedb4</ID>
+  <Name>Fixed Asset</Name>
+  <CreatedTimestamp>2016-03-04T15:00:12.296667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:12.296667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>7c61bff8-3da7-4145-9420-a0e08a5aedb4</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:35:24.646667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>ec278549-841c-4f63-ad3c-a0e08acd31dc</ID>
+      <Name>DW_Account</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>DW_Account</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Fixed_x0020_Asset_x0020_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>322f5320-1e73-490d-9534-a0e08acd354c</AttributeID>
+          <Name>Fixed Asset No</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>250b3850-f0bc-4ddc-ae2c-a0e08acd3574</AttributeID>
+          <Name>Fixed Asset Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>7274a6f9-8576-4519-89b6-a0e08acd359c</AttributeID>
+          <Name>Fixed Asset</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>dc74fd74-17d4-4377-8b11-a0e08acd35c4</AttributeID>
+          <Name>Main Asset No</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>e712fb4e-96c0-429c-8423-a0e08acd35ec</AttributeID>
+          <Name>Main Asset Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>67922413-5fc2-4a10-a3e9-a0e08acd3614</AttributeID>
+          <Name>Main Asset</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>b4d457e7-ce5a-4dab-a2e2-a0e08acd363c</AttributeID>
+          <Name>Vélarstærð</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>7392c287-3fe0-4aa0-80ab-a0e08acd3664</AttributeID>
+          <Name>Co losun</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>d08493fc-e94a-41c2-9a78-a0e08acd368c</AttributeID>
+          <Name>Annað</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>4e8db3cc-4825-4639-84d9-a0e08acd36b4</AttributeID>
+          <Name>Serial númer</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>cbb39679-98a6-4281-a5ce-a0e08acd36dc</AttributeID>
+          <Name>Dekkjastærð frá umf stofu</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>9f495553-ba50-4174-94a2-a0e08acd3704</AttributeID>
+          <Name>Skráningarmánuður</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>5747d193-e6d6-4aaf-9fa1-a0e08acd372c</AttributeID>
+          <Name>Tryggingarfélag</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>e2f7a9a5-8fcb-4a6c-ab93-a0e08acd3754</AttributeID>
+          <Name>Skipting</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>cdcf52c8-3576-4bd3-b3ae-a0e08acd377c</AttributeID>
+          <Name>Fjöldi dyra</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>a6cc0766-0565-4e56-8934-a0e08acd37a4</AttributeID>
+          <Name>Litur</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>25da9993-4a16-480b-8e3c-a0e08acd37cc</AttributeID>
+          <Name>Eldsneyti</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>40c41424-2776-41a0-9dc9-a0e08acd37f4</AttributeID>
+          <Name>Ár</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>ddc2e343-e443-4d3b-9e4c-a4746486e6c6</AttributeID>
+          <Name>Blocked</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>e89dc056-1ada-4ebc-9a22-a4746486f86d</AttributeID>
+          <Name>GD1</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>1eff9000-d142-4604-8886-a4746486f90d</AttributeID>
+          <Name>GD2</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>9aae1721-37ac-443f-8533-a4746486f9ad</AttributeID>
+          <Name>FA Class Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>684cfa8d-4b55-4a97-936d-a4746486fa25</AttributeID>
+          <Name>FA Location Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>7a0574d2-6e24-48ec-b00f-a4746486faed</AttributeID>
+          <Name>FA Posting Group</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>f0b46064-49e4-4f0e-9ed7-a4746486fb8d</AttributeID>
+          <Name>FA Subclass Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>b1a0467d-f9c6-4429-b7aa-a4746486fc2d</AttributeID>
+          <Name>Last Mileage</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </ValueColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>322f5320-1e73-490d-9534-a0e08acd354c</ID>
+      <Name>Fixed Asset No</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Fixed_x0020_Asset_x0020_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fixed_x0020_Asset_x0020_No</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fixed_x0020_Asset_x0020_No</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>250b3850-f0bc-4ddc-ae2c-a0e08acd3574</ID>
+      <Name>Fixed Asset Name</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Fixed_x0020_Asset_x0020_Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fixed_x0020_Asset_x0020_Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fixed_x0020_Asset_x0020_Name</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>7274a6f9-8576-4519-89b6-a0e08acd359c</ID>
+      <Name>Fixed Asset</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Fixed_x0020_Asset</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fixed_x0020_Asset</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fixed_x0020_Asset</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>dc74fd74-17d4-4377-8b11-a0e08acd35c4</ID>
+      <Name>Main Asset No</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Main_x0020_Asset_x0020_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Main_x0020_Asset_x0020_No</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Main_x0020_Asset_x0020_No</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>e712fb4e-96c0-429c-8423-a0e08acd35ec</ID>
+      <Name>Main Asset Name</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Main_x0020_Asset_x0020_Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Main_x0020_Asset_x0020_Name</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Main_x0020_Asset_x0020_Name</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>67922413-5fc2-4a10-a3e9-a0e08acd3614</ID>
+      <Name>Main Asset</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Main_x0020_Asset</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Main_x0020_Asset</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Main_x0020_Asset</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>b4d457e7-ce5a-4dab-a2e2-a0e08acd363c</ID>
+      <Name>Vélarstærð</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Vélarstærð</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Vélarstærð</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Vélarstærð</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>7392c287-3fe0-4aa0-80ab-a0e08acd3664</ID>
+      <Name>Co losun</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Co_x0020_losun</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Co_x0020_losun</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Co_x0020_losun</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>d08493fc-e94a-41c2-9a78-a0e08acd368c</ID>
+      <Name>Annað</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Annað</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Annað</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Annað</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>4e8db3cc-4825-4639-84d9-a0e08acd36b4</ID>
+      <Name>Serial númer</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Serial_x0020_númer</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Serial_x0020_númer</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Serial_x0020_númer</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>cbb39679-98a6-4281-a5ce-a0e08acd36dc</ID>
+      <Name>Dekkjastærð frá umf stofu</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Dekkjastærð_x0020_frá_x0020_umf_x0020_stofu</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Dekkjastærð_x0020_frá_x0020_umf_x0020_stofu</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Dekkjastærð_x0020_frá_x0020_umf_x0020_stofu</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>9f495553-ba50-4174-94a2-a0e08acd3704</ID>
+      <Name>Skráningarmánuður</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>SkráningarmánuðurKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Skráningarmánuður</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Skráningarmánuður</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>5747d193-e6d6-4aaf-9fa1-a0e08acd372c</ID>
+      <Name>Tryggingarfélag</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Tryggingarfélag</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Tryggingarfélag</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Tryggingarfélag</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>e2f7a9a5-8fcb-4a6c-ab93-a0e08acd3754</ID>
+      <Name>Skipting</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Skipting</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Skipting</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Skipting</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>cdcf52c8-3576-4bd3-b3ae-a0e08acd377c</ID>
+      <Name>Fjöldi dyra</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Fjöldi_x0020_dyra</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fjöldi_x0020_dyra</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Fjöldi_x0020_dyra</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>a6cc0766-0565-4e56-8934-a0e08acd37a4</ID>
+      <Name>Litur</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Litur</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Litur</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Litur</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>25da9993-4a16-480b-8e3c-a0e08acd37cc</ID>
+      <Name>Eldsneyti</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Eldsneyti</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Eldsneyti</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Eldsneyti</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>40c41424-2776-41a0-9dc9-a0e08acd37f4</ID>
+      <Name>Ár</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Ár</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Ár</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Ár</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>ddc2e343-e443-4d3b-9e4c-a4746486e6c6</ID>
+      <Name>Blocked</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Blocked</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Blocked_x0020_Desc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Blocked_x0020_Desc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>e89dc056-1ada-4ebc-9a22-a4746486f86d</ID>
+      <Name>GD1</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>GD1</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>GD1</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>GD1</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>1eff9000-d142-4604-8886-a4746486f90d</ID>
+      <Name>GD2</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>GD2</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>GD2</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>GD2</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>9aae1721-37ac-443f-8533-a4746486f9ad</ID>
+      <Name>FA Class Code</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>FA_x0020_Class_x0020_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Class_x0020_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Class_x0020_Code</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>684cfa8d-4b55-4a97-936d-a4746486fa25</ID>
+      <Name>FA Location Code</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>FA_x0020_Location_x0020_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Location_x0020_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Location_x0020_Code</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>7a0574d2-6e24-48ec-b00f-a4746486faed</ID>
+      <Name>FA Posting Group</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>FA_x0020_Posting_x0020_Group</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Posting_x0020_Group</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Posting_x0020_Group</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>f0b46064-49e4-4f0e-9ed7-a4746486fb8d</ID>
+      <Name>FA Subclass Code</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>FA_x0020_Subclass_x0020_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Subclass_x0020_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>FA_x0020_Subclass_x0020_Code</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>b1a0467d-f9c6-4429-b7aa-a4746486fc2d</ID>
+      <Name>Last Mileage</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Fixed_x0020_Asset_V</TableID>
+            <ColumnID>Last_x0020_Mileage</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Last_x0020_Mileage</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>Integer</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Fixed_x0020_Asset_V</TableID>
+          <ColumnID>Last_x0020_Mileage</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Fixed Asset</AttributeAllMemberName>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,1850 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2019 8:37:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-02"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{ECCAC61B-5097-4096-9679-6289CF4012CB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="stg_nav_fixe_aset_registration_bilar"
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{D879F6F7-7F7F-4CCC-8367-093437AF5023}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[nav]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EBF17FFC-F16D-4F9D-B582-E39EADDE4585}"
+      DTS:ObjectName="nav">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=alp-sql;Initial Catalog=ALP_Navision;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4A2E92BB-D07C-457B-84AF-CABB634735C6}"
+      DTS:ObjectName="staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\copy fixed aset to wrk"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{CE23A8D3-F052-4327-902B-FCD55B19CA10}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="copy fixed aset to wrk">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\copy fixed aset to wrk\fa_bílar"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{61AFFF5F-4D22-4703-A2D9-8E1755F20FCC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="fa_bílar"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="fa_nav"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT timestamp
+     , No_ as CarNo 
+     , Description
+     , [FA Class Code]     
+	 , [FA Subclass Code]
+	 , [FA Location Code]     
+	 , [FA Posting Group]     
+     , [Global Dimension 1 Code]
+     , [Global Dimension 2 Code]
+     , [Component of Main Asset]          
+     , [Last Date Modified]
+     , Tryggingarfélag
+     , [Co losun]
+     , Skipting
+     , [Fjöldi dyra]
+     , Litur
+     , Eldsneyti
+     , Vélarstærð
+     , Skráningarmánuður
+     , Ár
+     , Annað
+     , [Serial númer]
+     , [Dekkjastærð frá umf_stofu]
+     , [Dagsetning skráningar á ALP]
+     , [Agreement No_]
+     , Status
+     , [Cruise Control]
+     , Bluetooth
+     , USB
+     , [Rear Camera_Sensors]
+     , [Towing Bar]
+     , [Power Windows]
+     , [Heated Seats]
+     , [Heated Stearing Wheel]
+     , [Leather Seats]
+     , [Central Locking]
+     , [Top Hatch_Panorama]
+     , A_C
+     , GPS
+     , [Alloy Wheels]
+     , Isofix
+     , [4x4]
+     , [Mileage Sold]
+     , [Mileage from Rental]
+	  FROM dbo.[ALP bílaleiga$Fixed Asset] 
+  where [FA Class Code] in ('BIFR','BIFREIDAR','BILAR') 
+   and [Main Asset_Component]  in (0,1)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[nav]"
+                      connectionManagerRefId="Package.ConnectionManagers[nav]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[timestamp]"
+                          dataType="bytes"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                          length="8"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[timestamp]"
+                          name="timestamp"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[CarNo]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[CarNo]"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[CarNo]"
+                          name="CarNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Description]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          length="50"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Description]"
+                          name="Description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Class Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Class Code]"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Class Code]"
+                          name="FA Class Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Subclass Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Subclass Code]"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Subclass Code]"
+                          name="FA Subclass Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Location Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Location Code]"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Location Code]"
+                          name="FA Location Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Posting Group]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Posting Group]"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Posting Group]"
+                          name="FA Posting Group"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Global Dimension 1 Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 1 Code]"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Global Dimension 1 Code]"
+                          name="Global Dimension 1 Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Global Dimension 2 Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 2 Code]"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Global Dimension 2 Code]"
+                          name="Global Dimension 2 Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Component of Main Asset]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Component of Main Asset]"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Component of Main Asset]"
+                          name="Component of Main Asset"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Last Date Modified]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Last Date Modified]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Last Date Modified]"
+                          name="Last Date Modified"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Tryggingarfélag]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Tryggingarfélag]"
+                          length="50"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Tryggingarfélag]"
+                          name="Tryggingarfélag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Co losun]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Co losun]"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Co losun]"
+                          name="Co losun"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Skipting]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Skipting]"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Skipting]"
+                          name="Skipting"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Fjöldi dyra]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Fjöldi dyra]"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Fjöldi dyra]"
+                          name="Fjöldi dyra"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Litur]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Litur]"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Litur]"
+                          name="Litur"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Eldsneyti]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Eldsneyti]"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Eldsneyti]"
+                          name="Eldsneyti"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Vélarstærð]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Vélarstærð]"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Vélarstærð]"
+                          name="Vélarstærð"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Skráningarmánuður]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Skráningarmánuður]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Skráningarmánuður]"
+                          name="Skráningarmánuður"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Ár]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Ár]"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Ár]"
+                          name="Ár"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Annað]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Annað]"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Annað]"
+                          name="Annað"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Serial númer]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Serial númer]"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Serial númer]"
+                          name="Serial númer"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Dekkjastærð frá umf_stofu]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Dekkjastærð frá umf_stofu]"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Dekkjastærð frá umf_stofu]"
+                          name="Dekkjastærð frá umf_stofu"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Dagsetning skráningar á ALP]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Dagsetning skráningar á ALP]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Dagsetning skráningar á ALP]"
+                          name="Dagsetning skráningar á ALP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Agreement No_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Agreement No_]"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Agreement No_]"
+                          name="Agreement No_"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Status]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Cruise Control]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Cruise Control]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Cruise Control]"
+                          name="Cruise Control"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Bluetooth]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Bluetooth]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Bluetooth]"
+                          name="Bluetooth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[USB]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[USB]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[USB]"
+                          name="USB"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Rear Camera_Sensors]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Rear Camera_Sensors]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Rear Camera_Sensors]"
+                          name="Rear Camera_Sensors"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Towing Bar]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Towing Bar]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Towing Bar]"
+                          name="Towing Bar"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Power Windows]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Power Windows]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Power Windows]"
+                          name="Power Windows"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Heated Seats]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Heated Seats]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Heated Seats]"
+                          name="Heated Seats"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Heated Stearing Wheel]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Heated Stearing Wheel]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Heated Stearing Wheel]"
+                          name="Heated Stearing Wheel"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Leather Seats]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Leather Seats]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Leather Seats]"
+                          name="Leather Seats"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Central Locking]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Central Locking]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Central Locking]"
+                          name="Central Locking"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Top Hatch_Panorama]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Top Hatch_Panorama]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Top Hatch_Panorama]"
+                          name="Top Hatch_Panorama"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[A_C]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[A_C]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[A_C]"
+                          name="A_C"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[GPS]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[GPS]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[GPS]"
+                          name="GPS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Alloy Wheels]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Alloy Wheels]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Alloy Wheels]"
+                          name="Alloy Wheels"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Isofix]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Isofix]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Isofix]"
+                          name="Isofix"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[4x4]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[4x4]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[4x4]"
+                          name="4x4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Mileage Sold]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Mileage Sold]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Mileage Sold]"
+                          name="Mileage Sold"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Mileage from Rental]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Mileage from Rental]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Mileage from Rental]"
+                          name="Mileage from Rental"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                          dataType="bytes"
+                          length="8"
+                          name="timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[CarNo]"
+                          dataType="wstr"
+                          length="20"
+                          name="CarNo" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          dataType="wstr"
+                          length="50"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Class Code]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Class Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Subclass Code]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Subclass Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Location Code]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Location Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[FA Posting Group]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Posting Group" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 1 Code]"
+                          dataType="wstr"
+                          length="20"
+                          name="Global Dimension 1 Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Global Dimension 2 Code]"
+                          dataType="wstr"
+                          length="20"
+                          name="Global Dimension 2 Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Component of Main Asset]"
+                          dataType="wstr"
+                          length="20"
+                          name="Component of Main Asset" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Last Date Modified]"
+                          dataType="dbTimeStamp"
+                          name="Last Date Modified" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Tryggingarfélag]"
+                          dataType="wstr"
+                          length="50"
+                          name="Tryggingarfélag" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Co losun]"
+                          dataType="wstr"
+                          length="30"
+                          name="Co losun" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Skipting]"
+                          dataType="wstr"
+                          length="20"
+                          name="Skipting" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Fjöldi dyra]"
+                          dataType="wstr"
+                          length="10"
+                          name="Fjöldi dyra" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Litur]"
+                          dataType="wstr"
+                          length="20"
+                          name="Litur" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Eldsneyti]"
+                          dataType="wstr"
+                          length="20"
+                          name="Eldsneyti" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Vélarstærð]"
+                          dataType="wstr"
+                          length="30"
+                          name="Vélarstærð" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Skráningarmánuður]"
+                          dataType="dbTimeStamp"
+                          name="Skráningarmánuður" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Ár]"
+                          dataType="wstr"
+                          length="10"
+                          name="Ár" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Annað]"
+                          dataType="wstr"
+                          length="30"
+                          name="Annað" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Serial númer]"
+                          dataType="wstr"
+                          length="30"
+                          name="Serial númer" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Dekkjastærð frá umf_stofu]"
+                          dataType="wstr"
+                          length="30"
+                          name="Dekkjastærð frá umf_stofu" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Dagsetning skráningar á ALP]"
+                          dataType="dbTimeStamp"
+                          name="Dagsetning skráningar á ALP" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Agreement No_]"
+                          dataType="wstr"
+                          length="10"
+                          name="Agreement No_" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          dataType="i4"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Cruise Control]"
+                          dataType="ui1"
+                          name="Cruise Control" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Bluetooth]"
+                          dataType="ui1"
+                          name="Bluetooth" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[USB]"
+                          dataType="ui1"
+                          name="USB" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Rear Camera_Sensors]"
+                          dataType="ui1"
+                          name="Rear Camera_Sensors" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Towing Bar]"
+                          dataType="ui1"
+                          name="Towing Bar" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Power Windows]"
+                          dataType="ui1"
+                          name="Power Windows" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Heated Seats]"
+                          dataType="ui1"
+                          name="Heated Seats" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Heated Stearing Wheel]"
+                          dataType="ui1"
+                          name="Heated Stearing Wheel" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Leather Seats]"
+                          dataType="ui1"
+                          name="Leather Seats" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Central Locking]"
+                          dataType="ui1"
+                          name="Central Locking" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Top Hatch_Panorama]"
+                          dataType="ui1"
+                          name="Top Hatch_Panorama" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[A_C]"
+                          dataType="ui1"
+                          name="A_C" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[GPS]"
+                          dataType="ui1"
+                          name="GPS" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Alloy Wheels]"
+                          dataType="ui1"
+                          name="Alloy Wheels" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Isofix]"
+                          dataType="ui1"
+                          name="Isofix" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[4x4]"
+                          dataType="ui1"
+                          name="4x4" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Mileage Sold]"
+                          dataType="i4"
+                          name="Mileage Sold" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].ExternalColumns[Mileage from Rental]"
+                          dataType="i4"
+                          name="Mileage from Rental" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                          dataType="bytes"
+                          length="8"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                          name="timestamp" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[CarNo]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[CarNo]"
+                          name="CarNo" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          name="Description" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Class Code]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Class Code]"
+                          name="FA Class Code" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Subclass Code]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Subclass Code]"
+                          name="FA Subclass Code" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Location Code]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Location Code]"
+                          name="FA Location Code" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Posting Group]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[FA Posting Group]"
+                          name="FA Posting Group" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Global Dimension 1 Code]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Global Dimension 1 Code]"
+                          name="Global Dimension 1 Code" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Global Dimension 2 Code]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Global Dimension 2 Code]"
+                          name="Global Dimension 2 Code" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Component of Main Asset]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Component of Main Asset]"
+                          name="Component of Main Asset" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Last Date Modified]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Last Date Modified]"
+                          name="Last Date Modified" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Tryggingarfélag]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Tryggingarfélag]"
+                          name="Tryggingarfélag" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Co losun]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Co losun]"
+                          name="Co losun" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Skipting]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Skipting]"
+                          name="Skipting" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Fjöldi dyra]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Fjöldi dyra]"
+                          name="Fjöldi dyra" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Litur]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Litur]"
+                          name="Litur" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Eldsneyti]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Eldsneyti]"
+                          name="Eldsneyti" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Vélarstærð]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Vélarstærð]"
+                          name="Vélarstærð" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Skráningarmánuður]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Skráningarmánuður]"
+                          name="Skráningarmánuður" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Ár]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Ár]"
+                          name="Ár" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Annað]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Annað]"
+                          name="Annað" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Serial númer]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Serial númer]"
+                          name="Serial númer" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Dekkjastærð frá umf_stofu]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Dekkjastærð frá umf_stofu]"
+                          name="Dekkjastærð frá umf_stofu" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Dagsetning skráningar á ALP]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Dagsetning skráningar á ALP]"
+                          name="Dagsetning skráningar á ALP" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Agreement No_]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Agreement No_]"
+                          name="Agreement No_" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          dataType="i4"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          name="Status" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Cruise Control]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Cruise Control]"
+                          name="Cruise Control" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Bluetooth]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Bluetooth]"
+                          name="Bluetooth" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[USB]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[USB]"
+                          name="USB" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Rear Camera_Sensors]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Rear Camera_Sensors]"
+                          name="Rear Camera_Sensors" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Towing Bar]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Towing Bar]"
+                          name="Towing Bar" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Power Windows]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Power Windows]"
+                          name="Power Windows" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Heated Seats]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Heated Seats]"
+                          name="Heated Seats" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Heated Stearing Wheel]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Heated Stearing Wheel]"
+                          name="Heated Stearing Wheel" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Leather Seats]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Leather Seats]"
+                          name="Leather Seats" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Central Locking]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Central Locking]"
+                          name="Central Locking" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Top Hatch_Panorama]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Top Hatch_Panorama]"
+                          name="Top Hatch_Panorama" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[A_C]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[A_C]"
+                          name="A_C" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[GPS]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[GPS]"
+                          name="GPS" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Alloy Wheels]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Alloy Wheels]"
+                          name="Alloy Wheels" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Isofix]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Isofix]"
+                          name="Isofix" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[4x4]"
+                          dataType="ui1"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[4x4]"
+                          name="4x4" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Mileage Sold]"
+                          dataType="i4"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Mileage Sold]"
+                          name="Mileage Sold" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Mileage from Rental]"
+                          dataType="i4"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[Mileage from Rental]"
+                          name="Mileage from Rental" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="wrk_fixed_aset_nav"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[wrk].[fixed_aset_cars_nav]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[staging]"
+                      connectionManagerRefId="Package.ConnectionManagers[staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[timestamp]"
+                          cachedDataType="bytes"
+                          cachedLength="8"
+                          cachedName="timestamp"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[timestamp]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[CarNo]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="CarNo"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[CarNo]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[CarNo]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Description]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Description"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[FA Class Code]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="FA Class Code"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Class Code]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Class Code]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[FA Subclass Code]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="FA Subclass Code"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Subclass Code]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Subclass Code]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[FA Location Code]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="FA Location Code"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Location Code]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Location Code]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[FA Posting Group]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="FA Posting Group"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Posting Group]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[FA Posting Group]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Global Dimension 1 Code]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Global Dimension 1 Code"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 1 Code]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Global Dimension 1 Code]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Global Dimension 2 Code]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Global Dimension 2 Code"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 2 Code]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Global Dimension 2 Code]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Component of Main Asset]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Component of Main Asset"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Component of Main Asset]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Component of Main Asset]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Last Date Modified]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Last Date Modified"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Last Date Modified]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Last Date Modified]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Tryggingarfélag]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Tryggingarfélag"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Tryggingarfélag]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Tryggingarfélag]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Co losun]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Co losun"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Co losun]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Co losun]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Skipting]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Skipting"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Skipting]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Skipting]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Fjöldi dyra]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Fjöldi dyra"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Fjöldi dyra]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Fjöldi dyra]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Litur]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Litur"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Litur]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Litur]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Eldsneyti]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="Eldsneyti"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Eldsneyti]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Eldsneyti]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Vélarstærð]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Vélarstærð"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Vélarstærð]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Vélarstærð]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Skráningarmánuður]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Skráningarmánuður"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Skráningarmánuður]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Skráningarmánuður]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Ár]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Ár"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Ár]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Ár]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Annað]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Annað"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Annað]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Annað]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Serial númer]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Serial númer"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Serial númer]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Serial númer]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Dekkjastærð frá umf_stofu]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Dekkjastærð frá umf_stofu"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Dekkjastærð frá umf_stofu]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Dekkjastærð frá umf_stofu]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Dagsetning skráningar á ALP]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Dagsetning skráningar á ALP"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Dagsetning skráningar á ALP]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Dagsetning skráningar á ALP]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Agreement No_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Agreement No_"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Agreement No_]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Agreement No_]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Status]"
+                          cachedDataType="i4"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Status]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Cruise Control]"
+                          cachedDataType="ui1"
+                          cachedName="Cruise Control"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Cruise Control]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Cruise Control]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Bluetooth]"
+                          cachedDataType="ui1"
+                          cachedName="Bluetooth"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Bluetooth]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Bluetooth]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[USB]"
+                          cachedDataType="ui1"
+                          cachedName="USB"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[USB]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[USB]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Rear Camera_Sensors]"
+                          cachedDataType="ui1"
+                          cachedName="Rear Camera_Sensors"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Rear Camera_Sensors]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Rear Camera_Sensors]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Towing Bar]"
+                          cachedDataType="ui1"
+                          cachedName="Towing Bar"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Towing Bar]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Towing Bar]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Power Windows]"
+                          cachedDataType="ui1"
+                          cachedName="Power Windows"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Power Windows]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Power Windows]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Heated Seats]"
+                          cachedDataType="ui1"
+                          cachedName="Heated Seats"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Heated Seats]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Heated Seats]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Heated Stearing Wheel]"
+                          cachedDataType="ui1"
+                          cachedName="Heated Stearing Wheel"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Heated Stearing Wheel]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Heated Stearing Wheel]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Leather Seats]"
+                          cachedDataType="ui1"
+                          cachedName="Leather Seats"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Leather Seats]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Leather Seats]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Central Locking]"
+                          cachedDataType="ui1"
+                          cachedName="Central Locking"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Central Locking]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Central Locking]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Top Hatch_Panorama]"
+                          cachedDataType="ui1"
+                          cachedName="Top Hatch_Panorama"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Top Hatch_Panorama]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Top Hatch_Panorama]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[A_C]"
+                          cachedDataType="ui1"
+                          cachedName="A_C"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[A_C]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[A_C]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[GPS]"
+                          cachedDataType="ui1"
+                          cachedName="GPS"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[GPS]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[GPS]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Alloy Wheels]"
+                          cachedDataType="ui1"
+                          cachedName="Alloy Wheels"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Alloy Wheels]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Alloy Wheels]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Isofix]"
+                          cachedDataType="ui1"
+                          cachedName="Isofix"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Isofix]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Isofix]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[4x4]"
+                          cachedDataType="ui1"
+                          cachedName="4x4"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[4x4]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[4x4]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Mileage Sold]"
+                          cachedDataType="i4"
+                          cachedName="Mileage Sold"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Mileage Sold]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Mileage Sold]" />
+                        <inputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].Columns[Mileage from Rental]"
+                          cachedDataType="i4"
+                          cachedName="Mileage from Rental"
+                          externalMetadataColumnId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Mileage from Rental]"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output].Columns[Mileage from Rental]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                          dataType="bytes"
+                          length="8"
+                          name="timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[CarNo]"
+                          dataType="wstr"
+                          length="20"
+                          name="CarNo" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                          dataType="wstr"
+                          length="50"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Class Code]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Class Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Subclass Code]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Subclass Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Location Code]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Location Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[FA Posting Group]"
+                          dataType="wstr"
+                          length="10"
+                          name="FA Posting Group" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 1 Code]"
+                          dataType="wstr"
+                          length="20"
+                          name="Global Dimension 1 Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Global Dimension 2 Code]"
+                          dataType="wstr"
+                          length="20"
+                          name="Global Dimension 2 Code" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Component of Main Asset]"
+                          dataType="wstr"
+                          length="20"
+                          name="Component of Main Asset" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Last Date Modified]"
+                          dataType="dbTimeStamp"
+                          name="Last Date Modified" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Tryggingarfélag]"
+                          dataType="wstr"
+                          length="50"
+                          name="Tryggingarfélag" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Co losun]"
+                          dataType="wstr"
+                          length="30"
+                          name="Co losun" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Skipting]"
+                          dataType="wstr"
+                          length="20"
+                          name="Skipting" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Fjöldi dyra]"
+                          dataType="wstr"
+                          length="10"
+                          name="Fjöldi dyra" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Litur]"
+                          dataType="wstr"
+                          length="20"
+                          name="Litur" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Eldsneyti]"
+                          dataType="wstr"
+                          length="20"
+                          name="Eldsneyti" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Vélarstærð]"
+                          dataType="wstr"
+                          length="30"
+                          name="Vélarstærð" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Skráningarmánuður]"
+                          dataType="dbTimeStamp"
+                          name="Skráningarmánuður" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Ár]"
+                          dataType="wstr"
+                          length="10"
+                          name="Ár" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Annað]"
+                          dataType="wstr"
+                          length="30"
+                          name="Annað" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Serial númer]"
+                          dataType="wstr"
+                          length="30"
+                          name="Serial númer" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Dekkjastærð frá umf_stofu]"
+                          dataType="wstr"
+                          length="30"
+                          name="Dekkjastærð frá umf_stofu" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Dagsetning skráningar á ALP]"
+                          dataType="dbTimeStamp"
+                          name="Dagsetning skráningar á ALP" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Agreement No_]"
+                          dataType="wstr"
+                          length="10"
+                          name="Agreement No_" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="i4"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Cruise Control]"
+                          dataType="ui1"
+                          name="Cruise Control" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Bluetooth]"
+                          dataType="ui1"
+                          name="Bluetooth" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[USB]"
+                          dataType="ui1"
+                          name="USB" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Rear Camera_Sensors]"
+                          dataType="ui1"
+                          name="Rear Camera_Sensors" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Towing Bar]"
+                          dataType="ui1"
+                          name="Towing Bar" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Power Windows]"
+                          dataType="ui1"
+                          name="Power Windows" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Heated Seats]"
+                          dataType="ui1"
+                          name="Heated Seats" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Heated Stearing Wheel]"
+                          dataType="ui1"
+                          name="Heated Stearing Wheel" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Leather Seats]"
+                          dataType="ui1"
+                          name="Leather Seats" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Central Locking]"
+                          dataType="ui1"
+                          name="Central Locking" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Top Hatch_Panorama]"
+                          dataType="ui1"
+                          name="Top Hatch_Panorama" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[A_C]"
+                          dataType="ui1"
+                          name="A_C" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[GPS]"
+                          dataType="ui1"
+                          name="GPS" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Alloy Wheels]"
+                          dataType="ui1"
+                          name="Alloy Wheels" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Isofix]"
+                          dataType="ui1"
+                          name="Isofix" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[4x4]"
+                          dataType="ui1"
+                          name="4x4" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Mileage Sold]"
+                          dataType="i4"
+                          name="Mileage Sold" />
+                        <externalMetadataColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input].ExternalColumns[Mileage from Rental]"
+                          dataType="i4"
+                          name="Mileage from Rental" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\copy fixed aset to wrk\fa_bílar.Paths[OLE DB Source Output]"
+                  endId="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\copy fixed aset to wrk\fa_bílar\fa_nav.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\copy fixed aset to wrk\merge fa"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F4839427-C650-49B8-B96C-C69D7E97C468}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="merge fa"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4A2E92BB-D07C-457B-84AF-CABB634735C6}"
+              SQLTask:SqlStatementSource="exec etl.merge_stg_fixed_aset_nav" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\copy fixed aset to wrk\trunc nav fa"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{bf0cb9ef-c7b1-4d65-a25b-a6783b7cfa62}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="trunc nav fa"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4A2E92BB-D07C-457B-84AF-CABB634735C6}"
+              SQLTask:SqlStatementSource="truncate table [wrk].[fixed_aset_cars_nav]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\copy fixed aset to wrk.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FEFA62AC-F50A-45D4-88DC-933EC16EE931}"
+          DTS:From="Package\copy fixed aset to wrk\fa_bílar"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\copy fixed aset to wrk\merge fa" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\copy fixed aset to wrk.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{5422E0D0-458E-47DD-A1BB-33C93FC35D66}"
+          DTS:From="Package\copy fixed aset to wrk\trunc nav fa"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\copy fixed aset to wrk\fa_bílar" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="114,42"
+          Id="Package\copy fixed aset to wrk\fa_bílar"
+          TopLeft="64,89" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\copy fixed aset to wrk\merge fa"
+          TopLeft="66,162" />
+        <EdgeLayout
+          Id="Package\copy fixed aset to wrk.PrecedenceConstraints[Constraint]"
+          TopLeft="123.75,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136,42"
+          Id="Package\copy fixed aset to wrk\trunc nav fa"
+          TopLeft="57,23" />
+        <EdgeLayout
+          Id="Package\copy fixed aset to wrk.PrecedenceConstraints[Constraint 1]"
+          TopLeft="123,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="282,374"
+          Size="282,417"
+          Id="Package\copy fixed aset to wrk"
+          TopLeft="344,135" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\copy fixed aset to wrk\fa_bílar">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="111,42"
+          Id="Package\copy fixed aset to wrk\fa_bílar\fa_nav"
+          TopLeft="138,35" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav"
+          TopLeft="109,206" />
+        <EdgeLayout
+          Id="Package\copy fixed aset to wrk\fa_bílar.Paths[OLE DB Source Output]"
+          TopLeft="194.5,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,129"
+              Start="0,0"
+              End="0,121.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,121.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\copy fixed aset to wrk\fa_bílar\fa_nav">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\copy fixed aset to wrk\fa_bílar\wrk_fixed_aset_nav">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

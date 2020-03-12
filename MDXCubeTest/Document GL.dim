@@ -1,0 +1,234 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>5c38ed64-e20c-4563-a9dd-b5c6afa652ab</ID>
+  <Name>Document GL</Name>
+  <CreatedTimestamp>2016-03-04T15:00:11.613333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:11.613333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>5c38ed64-e20c-4563-a9dd-b5c6afa652ab</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:33:46.596667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>ea83517e-512a-4371-b2a7-f1551b402cc6</ID>
+      <Name>Key</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Document_x0020_GL_V</TableID>
+            <ColumnID>DW_Account</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Document_x0020_GL_V</TableID>
+            <ColumnID>Document_x0020_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>197e2a0e-62b2-49f4-a5c3-35828f0ca3b8</AttributeID>
+          <Name>Document Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>8bf01f06-dae4-4fb4-a642-cfff9d305c27</AttributeID>
+          <Name>Year Month</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>3f0d5ba0-706e-4d20-9016-96ab5499b855</AttributeID>
+          <Name>Document No</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>bbf9b664-2874-4ce0-86df-a5b0506edcc7</AttributeID>
+          <Name>External Document No</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </ValueColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>197e2a0e-62b2-49f4-a5c3-35828f0ca3b8</ID>
+      <Name>Document Type</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Document_x0020_GL_V</TableID>
+            <ColumnID>Document_x0020_Type</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>Document_x0020_Type_x0020_Desc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>Document_x0020_Type_x0020_Desc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>8bf01f06-dae4-4fb4-a642-cfff9d305c27</ID>
+      <Name>Year Month</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Document_x0020_GL_V</TableID>
+            <ColumnID>YearMonthNo</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>YearMonthNoDesc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>YearMonthNoDesc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>3f0d5ba0-706e-4d20-9016-96ab5499b855</ID>
+      <Name>Document No</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Document_x0020_GL_V</TableID>
+            <ColumnID>Document_x0020_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>Document_x0020_No</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>Document_x0020_No</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>bbf9b664-2874-4ce0-86df-a5b0506edcc7</ID>
+      <Name>External Document No</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Document_x0020_GL_V</TableID>
+            <ColumnID>External_x0020_Document_x0020_No_</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>External_x0020_Document_x0020_No_</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Document_x0020_GL_V</TableID>
+          <ColumnID>External_x0020_Document_x0020_No_</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Document GL</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>77f3e4ec-a38f-48a7-9ea2-a41ba5dabb71</ID>
+      <Name>Document</Name>
+      <AllMemberName>All Document GL</AllMemberName>
+      <Levels>
+        <Level>
+          <ID>47b196f9-6d30-485b-bfef-9f78d80d53c8</ID>
+          <Name>Document Type</Name>
+          <SourceAttributeID>197e2a0e-62b2-49f4-a5c3-35828f0ca3b8</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>8ed342ab-e3f7-41e7-9764-ceefca851313</ID>
+          <Name>Year Month</Name>
+          <SourceAttributeID>8bf01f06-dae4-4fb4-a642-cfff9d305c27</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>a6c2f142-cc71-42ea-81bd-ec16e0504116</ID>
+          <Name>Document No</Name>
+          <SourceAttributeID>3f0d5ba0-706e-4d20-9016-96ab5499b855</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

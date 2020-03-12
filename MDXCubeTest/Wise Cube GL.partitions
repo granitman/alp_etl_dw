@@ -1,0 +1,237 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="079b6ef6-235b-4a6f-a364-5d36b56eec1e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Wise Cube GL</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Exchange Rate</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e9f287e5-7511-4c8e-a262-f05fda1f2f2e">
+          <ID>Exchange Rate</ID>
+          <Name>Exchange Rate</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.46Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.46Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:37:02.293333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="c2375b05-1962-4248-95c2-903f2ccc4b8a">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>Exchange Rate_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="5a44012b-6e00-4144-a7e1-a565e3b6917b">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ba29a7b1-1edf-49fa-96d0-e563781a60bd" />
+          </ProactiveCaching>
+          <EstimatedSize>421905</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GL Budget Entries</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="556c4dbd-29b3-4198-a319-4e2b6bcbe11d">
+          <ID>GL Budget Entries</ID>
+          <Name>GL Budget Entries</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.513333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.513333Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:42:04.206667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="1f1baca3-0ca4-4ad3-8522-5786a63a021d">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>GL Budget Entries_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="07f7446e-ba04-4a7b-8a72-7d308ec46569">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="405ef218-bb1c-4d35-95d3-672de038fd0b" />
+          </ProactiveCaching>
+          <EstimatedSize>199546</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FA Ledger Entry</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f9dda5a1-b8b2-401d-8b22-ba47740d1bde">
+          <ID>FA Ledger Entry</ID>
+          <Name>FA Ledger Entry</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.54Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.54Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:42:03.316667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="ecbcde74-e409-44c7-8e3f-e7b80a234732">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>FA Ledger Entry_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="294f3efc-04a5-4b97-9072-c2defb8b7181">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="068b4d7a-c23b-46e2-9e27-5494d35da0f3" />
+          </ProactiveCaching>
+          <EstimatedSize>5326587</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Rental Days</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e4eaeda8-6b81-4e6a-883c-7b2425848f6c">
+          <ID>Rental Days</ID>
+          <Name>Rental Days</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.563333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.563333Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:36:56.273333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="ebbc8062-d153-44f2-8641-060c89557731">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>Rental Days_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="29b55492-1614-4872-8086-745805448bdc">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="04241972-2f2f-4367-b195-2e2114447b3d" />
+          </ProactiveCaching>
+          <EstimatedSize>5428199</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Payables</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="219aa496-3dd0-4c10-89fb-24f74c83e223">
+          <ID>Payables</ID>
+          <Name>Payables</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.676667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.676667Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:37:01.766667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="dee003ec-4ffc-4bf7-bd76-e71e9c203326">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>Payables_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="5c4daa80-1a2a-47d1-9ec6-fdf46d474f45">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="896a8183-d3e3-4520-8c1c-f398f95e9bcf" />
+          </ProactiveCaching>
+          <EstimatedSize>2926351</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GL Entries</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c8b9ccce-a7dc-408c-adfe-e7792165fab1">
+          <ID>GL Entries</ID>
+          <Name>GL Entries</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.703333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.703333Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:41:59.496667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="d3d3be9d-a330-46eb-b49d-a3f13cd35b9c">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>GL Entries_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="b9fcd09b-0cf0-4431-944b-8b02827a6bb5">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cf64ee55-3e46-4834-8dc7-dedc3a01d380" />
+          </ProactiveCaching>
+          <EstimatedSize>145305189</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GL Entries Fixed Asset Count</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3f3768cb-6aac-426b-8d52-1b46950acff7">
+          <ID>GL Entries Fixed Asset Count</ID>
+          <Name>GL Entries Fixed Asset Count</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.86Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.86Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:39:44.78Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="9ea717b9-07dc-4ac8-a123-e7aef34db2ba">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>GL Entries_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="58354651-26b4-46f3-b201-4d2faeea1146">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5a19b1a3-fe5b-4b9e-980e-a49507951c47" />
+          </ProactiveCaching>
+          <EstimatedSize>90016566</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Schedule Bridge Table</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="6e73c281-2887-40f1-bc52-d77e91f94b83">
+          <ID>Schedule Bridge Table</ID>
+          <Name>Schedule Bridge Table</Name>
+          <CreatedTimestamp>2016-03-04T15:00:20.886667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-03-04T15:00:20.886667Z</LastSchemaUpdate>
+          <LastProcessed>2016-06-03T02:42:03.653333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding" dwd:design-time-name="ca95df97-dd0f-459b-b024-52172868cd12">
+            <DataSourceID>DWH</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>Schedule Bridge Table_V</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="395e5dd2-a1e4-4909-b882-ba0dd8ce300e">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="45b07fb3-ee73-45aa-abf5-cc92052fc6c7" />
+          </ProactiveCaching>
+          <EstimatedSize>3846</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

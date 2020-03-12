@@ -1,0 +1,591 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>fd6f3d40-b3ff-4c59-ba90-a46d8c173bfa</ID>
+  <Name>Sales Info</Name>
+  <CreatedTimestamp>2016-03-04T15:00:17.66Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-04T15:00:17.66Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>TX Guid</Name>
+      <Value>fd6f3d40-b3ff-4c59-ba90-a46d8c173bfa</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2016-06-03T02:36:00.756667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>DSV</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Icelandic_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>770ee879-4a2b-4747-a1c3-a46d8c21135a</ID>
+      <Name>Key</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>DW_Account</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>No_</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Table_x0020_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>db0487f8-784c-4122-96a5-a46d8c2117e2</AttributeID>
+          <Name>Reiknaður flokkur</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>39c3cd6c-79fe-4870-a6cf-a46d8c211832</AttributeID>
+          <Name>Leigður flokkur</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>77554533-5692-49b5-81ae-a46d8c21185a</AttributeID>
+          <Name>Leigður hærri</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>abe87f76-b4fe-45be-8baa-a46d8c2118aa</AttributeID>
+          <Name>Leigður lægri</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>0649f13b-8726-4cd5-be30-a46d8c2118d2</AttributeID>
+          <Name>Röðun á Reiknuðum flokki</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>e074b9b1-de08-4bb6-b848-a46d8c211922</AttributeID>
+          <Name>Röðun á Leigðum flokki</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>8d83df32-9dcc-4882-ab22-a46d8c21194a</AttributeID>
+          <Name>Skilastöð</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>d9ad5995-a423-4450-b309-a46d8c211972</AttributeID>
+          <Name>Leigustöð</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>c683ea52-9caa-4364-a5b1-a46d8c2119c2</AttributeID>
+          <Name>SOR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>33898b87-4765-45ac-824b-a46d8c211a12</AttributeID>
+          <Name>Voucher No</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>1de1d071-9e17-4960-8382-a46d8c211a3a</AttributeID>
+          <Name>Þín tilvísun</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>cffabd3b-ffa5-488c-98f0-a46d8c211a8a</AttributeID>
+          <Name>AWD</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>5d58182e-302a-4fe2-a932-a46d8c211ada</AttributeID>
+          <Name>Eknir km</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>8bd1fe88-e592-4798-b141-a46d8c211b2a</AttributeID>
+          <Name>Leigudagar</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>a1ad7697-7ca0-4217-bbd0-a46d8c211b7a</AttributeID>
+          <Name>Nafn Leigutaka</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>DW_Account</ColumnID>
+        </Source>
+      </ValueColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>db0487f8-784c-4122-96a5-a46d8c2117e2</ID>
+      <Name>Reiknaður flokkur</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Röðun_x0020_á_x0020_Reiknuðum_x0020_flokki</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Reiknaður_x0020_flokkur</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Reiknaður_x0020_flokkur</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>39c3cd6c-79fe-4870-a6cf-a46d8c211832</ID>
+      <Name>Leigður flokkur</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Röðun_x0020_á_x0020_Leigðum_x0020_flokki</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigður_x0020_flokkur</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigður_x0020_flokkur</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>77554533-5692-49b5-81ae-a46d8c21185a</ID>
+      <Name>Leigður hærri</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Leigður_x0020_hærri</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigður_x0020_hærri_x0020_desc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigður_x0020_hærri_x0020_desc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>abe87f76-b4fe-45be-8baa-a46d8c2118aa</ID>
+      <Name>Leigður lægri</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Leigður_x0020_lægri</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigður_x0020_lægri_x0020_desc</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigður_x0020_lægri_x0020_desc</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>0649f13b-8726-4cd5-be30-a46d8c2118d2</ID>
+      <Name>Röðun á Reiknuðum flokki</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Röðun_x0020_á_x0020_Reiknuðum_x0020_flokki</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Röðun_x0020_á_x0020_Reiknuðum_x0020_flokki</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>BigInt</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Röðun_x0020_á_x0020_Reiknuðum_x0020_flokki</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>e074b9b1-de08-4bb6-b848-a46d8c211922</ID>
+      <Name>Röðun á Leigðum flokki</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Röðun_x0020_á_x0020_Leigðum_x0020_flokki</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Röðun_x0020_á_x0020_Leigðum_x0020_flokki</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>BigInt</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Röðun_x0020_á_x0020_Leigðum_x0020_flokki</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>8d83df32-9dcc-4882-ab22-a46d8c21194a</ID>
+      <Name>Skilastöð</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Skilastöð</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Skilastöð</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Skilastöð</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>d9ad5995-a423-4450-b309-a46d8c211972</ID>
+      <Name>Leigustöð</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Leigustöð</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigustöð</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigustöð</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>c683ea52-9caa-4364-a5b1-a46d8c2119c2</ID>
+      <Name>SOR</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>SOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>SOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>SOR</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>33898b87-4765-45ac-824b-a46d8c211a12</ID>
+      <Name>Voucher No</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Voucher_x0020_No</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Voucher_x0020_No</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Voucher_x0020_No</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>1de1d071-9e17-4960-8382-a46d8c211a3a</ID>
+      <Name>Þín tilvísun</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Þín_x0020_tilvísun</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Þín_x0020_tilvísun</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Þín_x0020_tilvísun</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>cffabd3b-ffa5-488c-98f0-a46d8c211a8a</ID>
+      <Name>AWD</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>AWD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>AWD</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>AWD</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>5d58182e-302a-4fe2-a932-a46d8c211ada</ID>
+      <Name>Eknir km</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Eknir_x0020_km</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Eknir_x0020_km</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>Double</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Eknir_x0020_km</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>8bd1fe88-e592-4798-b141-a46d8c211b2a</ID>
+      <Name>Leigudagar</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Leigudagar</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigudagar</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Leigudagar</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>a1ad7697-7ca0-4217-bbd0-a46d8c211b7a</ID>
+      <Name>Nafn Leigutaka</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>Sales_x0020_Info_V</TableID>
+            <ColumnID>Nafn_x0020_Leigutaka</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Nafn_x0020_Leigutaka</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ValueColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>Sales_x0020_Info_V</TableID>
+          <ColumnID>Nafn_x0020_Leigutaka</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Sales Info</AttributeAllMemberName>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

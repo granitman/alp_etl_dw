@@ -1,0 +1,1943 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2019 8:37:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-02"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{F2110798-DAA4-4ADE-BA0E-94120F0C2D99}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="stg_nav_wyse_payables"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{D82F442E-1EA5-495F-A5EF-003589B98A4A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[nav]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EA283912-F761-442A-9AF0-468090E41DFF}"
+      DTS:ObjectName="nav">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=alp-sql;Initial Catalog=Wise_Cubes_DWH;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6596AA6E-6F28-4859-9746-FE223B5F72A0}"
+      DTS:ObjectName="staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\payables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{AA0A914B-B9D0-4B33-AF10-7475E253FE02}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="payables">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\payables\merge_payabes"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DTSID="{62F07654-97F1-419B-9D61-4051B57B3B5B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="merge_payabes"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6596AA6E-6F28-4859-9746-FE223B5F72A0}"
+              SQLTask:SqlStatementSource="exec ETL.POP_Payables" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\payables\payables"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{884DEDD3-D393-401A-9B7D-6E1E7B394072}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="payables"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\payables\payables\Payables"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Payables"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[wrk].[Payables_w]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\payables\payables\Payables.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[staging]"
+                      connectionManagerRefId="Package.ConnectionManagers[staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[DW_Id]"
+                          cachedDataType="i8"
+                          cachedName="DW_Id"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_Id]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Id]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[DW_Account]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="DW_Account"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_Account]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Account]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Entry No_]"
+                          cachedDataType="i8"
+                          cachedName="Entry No_"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Entry No_]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Entry No_]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[DetailedEntryNo]"
+                          cachedDataType="i8"
+                          cachedName="DetailedEntryNo"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DetailedEntryNo]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DetailedEntryNo]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Entry Type]"
+                          cachedDataType="i8"
+                          cachedName="Entry Type"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Entry Type]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Entry Type]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Document Type]"
+                          cachedDataType="i8"
+                          cachedName="Document Type"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Document Type]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Document Type]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Document No_]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Document No_"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Document No_]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Document No_]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[SK_PostingDate]"
+                          cachedDataType="i8"
+                          cachedName="SK_PostingDate"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_PostingDate]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_PostingDate]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Initial Entry Due Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Initial Entry Due Date"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Initial Entry Due Date]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Initial Entry Due Date]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Buy-from Vendor No_]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Buy-from Vendor No_"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Buy-from Vendor No_]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Buy-from Vendor No_]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Currency Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Currency Code"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Currency Code]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Currency Code]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[On Hold]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="On Hold"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[On Hold]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[On Hold]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Purchaser Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Purchaser Code"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Purchaser Code]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Purchaser Code]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[External Document No]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="External Document No"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[External Document No]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[External Document No]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Prepayment]"
+                          cachedDataType="i8"
+                          cachedName="Prepayment"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Prepayment]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Prepayment]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[SK_DocumentDate]"
+                          cachedDataType="i8"
+                          cachedName="SK_DocumentDate"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_DocumentDate]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_DocumentDate]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[IC Partner Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="IC Partner Code"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[IC Partner Code]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[IC Partner Code]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD1"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD1]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD1]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD2"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD2]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD2]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD3]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD3"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD3]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD3]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD4]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD4"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD4]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD4]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD5]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD5"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD5]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD5]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD6]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD6"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD6]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD6]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD7]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD7"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD7]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD7]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[GD8]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GD8"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD8]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD8]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[DueDays]"
+                          cachedDataType="i8"
+                          cachedName="DueDays"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DueDays]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DueDays]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Amount (LCY)]"
+                          cachedDataType="numeric"
+                          cachedName="Amount (LCY)"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Amount (LCY)]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Debit Amount (LCY)]"
+                          cachedDataType="numeric"
+                          cachedName="Debit Amount (LCY)"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Debit Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Debit Amount (LCY)]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Credit Amount (LCY)]"
+                          cachedDataType="numeric"
+                          cachedName="Credit Amount (LCY)"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Credit Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Credit Amount (LCY)]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Purchase (LCY)]"
+                          cachedDataType="numeric"
+                          cachedName="Purchase (LCY)"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Purchase (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Purchase (LCY)]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Inv. Discount (LCY)]"
+                          cachedDataType="numeric"
+                          cachedName="Inv. Discount (LCY)"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Inv. Discount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Inv. Discount (LCY)]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Remaining Amount (LCY)]"
+                          cachedDataType="numeric"
+                          cachedName="Remaining Amount (LCY)"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Remaining Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Remaining Amount (LCY)]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Amount]"
+                          cachedDataType="numeric"
+                          cachedName="Amount"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Amount]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Debit Amount]"
+                          cachedDataType="numeric"
+                          cachedName="Debit Amount"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Debit Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Debit Amount]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Credit Amount]"
+                          cachedDataType="numeric"
+                          cachedName="Credit Amount"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Credit Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Credit Amount]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Remaining Amount]"
+                          cachedDataType="numeric"
+                          cachedName="Remaining Amount"
+                          cachedPrecision="38"
+                          cachedScale="20"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Remaining Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Remaining Amount]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[SK_GD1]"
+                          cachedDataType="i8"
+                          cachedName="SK_GD1"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_GD1]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_GD1]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[SK_GD2]"
+                          cachedDataType="i8"
+                          cachedName="SK_GD2"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_GD2]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_GD2]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[SK_Company]"
+                          cachedDataType="i8"
+                          cachedName="SK_Company"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_Company]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_Company]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[Fixed Asset No]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Fixed Asset No"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Fixed Asset No]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Fixed Asset No]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[DW_Batch]"
+                          cachedDataType="i8"
+                          cachedName="DW_Batch"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_Batch]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Batch]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[DW_SourceCode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="DW_SourceCode"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_SourceCode]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_SourceCode]" />
+                        <inputColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].Columns[DW_TimeStamp]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DW_TimeStamp"
+                          externalMetadataColumnId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_TimeStamp]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_TimeStamp]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_Id]"
+                          dataType="i8"
+                          name="DW_Id" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_Account]"
+                          dataType="wstr"
+                          length="30"
+                          name="DW_Account" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Entry No_]"
+                          dataType="i8"
+                          name="Entry No_" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DetailedEntryNo]"
+                          dataType="i8"
+                          name="DetailedEntryNo" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Entry Type]"
+                          dataType="i8"
+                          name="Entry Type" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Document Type]"
+                          dataType="i8"
+                          name="Document Type" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Document No_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Document No_" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_PostingDate]"
+                          dataType="i8"
+                          name="SK_PostingDate" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Initial Entry Due Date]"
+                          dataType="dbTimeStamp"
+                          name="Initial Entry Due Date" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Buy-from Vendor No_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Buy-from Vendor No_" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Currency Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Currency Code" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[On Hold]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="On Hold" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Purchaser Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Purchaser Code" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[External Document No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="External Document No" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Prepayment]"
+                          dataType="i8"
+                          name="Prepayment" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_DocumentDate]"
+                          dataType="i8"
+                          name="SK_DocumentDate" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[IC Partner Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="IC Partner Code" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD1" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD2" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD3" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD4" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD5" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD6]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD6" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD7" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD8" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DueDays]"
+                          dataType="i8"
+                          name="DueDays" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Amount (LCY)]"
+                          dataType="numeric"
+                          name="Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Debit Amount (LCY)]"
+                          dataType="numeric"
+                          name="Debit Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Credit Amount (LCY)]"
+                          dataType="numeric"
+                          name="Credit Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Purchase (LCY)]"
+                          dataType="numeric"
+                          name="Purchase (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Inv. Discount (LCY)]"
+                          dataType="numeric"
+                          name="Inv. Discount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Remaining Amount (LCY)]"
+                          dataType="numeric"
+                          name="Remaining Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                          dataType="numeric"
+                          name="Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Debit Amount]"
+                          dataType="numeric"
+                          name="Debit Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Credit Amount]"
+                          dataType="numeric"
+                          name="Credit Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Remaining Amount]"
+                          dataType="numeric"
+                          name="Remaining Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_GD1]"
+                          dataType="i8"
+                          name="SK_GD1" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_GD2]"
+                          dataType="i8"
+                          name="SK_GD2" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[SK_Company]"
+                          dataType="i8"
+                          name="SK_Company" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[Fixed Asset No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Fixed Asset No" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_Batch]"
+                          dataType="i8"
+                          name="DW_Batch" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_SourceCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="DW_SourceCode" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input].ExternalColumns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="DW_TimeStamp" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\payables\payables\Payables.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\payables\payables\Payables.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\payables\payables\Payables.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\payables\payables\Payables.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\payables\payables\Payables.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\payables\payables\payables_v_x"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="payables_v_x"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Payables_V]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from dbo.Payables_v where DW_Account ='ALP bílaleiga' and [Fixed Asset No] is not null</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\payables\payables\payables_v_x.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[nav]"
+                      connectionManagerRefId="Package.ConnectionManagers[nav]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Id]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_Id]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Id]"
+                          name="DW_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Account]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_Account]"
+                          length="30"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Account]"
+                          name="DW_Account"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Entry No_]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Entry No_]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Entry No_]"
+                          name="Entry No_"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DetailedEntryNo]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DetailedEntryNo]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DetailedEntryNo]"
+                          name="DetailedEntryNo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Entry Type]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Entry Type]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Entry Type]"
+                          name="Entry Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Document Type]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Document Type]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Document Type]"
+                          name="Document Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Document No_]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Document No_]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Document No_]"
+                          name="Document No_"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_PostingDate]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_PostingDate]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_PostingDate]"
+                          name="SK_PostingDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Initial Entry Due Date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Initial Entry Due Date]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Initial Entry Due Date]"
+                          name="Initial Entry Due Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Buy-from Vendor No_]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Buy-from Vendor No_]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Buy-from Vendor No_]"
+                          name="Buy-from Vendor No_"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Currency Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Currency Code]"
+                          length="10"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Currency Code]"
+                          name="Currency Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[On Hold]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[On Hold]"
+                          length="3"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[On Hold]"
+                          name="On Hold"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Purchaser Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Purchaser Code]"
+                          length="10"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Purchaser Code]"
+                          name="Purchaser Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[External Document No]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[External Document No]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[External Document No]"
+                          name="External Document No"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Prepayment]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Prepayment]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Prepayment]"
+                          name="Prepayment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_DocumentDate]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_DocumentDate]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_DocumentDate]"
+                          name="SK_DocumentDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[IC Partner Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[IC Partner Code]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[IC Partner Code]"
+                          name="IC Partner Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD1]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD1]"
+                          name="GD1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD2]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD2]"
+                          name="GD2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD3]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD3]"
+                          name="GD3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD4]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD4]"
+                          name="GD4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD5]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD5]"
+                          name="GD5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD6]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD6]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD6]"
+                          name="GD6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD7]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD7]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD7]"
+                          name="GD7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD8]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[GD8]"
+                          name="GD8"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DueDays]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DueDays]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DueDays]"
+                          name="DueDays"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Amount (LCY)]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Amount (LCY)]"
+                          name="Amount (LCY)"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Debit Amount (LCY)]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Debit Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Debit Amount (LCY)]"
+                          name="Debit Amount (LCY)"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Credit Amount (LCY)]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Credit Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Credit Amount (LCY)]"
+                          name="Credit Amount (LCY)"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Purchase (LCY)]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Purchase (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Purchase (LCY)]"
+                          name="Purchase (LCY)"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Inv. Discount (LCY)]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Inv. Discount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Inv. Discount (LCY)]"
+                          name="Inv. Discount (LCY)"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Remaining Amount (LCY)]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Remaining Amount (LCY)]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Remaining Amount (LCY)]"
+                          name="Remaining Amount (LCY)"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Amount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Amount]"
+                          name="Amount"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Debit Amount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Debit Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Debit Amount]"
+                          name="Debit Amount"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Credit Amount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Credit Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Credit Amount]"
+                          name="Credit Amount"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Remaining Amount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Remaining Amount]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Remaining Amount]"
+                          name="Remaining Amount"
+                          precision="38"
+                          scale="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_GD1]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_GD1]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_GD1]"
+                          name="SK_GD1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_GD2]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_GD2]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_GD2]"
+                          name="SK_GD2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_Company]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_Company]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[SK_Company]"
+                          name="SK_Company"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Fixed Asset No]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Fixed Asset No]"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[Fixed Asset No]"
+                          name="Fixed Asset No"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Batch]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_Batch]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_Batch]"
+                          name="DW_Batch"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_SourceCode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_SourceCode]"
+                          length="15"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_SourceCode]"
+                          name="DW_SourceCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_TimeStamp]"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].Columns[DW_TimeStamp]"
+                          name="DW_TimeStamp"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_Id]"
+                          dataType="i8"
+                          name="DW_Id" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_Account]"
+                          dataType="wstr"
+                          length="30"
+                          name="DW_Account" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Entry No_]"
+                          dataType="i8"
+                          name="Entry No_" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DetailedEntryNo]"
+                          dataType="i8"
+                          name="DetailedEntryNo" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Entry Type]"
+                          dataType="i8"
+                          name="Entry Type" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Document Type]"
+                          dataType="i8"
+                          name="Document Type" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Document No_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Document No_" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_PostingDate]"
+                          dataType="i8"
+                          name="SK_PostingDate" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Initial Entry Due Date]"
+                          dataType="dbTimeStamp"
+                          name="Initial Entry Due Date" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Buy-from Vendor No_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Buy-from Vendor No_" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Currency Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Currency Code" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[On Hold]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="On Hold" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Purchaser Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Purchaser Code" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[External Document No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="External Document No" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Prepayment]"
+                          dataType="i8"
+                          name="Prepayment" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_DocumentDate]"
+                          dataType="i8"
+                          name="SK_DocumentDate" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[IC Partner Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="IC Partner Code" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD1" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD2" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD3" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD4" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD5" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD6]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD6" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD7" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GD8" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DueDays]"
+                          dataType="i8"
+                          name="DueDays" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Amount (LCY)]"
+                          dataType="numeric"
+                          name="Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Debit Amount (LCY)]"
+                          dataType="numeric"
+                          name="Debit Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Credit Amount (LCY)]"
+                          dataType="numeric"
+                          name="Credit Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Purchase (LCY)]"
+                          dataType="numeric"
+                          name="Purchase (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Inv. Discount (LCY)]"
+                          dataType="numeric"
+                          name="Inv. Discount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Remaining Amount (LCY)]"
+                          dataType="numeric"
+                          name="Remaining Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          dataType="numeric"
+                          name="Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Debit Amount]"
+                          dataType="numeric"
+                          name="Debit Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Credit Amount]"
+                          dataType="numeric"
+                          name="Credit Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Remaining Amount]"
+                          dataType="numeric"
+                          name="Remaining Amount"
+                          precision="38"
+                          scale="20" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_GD1]"
+                          dataType="i8"
+                          name="SK_GD1" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_GD2]"
+                          dataType="i8"
+                          name="SK_GD2" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[SK_Company]"
+                          dataType="i8"
+                          name="SK_Company" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[Fixed Asset No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Fixed Asset No" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_Batch]"
+                          dataType="i8"
+                          name="DW_Batch" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_SourceCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="DW_SourceCode" />
+                        <externalMetadataColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output].ExternalColumns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="DW_TimeStamp" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_Id]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_Id]"
+                          name="DW_Id" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_Account]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_Account]"
+                          name="DW_Account" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Entry No_]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Entry No_]"
+                          name="Entry No_" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DetailedEntryNo]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DetailedEntryNo]"
+                          name="DetailedEntryNo" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Entry Type]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Entry Type]"
+                          name="Entry Type" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Document Type]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Document Type]"
+                          name="Document Type" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Document No_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Document No_]"
+                          name="Document No_" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_PostingDate]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_PostingDate]"
+                          name="SK_PostingDate" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Initial Entry Due Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Initial Entry Due Date]"
+                          name="Initial Entry Due Date" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Buy-from Vendor No_]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Buy-from Vendor No_]"
+                          name="Buy-from Vendor No_" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Currency Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Currency Code]"
+                          name="Currency Code" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[On Hold]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[On Hold]"
+                          name="On Hold" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Purchaser Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Purchaser Code]"
+                          name="Purchaser Code" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[External Document No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[External Document No]"
+                          name="External Document No" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Prepayment]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Prepayment]"
+                          name="Prepayment" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_DocumentDate]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_DocumentDate]"
+                          name="SK_DocumentDate" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[IC Partner Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[IC Partner Code]"
+                          name="IC Partner Code" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD1]"
+                          name="GD1" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD2]"
+                          name="GD2" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD3]"
+                          name="GD3" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD4]"
+                          name="GD4" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD5]"
+                          name="GD5" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD6]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD6]"
+                          name="GD6" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD7]"
+                          name="GD7" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[GD8]"
+                          name="GD8" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DueDays]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DueDays]"
+                          name="DueDays" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Amount (LCY)]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Amount (LCY)]"
+                          name="Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Debit Amount (LCY)]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Debit Amount (LCY)]"
+                          name="Debit Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Credit Amount (LCY)]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Credit Amount (LCY)]"
+                          name="Credit Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Purchase (LCY)]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Purchase (LCY)]"
+                          name="Purchase (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Inv. Discount (LCY)]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Inv. Discount (LCY)]"
+                          name="Inv. Discount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Remaining Amount (LCY)]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Remaining Amount (LCY)]"
+                          name="Remaining Amount (LCY)"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          name="Amount"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Debit Amount]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Debit Amount]"
+                          name="Debit Amount"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Credit Amount]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Credit Amount]"
+                          name="Credit Amount"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Remaining Amount]"
+                          dataType="numeric"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Remaining Amount]"
+                          name="Remaining Amount"
+                          precision="38"
+                          scale="20" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_GD1]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_GD1]"
+                          name="SK_GD1" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_GD2]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_GD2]"
+                          name="SK_GD2" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_Company]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[SK_Company]"
+                          name="SK_Company" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Fixed Asset No]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[Fixed Asset No]"
+                          name="Fixed Asset No" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_Batch]"
+                          dataType="i8"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_Batch]"
+                          name="DW_Batch" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_SourceCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_SourceCode]"
+                          name="DW_SourceCode" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_TimeStamp]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[DW_TimeStamp]"
+                          name="DW_TimeStamp" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\payables\payables.Paths[OLE DB Source Output]"
+                  endId="Package\payables\payables\Payables.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\payables\payables\payables_v_x.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\payables\Trunc tables"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DTSID="{C16B96DB-8855-4DFE-9C55-F69F50248BD5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Trunc tables"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6596AA6E-6F28-4859-9746-FE223B5F72A0}"
+              SQLTask:SqlStatementSource="truncate table [Staging].[wrk].Payables_w" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\payables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8FDED600-D00A-4C82-93C0-690DCFAF6A9D}"
+          DTS:From="Package\payables\Trunc tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\payables\payables" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\payables.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E8A16FB0-3D55-44A1-BCAE-4676AE821AF1}"
+          DTS:From="Package\payables\payables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\payables\merge_payabes" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\payables\merge_payabes"
+          TopLeft="49.8181818181818,150.772727272727" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\payables\payables"
+          TopLeft="58.4090909090909,78.772727272727" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\payables\Trunc tables"
+          TopLeft="56.181818181818,12" />
+        <EdgeLayout
+          Id="Package\payables.PrecedenceConstraints[Constraint]"
+          TopLeft="121.545454545454,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,24.772727272727"
+              Start="0,0"
+              End="0,17.272727272727">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.272727272727" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\payables.PrecedenceConstraints[Constraint 1]"
+          TopLeft="122.363636363636,120.772727272727">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30.0000000000001"
+              Start="0,0"
+              End="0,22.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="311,290"
+          Size="311,333"
+          Id="Package\payables"
+          TopLeft="1020.72727272727,112.909090909091" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\payables\payables">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\payables\payables\payables_v_x"
+          TopLeft="563,23" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\payables\payables\Payables"
+          TopLeft="570,101" />
+        <EdgeLayout
+          Id="Package\payables\payables.Paths[OLE DB Source Output]"
+          TopLeft="632,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\payables\payables\Payables">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\payables\payables\payables_v_x">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

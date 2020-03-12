@@ -1,0 +1,2266 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2015 4:06:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-01"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{DF82DD0E-E66C-4AFF-9C25-937F97C3A9C6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="imp_currency"
+  DTS:PackageType="5"
+  DTS:VersionBuild="151"
+  DTS:VersionGUID="{070B8218-8A1D-4CFB-AC61-2B840FC5C160}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CRXfile]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="CurrencyExchangeRateFile"
+      DTS:DTSID="{C2DC31EA-A6B9-4C0D-B0D3-78EA58FE7F4E}"
+      DTS:ObjectName="CRXfile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::full_filename_path]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="RaggedRight"
+          DTS:LocaleID="1039"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:RowDelimiter="_x000A_"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\floti.alp.is\file\CRX152.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="3"
+              DTS:MaximumWidth="3"
+              DTS:DataType="129"
+              DTS:ObjectName="RecordNumber"
+              DTS:DTSID="{95AABD70-3C2C-4DDA-BEB3-E4C645597FD9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{5EB15A89-9777-442B-976A-3CDF91AA1A37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="3"
+              DTS:MaximumWidth="3"
+              DTS:DataType="129"
+              DTS:ObjectName="Currency"
+              DTS:DTSID="{78837C43-33C4-4769-9DC1-6FD46D471D9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:ObjectName="Decimal"
+              DTS:DTSID="{F064FD59-BC01-47F4-BF55-604CD3C050C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:ObjectName="EffectiveDateID"
+              DTS:DTSID="{69D965E9-44AF-41DF-842F-0A8A0C4C3953}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="9"
+              DTS:DataType="129"
+              DTS:ObjectName="Filler1"
+              DTS:DTSID="{7AF7CD45-6CF7-4562-ADB6-1D26F265D67B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="12"
+              DTS:MaximumWidth="12"
+              DTS:DataType="129"
+              DTS:ObjectName="Conv2USD"
+              DTS:DTSID="{B0E63907-E742-47F5-B1B7-08FD1DF9734A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="12"
+              DTS:MaximumWidth="12"
+              DTS:DataType="129"
+              DTS:ObjectName="ConvFromUSD"
+              DTS:DTSID="{65F248E4-6C1F-4FCE-910A-FEE52CFA5AFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="5"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:ObjectName="LoadFactor"
+              DTS:DTSID="{C3E71220-E6F1-49DE-9AF8-724F69020D1D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="36"
+              DTS:MaximumWidth="37"
+              DTS:DataType="129"
+              DTS:ObjectName="Filler2"
+              DTS:DTSID="{C8346F57-BA10-46FC-BC04-3D765E6DA975}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 10"
+              DTS:DTSID="{0D5EE64F-70DD-482A-837D-F5670272F2B1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[flotaskjal]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+      DTS:ObjectName="flotaskjal">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=flotaskjal;Provider=SQLNCLI11;Integrated Security=SSPI;Application Name=SSIS-reservations-{CF062CA4-2929-4143-9077-FB5B817084CF}LocalHost.flotaskjal;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2DFA25AC-2943-4E6D-843E-0B1EE2BA541D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="file_archive">
+      <DTS:VariableValue
+        DTS:DataType="8">d:\ftp_flotaskjol\Archive\fleet\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{32C54534-4EAA-4F55-B11F-CA2DC76A8498}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="file_exists">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4FBAF1F-2F6D-48CF-8DF9-5D93C726B16B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="file_incoming_path">
+      <DTS:VariableValue
+        DTS:DataType="8">\\floti.alp.is\file\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D93ADDF-C625-4740-BCAF-30AF108FDDD2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::file_incoming_path] +  @[User::imp_filename]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="full_filename_path">
+      <DTS:VariableValue
+        DTS:DataType="8">\\floti.alp.is\file\CRX152.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{327454E3-AA45-467A-A069-BD13A999BB6F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="imp_filename">
+      <DTS:VariableValue
+        DTS:DataType="8">CRX152.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\checkopint"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f65b4869-7797-4131-8398-965c36e3c52a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="checkopint"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+          SQLTask:SqlStatementSource="checkpoint" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::full_filename_path"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::imp_filename"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CRX_"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{FD108B3E-B1FD-49E8-B019-C20D32F98D18}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CRX_">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{A64A9809-68BF-4791-992A-5C238AB1A69A}"
+        DTS:ObjectName="{A64A9809-68BF-4791-992A-5C238AB1A69A}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\floti.alp.is\file\" />
+            <FEFEProperty
+              FileSpec="CRX*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CRX_\checkopint"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b545a449-9c60-4694-a6d4-da32f7f1d472}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="checkopint"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+              SQLTask:SqlStatementSource="checkpoint" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CRX_\IMP GENGI"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{7e2ecc5e-ef36-4690-8f2b-13f803e65ed8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="IMP GENGI"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\CRX_\IMP GENGI\crxFile"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1039"
+                  name="crxFile"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CRX_\IMP GENGI\crxFile.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CRXfile]"
+                      connectionManagerRefId="Package.ConnectionManagers[CRXfile]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[RecordNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[RecordNumber]"
+                          length="3"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[RecordNumber]"
+                          name="RecordNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                          length="2"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Currency]"
+                          length="3"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Currency]"
+                          name="Currency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Decimal]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Decimal]"
+                          length="1"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Decimal]"
+                          name="Decimal"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[EffectiveDateID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[EffectiveDateID]"
+                          length="8"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[EffectiveDateID]"
+                          name="EffectiveDateID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Filler1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Filler1]"
+                          length="9"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Filler1]"
+                          name="Filler1"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Conv2USD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Conv2USD]"
+                          length="12"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Conv2USD]"
+                          name="Conv2USD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[ConvFromUSD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[ConvFromUSD]"
+                          length="12"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[ConvFromUSD]"
+                          name="ConvFromUSD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[LoadFactor]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[LoadFactor]"
+                          length="5"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[LoadFactor]"
+                          name="LoadFactor"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[RecordNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="RecordNumber" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="Currency" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Decimal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Decimal" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[EffectiveDateID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="EffectiveDateID" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Filler1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="Filler1" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Conv2USD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="Conv2USD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[ConvFromUSD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="ConvFromUSD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[LoadFactor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="LoadFactor" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Filler2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="37"
+                          name="Filler2" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="Column 10" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  localeId="1039"
+                  name="wrk_crx_Gengi"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[wrk].[CrxCurrency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[flotaskjal]"
+                      connectionManagerRefId="Package.ConnectionManagers[flotaskjal]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Country]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Country"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Country]"
+                          name="Country" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[EffectiveDateID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="EffectiveDateID"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDateID]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[EffectiveDateID]"
+                          name="EffectiveDateID" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Conv2USD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="Conv2USD"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Conv2USD]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Conv2USD]"
+                          name="Conv2USD" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[ConvFromUSD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="ConvFromUSD"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[ConvFromUSD]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[ConvFromUSD]"
+                          name="ConvFromUSD" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[LoadFactor]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="LoadFactor"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[LoadFactor]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[LoadFactor]"
+                          name="LoadFactor" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Filler1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="Filler1"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Filler1]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Filler1]"
+                          name="Filler1" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Decimal]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Decimal"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Decimal]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Decimal]"
+                          name="Decimal" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Currency]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="Currency"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Currency]"
+                          name="Currency" />
+                        <inputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[RecordNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="RecordNumber"
+                          externalMetadataColumnId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[RecordNumber]"
+                          lineageId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[RecordNumber]"
+                          name="RecordNumber" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDateID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="EffectiveDateID" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[ConvFromUSD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="ConvFromUSD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[LoadFactor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="LoadFactor" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Conv2USD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="Conv2USD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[RecordNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="RecordNumber" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="Currency" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Decimal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Decimal" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Filler1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="Filler1" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                          dataType="dbDate"
+                          name="EffectiveDate" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[RowRecordedDatetime]"
+                          dataType="dbTimeStamp2"
+                          name="RowRecordedDatetime"
+                          scale="7" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CRX_\IMP GENGI.Paths[Flat File Source Output]"
+                  endId="Package\CRX_\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\CRX_\IMP GENGI\crxFile.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CRX_\log_file_import fleet_is"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E75D2C8F-55C7-4A6A-97CE-09DE3629E26F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="log_file_import fleet_is"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+              SQLTask:SqlStatementSource="DECLARE @EXISTS INT &#xA;declare @filename varchar(100) &#xA;declare @filepath varchar(200) &#xA;set @filepath  =?&#xA;set @filename  =?&#xA;&#xA;SELECT @EXISTS  = COUNT(*) FROM ImportFileLog   WHERE ImportFile = @filename &#xA;&#x9;and ImportFile &lt;&gt; (select MAX(ImportFile ) from ImportFileLog  where ImportFileType  =  'CRX' ) &#xA;&#x9;&#xA;IF @EXISTS =0 &#xA;&#x9;insert into ImportFileLog &#x9;&#xA;&#x9;(ImportFileNamePath&#xA;&#x9;,ImportFile&#xA;&#x9;,ImportFileType) values(@filepath,@filename,'CRX')&#xA;&#xA;set ? = @EXISTS &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::file_exists"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CRX_\move file to archive"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{6A1C42CC-33C2-43EA-924B-735C11B11A56}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="move file to archive"
+          DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::full_filename_path"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::file_archive"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CRX_.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{362B59EB-9B47-475E-847F-9BFCD0091707}"
+          DTS:From="Package\CRX_\log_file_import fleet_is"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CRX_\IMP GENGI" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CRX_.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B8E3276D-90F6-44C5-A6CA-F7FA9F8D97C4}"
+          DTS:From="Package\CRX_\IMP GENGI"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\CRX_\move file to archive" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CRX_.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{2A78C410-5245-4E74-91F8-27808FD1E6DF}"
+          DTS:From="Package\CRX_\IMP GENGI"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\CRX_\checkopint" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{73DD0604-CDC0-49BD-9F80-66EF15B295A0}"
+          DTS:ObjectName="{73DD0604-CDC0-49BD-9F80-66EF15B295A0}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::imp_filename" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CRX_ 1"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{0a69549c-26cb-49c8-ac7c-448d8792ac17}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CRX_ 1">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{b06a344b-1660-4526-8c8a-3a89d4588f53}"
+        DTS:ObjectName="{A64A9809-68BF-4791-992A-5C238AB1A69A}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\floti.alp.is\file\" />
+            <FEFEProperty
+              FileSpec="CRX*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CRX_ 1\File has been imported  Do nothing"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{4764e3a6-272b-4710-be44-a910aeb685c0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File has been imported  Do nothing"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+              SQLTask:SqlStatementSource="select 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CRX_ 1\IMP GENGI"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{0c9c0604-65f2-4c39-bd81-3350381c98e2}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="IMP GENGI"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\CRX_ 1\IMP GENGI\crxFile"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1039"
+                  name="crxFile"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CRX_ 1\IMP GENGI\crxFile.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CRXfile]"
+                      connectionManagerRefId="Package.ConnectionManagers[CRXfile]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[RecordNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[RecordNumber]"
+                          length="3"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[RecordNumber]"
+                          name="RecordNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                          length="2"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Currency]"
+                          length="3"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Currency]"
+                          name="Currency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Decimal]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Decimal]"
+                          length="1"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Decimal]"
+                          name="Decimal"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[EffectiveDateID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[EffectiveDateID]"
+                          length="8"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[EffectiveDateID]"
+                          name="EffectiveDateID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Filler1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Filler1]"
+                          length="9"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Filler1]"
+                          name="Filler1"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Conv2USD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Conv2USD]"
+                          length="12"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Conv2USD]"
+                          name="Conv2USD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[ConvFromUSD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[ConvFromUSD]"
+                          length="12"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[ConvFromUSD]"
+                          name="ConvFromUSD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[LoadFactor]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[LoadFactor]"
+                          length="5"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[LoadFactor]"
+                          name="LoadFactor"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[RecordNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="RecordNumber" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="Currency" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Decimal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Decimal" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[EffectiveDateID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="EffectiveDateID" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Filler1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="Filler1" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Conv2USD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="Conv2USD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[ConvFromUSD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="ConvFromUSD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[LoadFactor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="LoadFactor" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Filler2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="37"
+                          name="Filler2" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="Column 10" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  localeId="1039"
+                  name="wrk_crx_Gengi"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[wrk].[CrxCurrency]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[flotaskjal]"
+                      connectionManagerRefId="Package.ConnectionManagers[flotaskjal]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Country]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Country"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Country]"
+                          name="Country" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[EffectiveDateID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="EffectiveDateID"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDateID]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[EffectiveDateID]"
+                          name="EffectiveDateID" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Conv2USD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="Conv2USD"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Conv2USD]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Conv2USD]"
+                          name="Conv2USD" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[ConvFromUSD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="ConvFromUSD"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[ConvFromUSD]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[ConvFromUSD]"
+                          name="ConvFromUSD" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[LoadFactor]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="LoadFactor"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[LoadFactor]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[LoadFactor]"
+                          name="LoadFactor" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Filler1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="Filler1"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Filler1]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Filler1]"
+                          name="Filler1" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Decimal]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Decimal"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Decimal]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Decimal]"
+                          name="Decimal" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[Currency]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="Currency"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[Currency]"
+                          name="Currency" />
+                        <inputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].Columns[RecordNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="RecordNumber"
+                          externalMetadataColumnId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[RecordNumber]"
+                          lineageId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output].Columns[RecordNumber]"
+                          name="RecordNumber" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDateID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="EffectiveDateID" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[ConvFromUSD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="ConvFromUSD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[LoadFactor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="LoadFactor" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Conv2USD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="Conv2USD" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[RecordNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="RecordNumber" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="Currency" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Decimal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Decimal" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[Filler1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="Filler1" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                          dataType="dbDate"
+                          name="EffectiveDate" />
+                        <externalMetadataColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input].ExternalColumns[RowRecordedDatetime]"
+                          dataType="dbTimeStamp2"
+                          name="RowRecordedDatetime"
+                          scale="7" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CRX_ 1\IMP GENGI.Paths[Flat File Source Output]"
+                  endId="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\CRX_ 1\IMP GENGI\crxFile.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CRX_ 1\log_file_import fleet_is"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{89cbd3b1-9826-4e24-8deb-79b46b7a0019}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="log_file_import fleet_is"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+              SQLTask:SqlStatementSource="DECLARE @EXISTS INT &#xA;declare @filename varchar(100) &#xA;declare @filepath varchar(200) &#xA;set @filepath  =?&#xA;set @filename  =?&#xA;&#xA;SELECT @EXISTS  = COUNT(*) FROM ImportFileLog   WHERE ImportFile = @filename &#xA; and ImportFile &lt;&gt; (select MAX(ImportFile ) from ImportFileLog  where ImportFileType  =  'CRX' ) &#xA; &#xA;IF @EXISTS =0 &#xA; insert into ImportFileLog  &#xA; (ImportFileNamePath&#xA; ,ImportFile&#xA; ,ImportFileType) values(@filepath,@filename,'CRX')&#xA;&#xA;set ? = @EXISTS &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::full_filename_path"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::imp_filename"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::file_exists"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CRX_ 1\move file to archive"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{ffecb6c8-1ad1-493f-a682-957f8d82e479}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="move file to archive"
+          DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::full_filename_path"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::file_archive"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CRX_ 1.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{ebebbdf2-4572-4936-8a41-d3dfc1a560ee}"
+          DTS:EvalOp="3"
+          DTS:Expression="(@file_exists)==0"
+          DTS:From="Package\CRX_ 1\log_file_import fleet_is"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CRX_ 1\IMP GENGI" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CRX_ 1.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{3715e93b-9a0c-49bc-8d82-8c17f2106a54}"
+          DTS:From="Package\CRX_ 1\IMP GENGI"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\CRX_ 1\move file to archive" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CRX_ 1.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{7a93a488-85b5-48f9-9edf-dfc5d049617f}"
+          DTS:EvalOp="3"
+          DTS:Expression="(@file_exists==1)"
+          DTS:From="Package\CRX_ 1\log_file_import fleet_is"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\CRX_ 1\File has been imported  Do nothing" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{16f11726-2222-4443-b47d-5f7235090a39}"
+          DTS:ObjectName="{73DD0604-CDC0-49BD-9F80-66EF15B295A0}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::imp_filename" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\merge to staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1e5e858f-8c46-4807-bb23-797738d89c8e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="merge to staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+          SQLTask:SqlStatementSource="exec [dbo].[popCRX_Currency] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::full_filename_path"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::imp_filename"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate staging tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b3bdf9b3-92d4-4f26-9d86-970d6dd874b8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate staging tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CF062CA4-2929-4143-9077-FB5B817084CF}"
+          SQLTask:SqlStatementSource="truncate table wrk.CrxCurrency " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::full_filename_path"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::imp_filename"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A833152-6F77-4733-BD0A-46BECA48268D}"
+      DTS:From="Package\CRX_"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\merge to staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1E230913-F05C-4CA6-9179-59493CE66D53}"
+      DTS:From="Package\checkopint"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\CRX_" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{A500BCE7-BDA5-4612-88A9-8298FF89A731}"
+      DTS:From="Package\truncate staging tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\checkopint" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\CRX_\IMP GENGI"
+          TopLeft="29.6603773584907,144.547169811321" />
+        <NodeLayout
+          Size="180,44"
+          Id="Package\CRX_\log_file_import fleet_is"
+          TopLeft="42.283018867925,19.6037735849057" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\CRX_\move file to archive"
+          TopLeft="28.4905660377359,239.452830188679" />
+        <EdgeLayout
+          Id="Package\CRX_.PrecedenceConstraints[Constraint]"
+          TopLeft="132.283018867925,63.6037735849057">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-34.6226415094343,80.9433962264153"
+              Start="0,0"
+              End="-34.6226415094343,73.4433962264153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.4716981132077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.4716981132077"
+                    Point2="0,40.4716981132077"
+                    Point3="-4,40.4716981132077" />
+                  <mssgle:LineSegment
+                    End="-30.6226415094343,40.4716981132077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.6226415094343,40.4716981132077"
+                    Point2="-34.6226415094343,40.4716981132077"
+                    Point3="-34.6226415094343,44.4716981132077" />
+                  <mssgle:LineSegment
+                    End="-34.6226415094343,73.4433962264153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CRX_.PrecedenceConstraints[Constraint 1]"
+          TopLeft="97.5471698113208,188.471698113208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1.16981132075477,50.9811320754717"
+              Start="0,0"
+              End="-1.16981132075477,43.4811320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-1.16981132075477,25.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-1.16981132075477,43.4811320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129,42"
+          Id="Package\CRX_\checkopint"
+          TopLeft="225.490566037736,173.452830188679" />
+        <EdgeLayout
+          Id="Package\CRX_.PrecedenceConstraints[Constraint 2]"
+          TopLeft="165.660377358491,166.547169811321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="59.8301886792452,27.905660377358"
+              Start="0,0"
+              End="52.3301886792452,27.905660377358">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.9150943396226,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.9150943396226,0"
+                    Point2="29.9150943396226,0"
+                    Point3="29.9150943396226,4" />
+                  <mssgle:LineSegment
+                    End="29.9150943396226,23.905660377358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.9150943396226,23.905660377358"
+                    Point2="29.9150943396226,27.905660377358"
+                    Point3="33.9150943396226,27.905660377358" />
+                  <mssgle:LineSegment
+                    End="52.3301886792452,27.905660377358" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="432,361"
+          Size="432,405"
+          Id="Package\CRX_"
+          TopLeft="364.5,119.839622641509" />
+        <NodeLayout
+          Size="168,51"
+          Id="Package\CRX_ 1\File has been imported  Do nothing"
+          TopLeft="239.320754716981,135.528301886792" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\CRX_ 1\IMP GENGI"
+          TopLeft="29.6603773584907,144.547169811321" />
+        <NodeLayout
+          Size="180,44"
+          Id="Package\CRX_ 1\log_file_import fleet_is"
+          TopLeft="131.283018867925,12.6037735849057" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\CRX_ 1\move file to archive"
+          TopLeft="28.4905660377359,239.452830188679" />
+        <EdgeLayout
+          Id="Package\CRX_ 1.PrecedenceConstraints[Constraint]"
+          TopLeft="192.616352201258,56.6037735849057">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-94.9559748427676,87.9433962264153"
+              Start="0,0"
+              End="-94.9559748427676,80.4433962264153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6422575014547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6422575014547"
+                    Point2="0,35.6422575014547"
+                    Point3="-4,35.6422575014547" />
+                  <mssgle:LineSegment
+                    End="-90.9559748427676,35.6422575014547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-90.9559748427676,35.6422575014547"
+                    Point2="-94.9559748427676,35.6422575014547"
+                    Point3="-94.9559748427676,39.6422575014547" />
+                  <mssgle:LineSegment
+                    End="-94.9559748427676,80.4433962264153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.4779874213838,40.6422575014547,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CRX_ 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="97.5471698113208,188.471698113208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1.16981132075477,50.9811320754717"
+              Start="0,0"
+              End="-1.16981132075477,43.4811320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-1.16981132075477,25.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-1.16981132075477,43.4811320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CRX_ 1.PrecedenceConstraints[Constraint 2]"
+          TopLeft="249.949685534592,56.6037735849057">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="73.3710691823894,78.9245283018863"
+              Start="0,0"
+              End="73.3710691823894,71.4245283018863">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9870334967997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9870334967997"
+                    Point2="0,31.9870334967997"
+                    Point3="4,31.9870334967997" />
+                  <mssgle:LineSegment
+                    End="69.3710691823894,31.9870334967997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.3710691823894,31.9870334967997"
+                    Point2="73.3710691823894,31.9870334967997"
+                    Point3="73.3710691823894,35.9870334967997" />
+                  <mssgle:LineSegment
+                    End="73.3710691823894,71.4245283018863" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="28.6855345911947,36.9870334967997,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="445,338"
+          Size="445,382"
+          Id="Package\CRX_ 1"
+          TopLeft="844,127" />
+        <NodeLayout
+          Size="142,44"
+          Id="Package\merge to staging"
+          TopLeft="511.084905660377,602.707547169811" />
+        <NodeLayout
+          Size="155,44"
+          Id="Package\truncate staging tables"
+          TopLeft="513.990566037736,3.8584905660377" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="581.292452830188,524.839622641509">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,77.8679245283021"
+              Start="0,0"
+              End="0,70.3679245283021">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.3679245283021" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="\\floti.alp.is\file"
+          ParentId="Package"
+          Size="204,45"
+          Id="fe5f2faf-f854-4c50-9a84-19cfab24bce0"
+          TopLeft="6.40566037735857,6.5">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="17.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <NodeLayout
+          Size="129,42"
+          Id="Package\checkopint"
+          TopLeft="723.405660377359,52.7075471698111" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="787.905660377359,94.7075471698111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-207.405660377359,25.1320754716979"
+              Start="0,0"
+              End="-207.405660377359,17.6320754716979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.56603773584897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.56603773584897"
+                    Point2="0,12.566037735849"
+                    Point3="-4,12.566037735849" />
+                  <mssgle:LineSegment
+                    End="-203.405660377359,12.566037735849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-203.405660377359,12.566037735849"
+                    Point2="-207.405660377359,12.566037735849"
+                    Point3="-207.405660377359,16.566037735849" />
+                  <mssgle:LineSegment
+                    End="-207.405660377359,17.6320754716979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="668.990566037736,25.8584905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="54.4150943396226,47.8490566037733"
+              Start="0,0"
+              End="46.9150943396226,47.8490566037733">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.2075471698113,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.2075471698113,0"
+                    Point2="27.2075471698113,0"
+                    Point3="27.2075471698113,4" />
+                  <mssgle:LineSegment
+                    End="27.2075471698113,43.8490566037733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.2075471698113,43.8490566037733"
+                    Point2="27.2075471698113,47.8490566037733"
+                    Point3="31.2075471698113,47.8490566037733" />
+                  <mssgle:LineSegment
+                    End="46.9150943396226,47.8490566037733" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CRX_\IMP GENGI">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="109,42"
+          Id="Package\CRX_\IMP GENGI\crxFile"
+          TopLeft="25.5,5.5" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\CRX_\IMP GENGI\wrk_crx_Gengi"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\CRX_\IMP GENGI.Paths[Flat File Source Output]"
+          TopLeft="80,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\CRX_ 1\IMP GENGI">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="109,42"
+          Id="Package\CRX_ 1\IMP GENGI\crxFile"
+          TopLeft="25.5,5.5" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\CRX_ 1\IMP GENGI\wrk_crx_Gengi"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\CRX_ 1\IMP GENGI.Paths[Flat File Source Output]"
+          TopLeft="80,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1222 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2018 4:56:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ALP-SQL-02"
+  DTS:CreatorName="ALP\einar.miracle"
+  DTS:DTSID="{082AE213-4CDB-4DC2-8D75-69BE24561E2A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1039"
+  DTS:ObjectName="stg_kistan_Sala"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{FC92D388-BFEB-4A5B-A1B6-D8BE6AA3F2C7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.150.4.3.miracle]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{BEADAB24-0120-4AA8-B172-7127946DE325}"
+      DTS:ObjectName="10.150.4.3.miracle">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=kistan.alp.is;user id=miracle;sslmode=None;persistsecurityinfo=True;database=carwash;logging=True;sqlservermode=True;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPlq6uVPykU+sQTtFVI9azQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA4o5Hm7UZLJ5jhXMU50uQZAAAAAASAAACgAAAAEAAAAPvxgcEhTGyjstsg2U36fW0YAAAAZSR1pwpvHSpkIx99a9aviIQ5y963PHhBFAAAAHGHKHmU5UlQVT+dMUILCTHOJ+yY</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{786C0C2A-F2BB-4B9B-A985-D076DBB9A67C}"
+      DTS:ObjectName="staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF07257B-48F5-4FED-99D2-51D16E926EEE}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select  * from carwash where ID&gt;= &quot;+ (DT_WSTR,20)  @[User::MaxId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CarwashSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">select  * from carwash where ID&gt;= 0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C3F39C89-F8D8-40AB-96A6-52904169EAC4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\get kistan sala"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FA4AC7D9-7502-425C-9DBC-3D77F2C63A61}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="get kistan sala"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\get kistan sala\kistan sala"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="kistan sala"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT * FROM kistan.sala</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get kistan sala\kistan sala.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.150.4.3.miracle]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.150.4.3.miracle]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bilnumer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[bilnumer]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bilnumer]"
+                      name="bilnumer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[asoludags]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[asoludags]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[asoludags]"
+                      name="asoludags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[verd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[verd]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[verd]"
+                      name="verd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[lastcheck]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[lastcheck]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[lastcheck]"
+                      name="lastcheck"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[soluverd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[soluverd]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[soluverd]"
+                      name="soluverd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[seldurdags]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[seldurdags]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[seldurdags]"
+                      name="seldurdags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[tegund]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[tegund]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[tegund]"
+                      name="tegund"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[gerd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[gerd]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[gerd]"
+                      name="gerd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[undirgerd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[undirgerd]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[undirgerd]"
+                      name="undirgerd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[litur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[litur]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[litur]"
+                      name="litur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[skipting]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[skipting]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[skipting]"
+                      name="skipting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[velarstaerd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[velarstaerd]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[velarstaerd]"
+                      name="velarstaerd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[dyr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[dyr]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[dyr]"
+                      name="dyr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bilasala]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[bilasala]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bilasala]"
+                      name="bilasala"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[akstur]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[akstur]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[akstur]"
+                      name="akstur"
+                      precision="32"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[athugasemdir]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[athugasemdir]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[athugasemdir]"
+                      name="athugasemdir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[keyptur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[keyptur]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[keyptur]"
+                      name="keyptur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[uppitaka]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[uppitaka]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[uppitaka]"
+                      name="uppitaka"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[afsal]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[afsal]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[afsal]"
+                      name="afsal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[seldururkerfi]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[seldururkerfi]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[seldururkerfi]"
+                      name="seldururkerfi"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[myndir]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[myndir]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[myndir]"
+                      name="myndir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[lykillafhentur]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[lykillafhentur]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[lykillafhentur]"
+                      name="lykillafhentur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bokfaert]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[bokfaert]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bokfaert]"
+                      name="bokfaert"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[abyrgd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[abyrgd]"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[abyrgd]"
+                      name="abyrgd"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[bilnumer]"
+                      dataType="wstr"
+                      length="50"
+                      name="bilnumer" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[asoludags]"
+                      dataType="dbTimeStamp"
+                      name="asoludags" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[verd]"
+                      dataType="wstr"
+                      length="50"
+                      name="verd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[lastcheck]"
+                      dataType="dbTimeStamp"
+                      name="lastcheck" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[soluverd]"
+                      dataType="wstr"
+                      length="50"
+                      name="soluverd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[seldurdags]"
+                      dataType="dbTimeStamp"
+                      name="seldurdags" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[tegund]"
+                      dataType="wstr"
+                      length="50"
+                      name="tegund" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[gerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="gerd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[undirgerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="undirgerd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[litur]"
+                      dataType="wstr"
+                      length="50"
+                      name="litur" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[skipting]"
+                      dataType="wstr"
+                      length="50"
+                      name="skipting" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[velarstaerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="velarstaerd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[dyr]"
+                      dataType="wstr"
+                      length="50"
+                      name="dyr" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[bilasala]"
+                      dataType="wstr"
+                      length="50"
+                      name="bilasala" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[akstur]"
+                      dataType="numeric"
+                      name="akstur"
+                      precision="32" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[athugasemdir]"
+                      dataType="nText"
+                      name="athugasemdir" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[keyptur]"
+                      dataType="wstr"
+                      length="50"
+                      name="keyptur" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[uppitaka]"
+                      dataType="wstr"
+                      length="50"
+                      name="uppitaka" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[afsal]"
+                      dataType="i1"
+                      name="afsal" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[seldururkerfi]"
+                      dataType="i1"
+                      name="seldururkerfi" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[myndir]"
+                      dataType="nText"
+                      name="myndir" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[lykillafhentur]"
+                      dataType="wstr"
+                      length="50"
+                      name="lykillafhentur" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[bokfaert]"
+                      dataType="i4"
+                      name="bokfaert" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].ExternalColumns[abyrgd]"
+                      dataType="wstr"
+                      length="50"
+                      name="abyrgd" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[bilnumer]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[bilnumer]"
+                      name="bilnumer" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[asoludags]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[asoludags]"
+                      name="asoludags" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[verd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[verd]"
+                      name="verd" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[lastcheck]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[lastcheck]"
+                      name="lastcheck" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[soluverd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[soluverd]"
+                      name="soluverd" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[seldurdags]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[seldurdags]"
+                      name="seldurdags" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[tegund]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[tegund]"
+                      name="tegund" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[gerd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[gerd]"
+                      name="gerd" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[undirgerd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[undirgerd]"
+                      name="undirgerd" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[litur]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[litur]"
+                      name="litur" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[skipting]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[skipting]"
+                      name="skipting" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[velarstaerd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[velarstaerd]"
+                      name="velarstaerd" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[dyr]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[dyr]"
+                      name="dyr" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[bilasala]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[bilasala]"
+                      name="bilasala" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[akstur]"
+                      dataType="numeric"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[akstur]"
+                      name="akstur"
+                      precision="32" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[athugasemdir]"
+                      dataType="nText"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[athugasemdir]"
+                      name="athugasemdir" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[keyptur]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[keyptur]"
+                      name="keyptur" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[uppitaka]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[uppitaka]"
+                      name="uppitaka" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[afsal]"
+                      dataType="i1"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[afsal]"
+                      name="afsal" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[seldururkerfi]"
+                      dataType="i1"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[seldururkerfi]"
+                      name="seldururkerfi" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[myndir]"
+                      dataType="nText"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[myndir]"
+                      name="myndir" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[lykillafhentur]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[lykillafhentur]"
+                      name="lykillafhentur" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[bokfaert]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[bokfaert]"
+                      name="bokfaert" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[abyrgd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[abyrgd]"
+                      name="abyrgd" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\get kistan sala\wrk_kistan_sala"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="wrk_kistan_sala"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[wrk].[kistan_sala]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\get kistan sala\wrk_kistan_sala.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[bilnumer]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="bilnumer"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[bilnumer]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bilnumer]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[asoludags]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="asoludags"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[asoludags]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[asoludags]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[verd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="verd"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[verd]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[verd]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[lastcheck]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="lastcheck"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[lastcheck]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[lastcheck]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[soluverd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="soluverd"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[soluverd]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[soluverd]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[seldurdags]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="seldurdags"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[seldurdags]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[seldurdags]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[tegund]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="tegund"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[tegund]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[tegund]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[gerd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="gerd"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[gerd]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[gerd]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[undirgerd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="undirgerd"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[undirgerd]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[undirgerd]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[litur]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="litur"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[litur]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[litur]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[skipting]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="skipting"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[skipting]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[skipting]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[velarstaerd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="velarstaerd"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[velarstaerd]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[velarstaerd]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[dyr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="dyr"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[dyr]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[dyr]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[bilasala]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="bilasala"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[bilasala]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bilasala]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[akstur]"
+                      cachedDataType="numeric"
+                      cachedName="akstur"
+                      cachedPrecision="32"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[akstur]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[akstur]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[athugasemdir]"
+                      cachedDataType="nText"
+                      cachedName="athugasemdir"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[athugasemdir]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[athugasemdir]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[keyptur]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="keyptur"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[keyptur]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[keyptur]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[uppitaka]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="uppitaka"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[uppitaka]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[uppitaka]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[afsal]"
+                      cachedDataType="i1"
+                      cachedName="afsal"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[afsal]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[afsal]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[seldururkerfi]"
+                      cachedDataType="i1"
+                      cachedName="seldururkerfi"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[seldururkerfi]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[seldururkerfi]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[myndir]"
+                      cachedDataType="nText"
+                      cachedName="myndir"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[myndir]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[myndir]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[lykillafhentur]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="lykillafhentur"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[lykillafhentur]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[lykillafhentur]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[bokfaert]"
+                      cachedDataType="i4"
+                      cachedName="bokfaert"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[bokfaert]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[bokfaert]" />
+                    <inputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].Columns[abyrgd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="abyrgd"
+                      externalMetadataColumnId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[abyrgd]"
+                      lineageId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output].Columns[abyrgd]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[bilnumer]"
+                      dataType="wstr"
+                      length="50"
+                      name="bilnumer" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[asoludags]"
+                      dataType="dbTimeStamp"
+                      name="asoludags" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[verd]"
+                      dataType="wstr"
+                      length="50"
+                      name="verd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[lastcheck]"
+                      dataType="dbTimeStamp"
+                      name="lastcheck" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[soluverd]"
+                      dataType="wstr"
+                      length="50"
+                      name="soluverd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[seldurdags]"
+                      dataType="dbTimeStamp"
+                      name="seldurdags" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[tegund]"
+                      dataType="wstr"
+                      length="50"
+                      name="tegund" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[gerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="gerd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[undirgerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="undirgerd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[litur]"
+                      dataType="wstr"
+                      length="50"
+                      name="litur" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[skipting]"
+                      dataType="wstr"
+                      length="50"
+                      name="skipting" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[velarstaerd]"
+                      dataType="wstr"
+                      length="50"
+                      name="velarstaerd" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[dyr]"
+                      dataType="wstr"
+                      length="50"
+                      name="dyr" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[bilasala]"
+                      dataType="wstr"
+                      length="50"
+                      name="bilasala" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[akstur]"
+                      dataType="numeric"
+                      name="akstur"
+                      precision="32" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[athugasemdir]"
+                      dataType="nText"
+                      name="athugasemdir" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[keyptur]"
+                      dataType="wstr"
+                      length="50"
+                      name="keyptur" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[uppitaka]"
+                      dataType="wstr"
+                      length="50"
+                      name="uppitaka" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[afsal]"
+                      dataType="i2"
+                      name="afsal" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[seldururkerfi]"
+                      dataType="i2"
+                      name="seldururkerfi" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[myndir]"
+                      dataType="nText"
+                      name="myndir" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[lykillafhentur]"
+                      dataType="wstr"
+                      length="50"
+                      name="lykillafhentur" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[bokfaert]"
+                      dataType="i4"
+                      name="bokfaert" />
+                    <externalMetadataColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input].ExternalColumns[abyrgd]"
+                      dataType="wstr"
+                      length="50"
+                      name="abyrgd" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\get kistan sala\wrk_kistan_sala.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\wrk_kistan_sala.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\get kistan sala\wrk_kistan_sala.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\get kistan sala\wrk_kistan_sala.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\get kistan sala.Paths[ADO NET Source Output]"
+              endId="Package\get kistan sala\wrk_kistan_sala.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\get kistan sala\kistan sala.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\merge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ca73ca7f-691c-422e-bb2f-862ab33b9793}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="merge"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{786C0C2A-F2BB-4B9B-A985-D076DBB9A67C}"
+          SQLTask:SqlStatementSource="exec etl.pop_kistan_sala " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\trunc wrk stoppbilar"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{789135B3-3410-4B08-883E-3AB042841069}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="trunc wrk stoppbilar"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{786C0C2A-F2BB-4B9B-A985-D076DBB9A67C}"
+          SQLTask:SqlStatementSource="truncate table wrk.kistan_sala" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{27912AC5-58BC-4E56-B5A5-E1D2A74B2892}"
+      DTS:From="Package\trunc wrk stoppbilar"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\get kistan sala" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9DC23286-94FC-4D53-A4FB-4365B7D82199}"
+      DTS:From="Package\get kistan sala"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\merge" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147,42"
+          Id="Package\get kistan sala"
+          TopLeft="131,106" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\trunc wrk stoppbilar"
+          TopLeft="136,9" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="222.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-18,55"
+              Start="0,0"
+              End="-18,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="-4,27.5" />
+                  <mssgle:LineSegment
+                    End="-14,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,27.5"
+                    Point2="-18,27.5"
+                    Point3="-18,31.5" />
+                  <mssgle:LineSegment
+                    End="-18,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="109,42"
+          Id="Package\merge"
+          TopLeft="144,189" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="201.5,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\get kistan sala">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="128,42"
+          Id="Package\get kistan sala\kistan sala"
+          TopLeft="116,93" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\get kistan sala\wrk_kistan_sala"
+          TopLeft="102,284" />
+        <EdgeLayout
+          Id="Package\get kistan sala.Paths[ADO NET Source Output]"
+          TopLeft="179.5,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,149"
+              Start="0,0"
+              End="0,141.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,141.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\get kistan sala\kistan sala">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\get kistan sala\wrk_kistan_sala">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
